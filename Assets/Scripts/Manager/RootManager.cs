@@ -1,3 +1,4 @@
+using BACKND;
 using System;
 using System.Collections;
 using TMPro;
@@ -5,15 +6,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using BACKND;
 public class RootManager : Singleton<RootManager>
 {
-  /*  public AddressableCDD AddressableCDD { get; private set; }
+    //public AddressableCDD AddressableCDD { get; private set; }
     public EndManager EndManager { get; private set; }
-    public ChartManager ChartManager { get; private set; }
-    public SetDataManager SetDataManager { get; private set; }
-    public AdManager AdManager { get; private set; }
-    public IAPManager IAPManager { get; private set; }*/
+    public NetworkConnectionDialog NetworkConnectionDialog { get; private set; }
+    //public ChartManager ChartManager { get; private set; }
+    //public SetDataManager SetDataManager { get; private set; }
+    //public AdManager AdManager { get; private set; }
+    //public IAPManager IAPManager { get; private set; }
     // public TileManager TileManager { get; private set; }
 
     public int AdsCount = 0;
@@ -29,42 +31,29 @@ public class RootManager : Singleton<RootManager>
 
     private void Init()
     {
-       /* AddressableCDD = FindObjectOfType<AddressableCDD>();
+        //AddressableCDD = FindObjectOfType<AddressableCDD>();
         EndManager = new EndManager();
-        ChartManager = new ChartManager();
-        SetDataManager = new SetDataManager();
-        AdManager = FindObjectOfType<AdManager>();
-        IAPManager = FindObjectOfType<IAPManager>();
+        NetworkConnectionDialog = FindObjectOfType<NetworkConnectionDialog>();
+        //ChartManager = new ChartManager();
+        //SetDataManager = new SetDataManager();
+        //AdManager = FindObjectOfType<AdManager>();
+        //IAPManager = FindObjectOfType<IAPManager>();
 
-        NextInit("AddressableCDD");*/
+        StartCoroutine(NextInit());
     }
 
-/*    public IEnumerator NextInit()
+  public IEnumerator NextInit()
     {
-        
-        switch (managerName)
-        {
-    *//*        case "AddressableCDD":
-                Debug.Log($"1-0 : 파일 패치 시스템 CDD");
-                AddressableCDD.Initialize();
-                break;
-            case "EndManager":
-                Debug.Log($"1-1 : 뒤끝 서버 초기화 시도");
-                EndManager.Initialize("ChartManager");
-                break;
+        // 1. Addressable 초기화
+        EndManager.Initialize();
+        yield return new WaitUntil(() => EndManager.IsReady);
+        Debug.Log("Addressable Ready!");
 
-            case "ChartManager":
-                Debug.Log($"1-4 : 뒤끝 차트 매니저 진입 시도 ");
-                ChartManager.Initialize();
-                break;
-            case "AdManager":
-                AdManager.Initialize();
-                break;
-            case "IAPManager":
-                IAPManager.Initialize();
-                break;*//*
-        }
-    }*/
+        //NetworkConnectionDialog.Initialize();
+        //yield return new WaitUntil(() => NetworkConnectionDialog.IsReady);
+        Debug.Log("NetworkConnectionDialog Ready!");
+
+    }
 
     /// <summary>
     /// COROUTINE 모노 안 받는 매니저에서 코루틴 못 쓸때 이거 호출하기
@@ -126,5 +115,8 @@ public class RootManager : Singleton<RootManager>
         SceneManager.LoadScene(1);*/
     }
 
-
+    public void OnClickSceneChange()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
 }

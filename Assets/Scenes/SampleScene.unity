@@ -1340,8 +1340,8 @@ MonoBehaviour:
   backndClientAppID: 52877ac0-c0a6-11f0-8450-7913df1d549210631
   backndSignatureKey: 52877ac1-c0a6-11f0-8450-7913df1d549210631
   backndUUID: 6e275a23-218e-49e4-ab61-9d9057eca196
-  offlineScene: 
-  onlineScene: 
+  offlineScene: Assets/Scenes/Login.unity
+  onlineScene: Assets/Scenes/SampleScene.unity
   networkScenes: []
   visRange: 500
   headlessStartMode: 0
