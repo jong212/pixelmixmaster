@@ -7,7 +7,7 @@ using static GameNetworkManager;
 using System.Linq;
 
 // ======================
-// 1) 몬스터 데이터 청사진
+// 몬스터 데이터 청사진
 // ======================
 [System.Serializable]
 public class SettingMonsterData
@@ -19,14 +19,17 @@ public class SettingMonsterData
     public int health;
     public int damage;
     public int defense;
+    public int mapcode;   // ★ 이 맵에 속한 타입인지 구분
     public string position; // 예: { "x": 345.5, "y": 64.0, "z": 780.2 }
 }
 
-public class GameNetworkManager : NetworkManager
+public struct CreateCharacterMessage : NetworkMessage
 {
+    public string CharacterName;
+}
 
-
-
+public class GameNetworkManager : NetworkManager
+{  
     [Header("Game UI")]
     public GameObject JoystickPrefab;
 
@@ -38,17 +41,14 @@ public class GameNetworkManager : NetworkManager
     // 맵별 목표 수(예: 1번=30, 2번=30)
     private Dictionary<int, int> SpwnCount = new Dictionary<int, int>
     {
-        { 1, 30 }, { 2, 30 }
+        { 1, 1 }, { 2, 1 }
     };
      
-    // 맵별 비활성 풀(큐)
-    private Dictionary<int, List<GameObject>> SpawnedMonsterObj = new Dictionary<int, List<GameObject>>();
-
     public int MonsterMaxCount = 100;
     public float MonsterSpawnDelay = 2f;         // 몬스터 재생성 딜레이
     public float MinDistanceFromPlayers = 25f;   // 플레이어로부터 최소 거리
     public float SpawnRadius = 50f;              // 몬스터 스폰 반경 (0,0에서부터의 거리)
-
+    public float RespawnDelay = 3f;
 
     private List<GameObject> activeMonsters = new List<GameObject>();
     private bool isServerRunning = false;
@@ -62,33 +62,23 @@ public class GameNetworkManager : NetworkManager
         SetCameraRect();
         base.Awake();
     }
-
-    /// <summary> 
-    /// 1. [데이터 세팅]  실행 주체 - 서버
-    /// 이건 데디에서 실행 되는 코드 이고 
-    /// 클라가 접속 할 때 OnClientConnect 부분으로 나에게 메시지를 보내기 위해  NetworkClient.Send(createCharacterMessage) 를 호출하기에
-    /// 즉, 서버는 CreateCharacterMessage를 “받을 준비”를 항상 하고 있고 받으면 OnCreateCharacterMessage를 호출한다.
-    /// 
-    /// 결론 : 서버가 메시지를 받을 수 있도록 핸들러 등록 
-    /// </summary>
+    // ======================
+    //  실행 주체 : 서버
+    //  Awake 개념
+    //  클라접속시 서버한테 메시지 보낼 수 있도록 미리 받을 준비 하기 위해 핸들러 등록
+    // ======================    
     public override void OnStartServer()
     {
         Debug.Log("서버 실행");
         base.OnStartServer();
 
-        // 데디 서버에서 몬스터 데이터를 캐싱
-        InitServerSetData();
-        // 데디 서버 입장에서는 국민(클라)과 소통하기 위해 국민청원 같은 사이트를 만드는? 개념으로 데이터 전달받기위해 아래와 같이 핸들러를 미리 등록
-        NetworkServer.RegisterHandler<CreateCharacterMessage>(OnCreateCharacterMessage);
-
-        // 서버 세팅할거 끝났다면 flag값 true로 바꿈 (어디선가 쓰긴할텐데 확인해 봐야함)
-        isServerRunning = true;
-
-        // 그라운드 경계 계산 - 통일된 방식으로 처리
+        InitServerSetData();                                                             // 몬스터 데이터 캐싱
+        NetworkServer.RegisterHandler<CreateCharacterMessage>(OnCreateCharacterMessage); // 데디 서버 입장에서는 국민(클라)과 소통하기 위해 국민청원 같은 사이트를 만드는? 개념으로 데이터 전달받기위해 아래와 같이 핸들러를 미리 등록
         CalculateGroundBounds();
-        
-        // 서버 시작 시 몬스터 관리 코루틴 시작
-        monsterManagerCoroutine = StartCoroutine(MonsterManagerRoutine());
+        Debug.Log("???");
+        // 그라운드 경계 계산
+        isServerRunning = true;                                                          // 이거 코루틴보다 밑에가있으면 안 됨 while그냥 종료되어버림 ㅋㅋ
+        monsterManagerCoroutine = StartCoroutine(MonsterManagerRoutine());               // 서버 시작 시 몬스터 관리 코루틴 시작
     }
   
     // 몬스터 데이터 캐싱: DataTable → Dictionary<string, SettingMonsterData>
@@ -124,14 +114,36 @@ public class GameNetworkManager : NetworkManager
             Debug.Log($"[몬스터 ID:{kv.Key}] name:{data.name}, type:{data.type}, level:{data.level}, hp:{data.health}, dmg:{data.damage}, def:{data.defense}");
         }
     }
-
-    public struct CreateCharacterMessage : NetworkMessage
-    {
-        public string CharacterName;
-    }
-
+     
     /// <summary> 
-    /// 1.1 [데이터 세팅] 실행 주체 - 클라
+    /// 실행주체 : 서버
+    /// 서버가 메시지를 받아들이고 > 데이터 세팅 후 최종적으로 > AddPlayerForConnection을 통해 Spawn함
+    /// </summary>
+    private void OnCreateCharacterMessage(NetworkConnectionToClient conn, CreateCharacterMessage message)
+    {
+        Transform startPosition = GetStartPosition();
+        Vector3 spawnPosition = startPosition != null ? startPosition.position : Vector3.zero;
+        Quaternion spawnRotation = startPosition != null ? startPosition.rotation : Quaternion.identity;
+
+        Sprite prefabs = RootManager.Instance.AddressableCDD.GetSprite("Pikachu");
+
+        if (prefabs != null)
+        {
+            GameObject players = Instantiate(playerPrefab, spawnPosition, spawnRotation);
+            var playerController = players.GetComponent<PlayerController>();
+            playerController.equippedSpriteName = prefabs.name;
+            playerController.CharacterName = message.CharacterName;
+
+            NetworkServer.AddPlayerForConnection(conn, players);
+        }
+        else
+        {
+            Debug.LogError("❌ Addressables 프리팹을 찾을 수 없습니다: Pikachu");
+        }
+        //GameObject player = Instantiate(playerPrefab, spawnPosition, spawnRotation);
+    }
+    /// <summary> 
+    /// 실행 주체 - 클라
     /// 클라이언트 → 서버로 메시지 전송
     /// 데이터 세팅한거 서버 한테 보내기
     /// TO DO 여기서 데이터 세팅하기 
@@ -149,214 +161,143 @@ public class GameNetworkManager : NetworkManager
         NetworkClient.Send(createCharacterMessage);
     }
 
-    /// <summary> 실행 주체 - 서버
-    /// 1.2 [데이터 세팅]     
-    /// 서버가 메시지를 받아들이고 > 데이터 세팅 후 최종적으로 > AddPlayerForConnection을 통해 Spawn함
-    /// </summary>
-    private void OnCreateCharacterMessage(NetworkConnectionToClient conn, CreateCharacterMessage message)
+
+
+ 
+    [Server] // 초기 몬스터 스폰
+    private void SpawnInitialMonsters()
     {
-        Transform startPosition = GetStartPosition();
-        Vector3 spawnPosition = startPosition != null ? startPosition.position : Vector3.zero;
-        Quaternion spawnRotation = startPosition != null ? startPosition.rotation : Quaternion.identity;
-
-        Sprite prefabs = RootManager.Instance.AddressableCDD.GetSprite("Pikachu");
-
-      if (prefabs != null)
+        if (_monsterConfigs == null || _monsterConfigs.Count == 0)
         {
-            GameObject players = Instantiate(playerPrefab, spawnPosition, spawnRotation);
-            var playerController = players.GetComponent<PlayerController>();
-            playerController.equippedSpriteName = prefabs.name;
-            playerController.CharacterName = message.CharacterName;
-
-            NetworkServer.AddPlayerForConnection(conn, players);
+            Debug.LogWarning("SpawnInitialMonsters: 몬스터 설정이 비어있습니다.");
+            return;
         }
-        else
+        Debug.Log(SpwnCount);
+        foreach (var kv in SpwnCount)
         {
-            Debug.LogError("❌ Addressables 프리팹을 찾을 수 없습니다: Pikachu");
-        }
-        //GameObject player = Instantiate(playerPrefab, spawnPosition, spawnRotation);
-    }
+            int mapId = kv.Key;
+            int target = kv.Value;
+            if (target <= 0) continue;
 
-    /// <summary>
-    /// 이거는 나중에 지워도...수정하거나
-    /// </summary>
-    private void CalculateGroundBounds()
-    {
-        GameObject ground = GameObject.Find("Ground");
-        if (ground != null)
-        {
-            // Grid에서 모든 Tilemap 찾기
-            Tilemap[] tilemaps = ground.GetComponentsInChildren<Tilemap>();
-            if (tilemaps != null && tilemaps.Length > 0)
+            // 1) 이 맵에 속한 타입들만 임시 리스트로 모으기
+            var typesForMap = new List<SettingMonsterData>();
+            foreach (var d in _monsterConfigs.Values)
             {
-                // 모든 타일맵의 경계를 합쳐서 전체 경계 계산
-                Bounds combinedBounds = new Bounds();
-                bool firstBound = true;
-                
-                foreach (Tilemap tilemap in tilemaps)
-                {
-                    if (tilemap.GetComponent<TilemapRenderer>() != null)
-                    {
-                        // 타일맵의 사용된 영역 계산
-                        tilemap.CompressBounds();
-                        
-                        // 타일맵의 실제 사용된 영역의 경계 가져오기
-                        if (firstBound)
-                        {
-                            // 로컬 좌표의 경계를 월드 좌표로 변환
-                            Vector3 min = tilemap.transform.TransformPoint(tilemap.cellBounds.min);
-                            Vector3 max = tilemap.transform.TransformPoint(tilemap.cellBounds.max);
-                            combinedBounds = new Bounds();
-                            combinedBounds.SetMinMax(min, max);
-                            firstBound = false;
-                        }
-                        else
-                        {
-                            // 로컬 좌표의 경계를 월드 좌표로 변환
-                            Vector3 min = tilemap.transform.TransformPoint(tilemap.cellBounds.min);
-                            Vector3 max = tilemap.transform.TransformPoint(tilemap.cellBounds.max);
-                            Bounds tileBounds = new Bounds();
-                            tileBounds.SetMinMax(min, max);
-                            
-                            combinedBounds.Encapsulate(tileBounds);
-                        }
-                    }
-                }
-                
-                groundBounds = combinedBounds;
+                if (d.mapcode == mapId)
+                    typesForMap.Add(d);
+            }
+
+            if (typesForMap.Count == 0)
+            {
+                Debug.LogWarning($"map {mapId}: 스폰 가능한 타입이 없습니다.");
+                continue;
+            }
+
+            // 2) 라운드로빈으로 target 개수만큼 스폰
+            for (int i = 0; i < target; i++)
+            {
+                var typeData = typesForMap[i % typesForMap.Count];
+                SpawnMonsterForMap(mapId, typeData);
             }
         }
-        
-        // 그라운드가 없거나 계산 실패 시 기본 경계 설정
-        if (groundBounds.size.x <= 0 || groundBounds.size.y <= 0)
-        {
-            groundBounds = new Bounds(Vector3.zero, new Vector3(SpawnRadius * 2, SpawnRadius * 2, 0));
-        }
     }
-
-    public override void OnStopServer()
-    {
-        base.OnStopServer();
-        
-        isServerRunning = false;
-        
-        // 서버 중지 시 코루틴 중단
-        if (monsterManagerCoroutine != null)
-        {
-            StopCoroutine(monsterManagerCoroutine);
-            monsterManagerCoroutine = null;
-        }
-        
-        // 모든 몬스터 제거
-        ClearAllMonsters();
-    }
-
-    private void SetCameraRect()
-    {
-        Camera mainCamera = Camera.main;
-
-        // 세로 모드에서는 9:16 비율 유지
-        float targetAspect = 9.0f / 16.0f;
-        float windowAspect = (float)Screen.width / (float)Screen.height;
-        float scaleWidth = windowAspect / targetAspect;
-
-        if (scaleWidth < 1.0f)
-        {
-            Rect rect = mainCamera.rect;
-            rect.width = scaleWidth;
-            rect.height = 1.0f;
-            rect.x = (1.0f - scaleWidth) / 2.0f;
-            rect.y = 0;
-            mainCamera.rect = rect;
-        }
-        else
-        {
-            float scaleHeight = 1.0f / scaleWidth;
-            Rect rect = mainCamera.rect;
-            rect.width = 1.0f;
-            rect.height = scaleHeight;
-            rect.x = 0;
-            rect.y = (1.0f - scaleHeight) / 2.0f;
-            mainCamera.rect = rect;
-        }
-    }
-
-    // 몬스터 관리 코루틴 - 몬스터 수를 계속 확인하고 부족하면 스폰
-    [Server]
+    
+    [Server] //몬스터 관리 코루틴 - 몬스터 수를 계속 확인하고 부족하면 스폰
     private IEnumerator MonsterManagerRoutine()
     {
-        // 초기 몬스터 생성
+        // 초기 스폰(맵별 라운드로빈 이미 구현됨)
         SpawnInitialMonsters();
-        
+        Debug.Log("서버 스폰 테스트");
+        Debug.Log(isServerRunning);
         while (isServerRunning)
         {
-            // 죽은 몬스터 목록에서 제거
-            CleanupDeadMonsters();
-            
-            // 몬스터 수가 최대치보다 적으면 추가 생성
-            int monstersToSpawn = MonsterMaxCount - activeMonsters.Count;
-            
-            if (monstersToSpawn > 0)
+            Debug.Log("1");
+            // 0) 진짜로 파괴(null)된 참조만 정리 (숨김/죽음 상태는 그대로 유지)
+            for (int i = activeMonsters.Count - 1; i >= 0; --i)
             {
-                for (int i = 0; i < monstersToSpawn; i++)
+                if (activeMonsters[i] == null)
+                    activeMonsters.RemoveAt(i);
+            }
+            Debug.Log(activeMonsters.Count);
+            // 1) alive == false 인 몬스터만 보고 리스폰 스케줄/실행
+            for (int i = 0; i < activeMonsters.Count; i++)
+            {
+                var go = activeMonsters[i];
+                if (go == null) continue;
+
+                var m = go.GetComponent<Monster>();
+                if (m == null) continue;
+
+                // 살아있으면 스킵
+                if (m.alive) continue;
+
+                Debug.Log(m.nextRespawnTime);
+                // 예약 없으면 예약시간 설정
+                if (m.nextRespawnTime <= 0f)
                 {
-                    SpawnMonster();
-                    // 서버 부하를 줄이기 위해 약간의 딜레이 추가
-                    yield return new WaitForSeconds(0.1f);
+                    m.nextRespawnTime = Time.time + RespawnDelay;
+                    continue;
+                }
+
+                // 예약 시간이 지났으면 리스폰
+                if (Time.time >= m.nextRespawnTime)
+                {
+                    // 위치 재설정
+                    go.transform.position = GetValidSpawnPosition();
+
+                    // 상태 초기화 (ResetForRespawn() 있으면 그거 쓰고, 없으면 아래 기본값)
+                    // m.ResetForRespawn();
+                    m.currentHealth = m.maxHealth;
+                    var col = go.GetComponent<Collider2D>();
+                    if (col) col.enabled = true;
+                    m.nextRespawnTime = 0f;
+
+                    // 보이기 ON (SyncVar라면 클라에 자동 반영)
+                    m.alive = true;
+
+                    // 폭주 방지(선택)
+                    yield return null;
                 }
             }
-            
-            // 정기적으로 체크
+
+            // 2) 다음 틱까지 대기
             yield return new WaitForSeconds(MonsterSpawnDelay);
         }
     }
 
-    // 초기 몬스터 생성
     [Server]
-    private void SpawnInitialMonsters()
+    private GameObject SpawnMonsterForMap(int mapId, SettingMonsterData data)
     {
-        for (int i = 0; i < MonsterMaxCount; i++)
-        {
-            SpawnMonster();
-        }
-    }
+        if (data == null) return null;
 
-    // 단일 몬스터 생성
-    [Server]
-    private void SpawnMonster()
-    {
-        List<string> spawnablePrefabNames = new List<string>() { "Enemy 0", "Enemy 1", "Enemy 2" };
-        
-        // 랜덤 몬스터 타입 선택
-        string selectedMonsterName = spawnablePrefabNames[Random.Range(0, spawnablePrefabNames.Count)];
-        GameObject monsterPrefab = spawnPrefabs.Find(prefab => prefab.name == selectedMonsterName);
-        
-        if (monsterPrefab == null)
+        // 프리팹 이름은 data.name과 동일하다고 가정
+        GameObject prefab = spawnPrefabs.Find(p => p.name == data.name);
+        if (prefab == null)
         {
-            return;
+            Debug.LogWarning($"프리팹 없음: {data.name}");
+            return null;
         }
-        
-        // 스폰 위치 결정 (그라운드 크기 기반)
-        Vector3 spawnPosition = GetValidSpawnPosition();
-        
-        // 몬스터 생성 및 네트워크 스폰
-        GameObject monster = Instantiate(monsterPrefab, spawnPosition, Quaternion.identity);
-        
-        // 몬스터에게 그라운드 경계 정보 전달
-        Monster monsterComponent = monster.GetComponent<Monster>();
-        if (monsterComponent != null)
-        {
-            monsterComponent.SetGroundBounds(groundBounds);
-        }
-        
-        NetworkServer.Spawn(monster);
-        
-        // 활성 몬스터 목록에 추가
-        activeMonsters.Add(monster);
-    }
 
-    // 유효한 스폰 위치 찾기 (그라운드 크기 기반)
-    [Server]
+        Vector3 pos = GetValidSpawnPosition();
+        GameObject go = Instantiate(prefab, pos, Quaternion.identity);
+
+        var m = go.GetComponent<Monster>();
+        if (m != null)
+        {
+            m.zoneId = mapId;                // 맵 식별자 주입(관리 편의)
+            m.archetypeId = data.monster_id; // 타입 식별자(원하면 사용)
+            m.SetGroundBounds(groundBounds);
+
+            // 원하면 여기서 스탯도 초기화 가능:
+            // m.maxHealth = data.health; m.currentHealth = data.health; ...
+        }
+
+        NetworkServer.Spawn(go);
+        activeMonsters.Add(go);
+        return go;
+    }
+    
+    [Server] // 유효한 스폰 위치 찾기 (그라운드 크기 기반)
     private Vector3 GetValidSpawnPosition()
     {
         // 최대 시도 횟수 설정
@@ -437,15 +378,24 @@ public class GameNetworkManager : NetworkManager
         return new Vector3(fallbackX, fallbackY, 0);
     }
 
-    // 죽은 몬스터 정리
-    [Server]
-    private void CleanupDeadMonsters()
+    public override void OnStopServer()
     {
-        activeMonsters.RemoveAll(monster => monster == null);
-    }
+        base.OnStopServer();
 
-    // 모든 몬스터 제거
-    [Server]
+        isServerRunning = false;
+
+        // 서버 중지 시 코루틴 중단
+        if (monsterManagerCoroutine != null)
+        {
+            StopCoroutine(monsterManagerCoroutine);
+            monsterManagerCoroutine = null;
+        }
+
+        // 모든 몬스터 제거
+        ClearAllMonsters();
+    }
+    
+    [Server] // 모든 몬스터 제거
     private void ClearAllMonsters()
     {
         foreach (var monster in activeMonsters)
@@ -457,6 +407,90 @@ public class GameNetworkManager : NetworkManager
         }
         
         activeMonsters.Clear();
+    }
+
+    private void CalculateGroundBounds()
+    {
+        GameObject ground = GameObject.Find("Ground");
+        if (ground != null)
+        {
+            // Grid에서 모든 Tilemap 찾기
+            Tilemap[] tilemaps = ground.GetComponentsInChildren<Tilemap>();
+            if (tilemaps != null && tilemaps.Length > 0)
+            {
+                // 모든 타일맵의 경계를 합쳐서 전체 경계 계산
+                Bounds combinedBounds = new Bounds();
+                bool firstBound = true;
+
+                foreach (Tilemap tilemap in tilemaps)
+                {
+                    if (tilemap.GetComponent<TilemapRenderer>() != null)
+                    {
+                        // 타일맵의 사용된 영역 계산
+                        tilemap.CompressBounds();
+
+                        // 타일맵의 실제 사용된 영역의 경계 가져오기
+                        if (firstBound)
+                        {
+                            // 로컬 좌표의 경계를 월드 좌표로 변환
+                            Vector3 min = tilemap.transform.TransformPoint(tilemap.cellBounds.min);
+                            Vector3 max = tilemap.transform.TransformPoint(tilemap.cellBounds.max);
+                            combinedBounds = new Bounds();
+                            combinedBounds.SetMinMax(min, max);
+                            firstBound = false;
+                        }
+                        else
+                        {
+                            // 로컬 좌표의 경계를 월드 좌표로 변환
+                            Vector3 min = tilemap.transform.TransformPoint(tilemap.cellBounds.min);
+                            Vector3 max = tilemap.transform.TransformPoint(tilemap.cellBounds.max);
+                            Bounds tileBounds = new Bounds();
+                            tileBounds.SetMinMax(min, max);
+
+                            combinedBounds.Encapsulate(tileBounds);
+                        }
+                    }
+                }
+
+                groundBounds = combinedBounds;
+            }
+        }
+
+        // 그라운드가 없거나 계산 실패 시 기본 경계 설정
+        if (groundBounds.size.x <= 0 || groundBounds.size.y <= 0)
+        {
+            groundBounds = new Bounds(Vector3.zero, new Vector3(SpawnRadius * 2, SpawnRadius * 2, 0));
+        }
+    }
+
+    private void SetCameraRect()
+    {
+        Camera mainCamera = Camera.main;
+
+        // 세로 모드에서는 9:16 비율 유지
+        float targetAspect = 9.0f / 16.0f;
+        float windowAspect = (float)Screen.width / (float)Screen.height;
+        float scaleWidth = windowAspect / targetAspect;
+
+        if (scaleWidth < 1.0f)
+        {
+            Rect rect = mainCamera.rect;
+            rect.width = scaleWidth;
+            rect.height = 1.0f;
+            rect.x = (1.0f - scaleWidth) / 2.0f;
+            rect.y = 0;
+            mainCamera.rect = rect;
+        }
+        else
+        {
+            float scaleHeight = 1.0f / scaleWidth;
+            Rect rect = mainCamera.rect;
+            rect.width = 1.0f;
+            rect.height = scaleHeight;
+            rect.x = 0;
+            rect.y = (1.0f - scaleHeight) / 2.0f;
+            mainCamera.rect = rect;
+        }
     }
 }
 /*private void InitServerSetData()

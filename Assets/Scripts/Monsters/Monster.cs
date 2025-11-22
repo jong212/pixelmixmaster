@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using BACKND;
+using System;
+using Random = UnityEngine.Random;
 
 public class Monster : NetworkBehaviour
 {
@@ -12,6 +14,13 @@ public class Monster : NetworkBehaviour
     public float detectionRadius = 5f;
     public float stunDuration = 0.5f;
 
+    // ← 자동 동기화 대상 (늦게 접속한 클라도 수신)
+    [SyncVar(hook = nameof(OnAliveChanged))] public bool alive = true;
+    [System.NonSerialized] public float nextRespawnTime = 0f;
+
+    [HideInInspector]   public bool respawnScheduled = false;
+    [HideInInspector] public int zoneId;
+    [HideInInspector] public int archetypeId;
     // 상태 변수
     [SyncVar]
     private bool isStunned = false;
@@ -213,16 +222,33 @@ public class Monster : NetworkBehaviour
     [Server]
     private void Die()
     {
+        Debug.Log("DIE...");
         // 충돌 비활성화
         if (GetComponent<Collider2D>() != null)
         {
             GetComponent<Collider2D>().enabled = false;
         }
-        
-        // 오브젝트 제거
-        NetworkServer.Destroy(gameObject);
+
+        if (!alive) return;
+        alive = false;            // ★ 숨김 상태 전파(모든/늦은 클라 포함)
+        var col = GetComponent<Collider2D>();
+        if (col) col.enabled = false;  
+        nextRespawnTime = Time.time + 3f; // 예: 3초 후 리스폰
+
     }
-    
+    [Server]
+    public void ResetForRespawn()
+    {
+        currentHealth = maxHealth;
+        var col = GetComponent<Collider2D>();
+        if (col) col.enabled = true;
+        nextRespawnTime = 0f;
+    }
+    void OnAliveChanged(bool oldVal, bool newVal)
+    {
+        foreach (var r in GetComponentsInChildren<Renderer>(true)) r.enabled = newVal;
+        foreach (var c in GetComponentsInChildren<Collider2D>(true)) c.enabled = newVal;
+    }
     // 체력 변경 시 호출되는 메서드
     private void OnHealthChanged(int oldHealth, int newHealth)
     {
