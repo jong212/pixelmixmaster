@@ -30,16 +30,39 @@ public class PlayerController : NetworkBehaviour
     private bool isFacingRight = true;
     private Camera mainCamera;
     private Coroutine meteorCoroutine;
+    [SyncVar] public string CharacterName;
+
+    [Header("Sprite")]
+    [SyncVar(hook = nameof(OnSpriteChanged))]
+    public string equippedSpriteName = "Default";
+
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); // ✅ SpriteRenderer 연결
+    }
+  
+    private void OnSpriteChanged(string oldName, string newName)
+    {
+        Sprite test = RootManager.Instance.AddressableCDD.GetSprite(newName);
+        if (test  != null)
+        {
+            Debug.Log(newName);
+            spriteRenderer.sprite = test;
+        }
+        else
+        {
+            Debug.LogWarning($"스프라이트를 찾을 수 없습니다: {newName}");
+        }
     }
 
+  
     public override void OnStartLocalPlayer()
     {
         mainCamera = Camera.main;
-
+        //RootManager.Instance.SetDataManager.InitializeOnServerSetData(this);
         GameNetworkManager networkManager = NetworkManager.Instance as GameNetworkManager;
         if (networkManager != null)
         {

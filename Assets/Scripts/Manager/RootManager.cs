@@ -1,60 +1,57 @@
 using BACKND;
 using System;
 using System.Collections;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using BACKND;
+using UnityEngine.UIElements;
 public class RootManager : Singleton<RootManager>
 {
-    //public AddressableCDD AddressableCDD { get; private set; }
+    public AddressableCDD AddressableCDD { get; private set; }
     public EndManager EndManager { get; private set; }
-    public NetworkConnectionDialog NetworkConnectionDialog { get; private set; }
+    public GameNetworkManager GameNetworkManager { get; private set; }
+
     //public ChartManager ChartManager { get; private set; }
-    //public SetDataManager SetDataManager { get; private set; }
+    public SetDataManager SetDataManager { get; private set; }
     //public AdManager AdManager { get; private set; }
     //public IAPManager IAPManager { get; private set; }
     // public TileManager TileManager { get; private set; }
 
-    public int AdsCount = 0;
-    public bool AdsDelete = false;
-    public TMP_InputField tempInput;
 
     protected override void Awake()
     {
         Debug.Log($"1-0 : 루트매니저 Dondestory 설정");
         base.Awake();
-        Init();
-    }
 
+       Init();
+    }
     private void Init()
     {
-        //AddressableCDD = FindObjectOfType<AddressableCDD>();
+        AddressableCDD = FindObjectOfType<AddressableCDD>();
+
+#if UNITY_SERVER
+        GameNetworkManager = FindObjectOfType<GameNetworkManager>();
+        SetDataManager = new SetDataManager();
+#else
         EndManager = new EndManager();
-        NetworkConnectionDialog = FindObjectOfType<NetworkConnectionDialog>();
-        //ChartManager = new ChartManager();
-        //SetDataManager = new SetDataManager();
-        //AdManager = FindObjectOfType<AdManager>();
-        //IAPManager = FindObjectOfType<IAPManager>();
+        GameNetworkManager = FindObjectOfType<GameNetworkManager>();
+        SetDataManager = new SetDataManager();
+#endif
+
 
         StartCoroutine(NextInit());
     }
 
-  public IEnumerator NextInit()
+    public IEnumerator NextInit()
     {
-        // 1. Addressable 초기화
+        AddressableCDD.Initialize();
+        yield return new WaitUntil(() => AddressableCDD.IsReady);
+        Debug.Log("AddressableCDD Ready!");
+
         EndManager.Initialize();
         yield return new WaitUntil(() => EndManager.IsReady);
-        Debug.Log("Addressable Ready!");
-
-        //NetworkConnectionDialog.Initialize();
-        //yield return new WaitUntil(() => NetworkConnectionDialog.IsReady);
-        Debug.Log("NetworkConnectionDialog Ready!");
-
+        Debug.Log("EndManager Ready!");
     }
-
     /// <summary>
     /// COROUTINE 모노 안 받는 매니저에서 코루틴 못 쓸때 이거 호출하기
     /// </summary>    
@@ -71,7 +68,7 @@ public class RootManager : Singleton<RootManager>
     /// <summary>
     /// FADE IN OUT
     /// </summary>
-    [SerializeField] private Image fadeImage;
+    [SerializeField] private UnityEngine.UI.Image fadeImage;
     [SerializeField] private float fadeTime;
 
     public void FadeInOut(float waitTime)
