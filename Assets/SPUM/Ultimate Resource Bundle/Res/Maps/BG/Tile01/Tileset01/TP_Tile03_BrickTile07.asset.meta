@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 19d1cbca1f50b4c8888dcdf46d6dd2ec
+timeCreated: 1532335077
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Maps/BG/Tile01/Tileset01/TP_Tile03_BrickTile07.asset
+  uploadId: 821896

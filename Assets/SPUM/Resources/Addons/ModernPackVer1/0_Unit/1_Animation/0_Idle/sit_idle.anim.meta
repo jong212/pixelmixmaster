@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: adf7292afc1b79940b996d498d9fc4e2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Resources/Addons/ModernPackVer1/0_Unit/1_Animation/0_Idle/sit_idle.anim
+  uploadId: 821896

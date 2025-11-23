@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: f12bcdfc487c742859adbe1595bdc4f4
+timeCreated: 1518508646
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Effect/Mat/DamagedLine.mat
+  uploadId: 821896

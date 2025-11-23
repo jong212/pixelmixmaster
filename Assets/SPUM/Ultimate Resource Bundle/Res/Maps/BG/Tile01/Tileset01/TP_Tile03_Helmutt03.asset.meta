@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7c8ee7afcbcb14c3989424314d69467b
+timeCreated: 1532509338
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Maps/BG/Tile01/Tileset01/TP_Tile03_Helmutt03.asset
+  uploadId: 821896

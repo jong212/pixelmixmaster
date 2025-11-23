@@ -691,7 +691,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 14
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1440, y: 2560}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   visRange: 500
   headlessStartMode: 0
   editorAutoStart: 0
-  playerPrefab: {fileID: 6059729468751807553, guid: df169f7bc243a4ba59f8f501c6d5482d, type: 3}
+  playerPrefab: {fileID: 3845918878731098688, guid: 22df16e6a3c7ac74d9eed3f0e1ed35cf, type: 3}
   autoCreatePlayer: 0
   playerSpawnMethod: 0
   spawnPrefabs:

@@ -30,6 +30,8 @@ public class PlayerController : NetworkBehaviour
     private bool isFacingRight = true;
     private Camera mainCamera;
     private Coroutine meteorCoroutine;
+    public SpriteRenderer parts_sward;
+
     [SyncVar] public string CharacterName;
 
     [Header("Sprite")]
@@ -41,7 +43,7 @@ public class PlayerController : NetworkBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>(); // ✅ SpriteRenderer 연결
+        //spriteRenderer = GetComponent<SpriteRenderer>(); // ✅ SpriteRenderer 연결
     }
   
     private void OnSpriteChanged(string oldName, string newName)
@@ -50,7 +52,7 @@ public class PlayerController : NetworkBehaviour
         if (test  != null)
         {
             Debug.Log(newName);
-            spriteRenderer.sprite = test;
+            parts_sward.sprite = test;
         }
         else
         {

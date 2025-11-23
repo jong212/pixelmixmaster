@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 112cb1753aac84de4b6d6028417eddbe
+timeCreated: 1518508646
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Effect/Mat/Vampire.mat
+  uploadId: 821896

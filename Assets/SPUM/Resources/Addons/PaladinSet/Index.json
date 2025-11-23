@@ -1,0 +1,393 @@
+{
+    "Name": "PaladinSet",
+    "Path": "Assets/SPUM/Resources/Addons",
+    "Version": "",
+    "CreationDate": "2025-11-23 14:37:47",
+    "SpumAnimationData": [],
+    "SpumTextureData": [
+        {
+            "Name": "Cloth01",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_01"
+        },
+        {
+            "Name": "Cloth02",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_02"
+        },
+        {
+            "Name": "Cloth03",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_03"
+        },
+        {
+            "Name": "Cloth04",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_04"
+        },
+        {
+            "Name": "Cloth05",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_05"
+        },
+        {
+            "Name": "Cloth06",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_06"
+        },
+        {
+            "Name": "Cloth01",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_01"
+        },
+        {
+            "Name": "Cloth02",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_02"
+        },
+        {
+            "Name": "Cloth03",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_03"
+        },
+        {
+            "Name": "Cloth04",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_04"
+        },
+        {
+            "Name": "Cloth05",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_05"
+        },
+        {
+            "Name": "Cloth06",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_06"
+        },
+        {
+            "Name": "Cloth01",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_01"
+        },
+        {
+            "Name": "Cloth02",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_02"
+        },
+        {
+            "Name": "Cloth03",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_03"
+        },
+        {
+            "Name": "Cloth04",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_04"
+        },
+        {
+            "Name": "Cloth05",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_05"
+        },
+        {
+            "Name": "Cloth06",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_06"
+        },
+        {
+            "Name": "Pant001",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/3_Pant/Pant_Left_001"
+        },
+        {
+            "Name": "Pant002",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/3_Pant/Pant_Left_002"
+        },
+        {
+            "Name": "Pant003",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/3_Pant/Pant_Left_003"
+        },
+        {
+            "Name": "Pant001",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/3_Pant/Pant_Right_001"
+        },
+        {
+            "Name": "Pant002",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/3_Pant/Pant_Right_002"
+        },
+        {
+            "Name": "Pant003",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/3_Pant/Pant_Right_003"
+        },
+        {
+            "Name": "Helmet_01",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_01",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/4_Helmet/Helmet_01"
+        },
+        {
+            "Name": "Helmet_02",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_02",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/4_Helmet/Helmet_02"
+        },
+        {
+            "Name": "Helmet_03",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_03",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/4_Helmet/Helmet_03"
+        },
+        {
+            "Name": "Helmet_04",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_04",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/4_Helmet/Helmet_04"
+        },
+        {
+            "Name": "Armor01",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/5_Armor/Armor_Body_01"
+        },
+        {
+            "Name": "Armor02",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/5_Armor/Armor_Body_02"
+        },
+        {
+            "Name": "Armor03",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/5_Armor/Armor_Body_03"
+        },
+        {
+            "Name": "Armor04",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/5_Armor/Armor_Body_04"
+        },
+        {
+            "Name": "Armor05",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/5_Armor/Armor_Body_05"
+        },
+        {
+            "Name": "Armor06",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/5_Armor/Armor_Body_06"
+        },
+        {
+            "Name": "Armor07",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/5_Armor/Armor_Body_07"
+        },
+        {
+            "Name": "Armor07",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/5_Armor/Armor_Left_07"
+        },
+        {
+            "Name": "Armor07",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/5_Armor/Armor_Right_07"
+        },
+        {
+            "Name": "Weapons_Sword_01",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_01",
+            "PartSubType": "Sword",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_01"
+        },
+        {
+            "Name": "Weapons_Sword_02",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_02",
+            "PartSubType": "Sword",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_02"
+        },
+        {
+            "Name": "Weapons_Sword_03",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_03",
+            "PartSubType": "Sword",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_03"
+        },
+        {
+            "Name": "Weapons_Sword_04",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_04",
+            "PartSubType": "Sword",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_04"
+        },
+        {
+            "Name": "Weapons_Sword_24",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_24",
+            "PartSubType": "Sword",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_24"
+        },
+        {
+            "Name": "Shield_01",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Shield_01",
+            "PartSubType": "Shield",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/3_Shield/Shield_01"
+        },
+        {
+            "Name": "Shield_02",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Shield_02",
+            "PartSubType": "Shield",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/3_Shield/Shield_02"
+        },
+        {
+            "Name": "Shield_03",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Shield_03",
+            "PartSubType": "Shield",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/3_Shield/Shield_03"
+        },
+        {
+            "Name": "Shield_04",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Shield_04",
+            "PartSubType": "Shield",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/3_Shield/Shield_04"
+        },
+        {
+            "Name": "Shield_05",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Shield_05",
+            "PartSubType": "Shield",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/3_Shield/Shield_05"
+        },
+        {
+            "Name": "Shield_06",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Shield_06",
+            "PartSubType": "Shield",
+            "Path": "Addons/PaladinSet/0_Unit/0_Sprite/6_Weapons/3_Shield/Shield_06"
+        }
+    ]
+}

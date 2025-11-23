@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 6d193a4c486e74e68a4e026c6e5dfe93
+timeCreated: 1531717008
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Maps/BG/Tile01/RuleTiles/FireAni01.asset
+  uploadId: 821896

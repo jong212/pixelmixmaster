@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: bc2a3cc04a6ec4e7489c80ca5badfcc8
+timeCreated: 1518363845
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Maps/BG/TileShader.mat
+  uploadId: 821896

@@ -1,0 +1,1745 @@
+{
+    "Name": "Elf",
+    "Path": "Assets/SPUM/Resources/Addons",
+    "Version": "",
+    "CreationDate": "2025-11-23 14:37:46",
+    "SpumAnimationData": [],
+    "SpumTextureData": [
+        {
+            "Name": "New_Elf_1",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Arm_R",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_1"
+        },
+        {
+            "Name": "New_Elf_1",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Foot_R",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_1"
+        },
+        {
+            "Name": "New_Elf_1",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Arm_L",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_1"
+        },
+        {
+            "Name": "New_Elf_1",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Head",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_1"
+        },
+        {
+            "Name": "New_Elf_1",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Foot_L",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_1"
+        },
+        {
+            "Name": "New_Elf_1",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_1"
+        },
+        {
+            "Name": "New_Elf_2",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Head",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_2"
+        },
+        {
+            "Name": "New_Elf_2",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Arm_L",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_2"
+        },
+        {
+            "Name": "New_Elf_2",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Foot_L",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_2"
+        },
+        {
+            "Name": "New_Elf_2",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Foot_R",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_2"
+        },
+        {
+            "Name": "New_Elf_2",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_2"
+        },
+        {
+            "Name": "New_Elf_2",
+            "UnitType": "Unit",
+            "PartType": "Body",
+            "SubType": "Arm_R",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Body/New_Elf_2"
+        },
+        {
+            "Name": "Elf_Hair_01",
+            "UnitType": "Unit",
+            "PartType": "Hair",
+            "SubType": "Elf_Hair_01",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Hair/Elf_Hair_01"
+        },
+        {
+            "Name": "Elf_Hair_02",
+            "UnitType": "Unit",
+            "PartType": "Hair",
+            "SubType": "Elf_Hair_02",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Hair/Elf_Hair_02"
+        },
+        {
+            "Name": "Elf_Hair_03",
+            "UnitType": "Unit",
+            "PartType": "Hair",
+            "SubType": "Elf_Hair_03",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Hair/Elf_Hair_03"
+        },
+        {
+            "Name": "Elf_Hair_04",
+            "UnitType": "Unit",
+            "PartType": "Hair",
+            "SubType": "Elf_Hair_04",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Hair/Elf_Hair_04"
+        },
+        {
+            "Name": "Elf_Hair_05",
+            "UnitType": "Unit",
+            "PartType": "Hair",
+            "SubType": "Elf_Hair_05",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Hair/Elf_Hair_05"
+        },
+        {
+            "Name": "Elf_Hair_06",
+            "UnitType": "Unit",
+            "PartType": "Hair",
+            "SubType": "Elf_Hair_06",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Hair/Elf_Hair_06"
+        },
+        {
+            "Name": "Elf_Hair_07",
+            "UnitType": "Unit",
+            "PartType": "Hair",
+            "SubType": "Elf_Hair_07",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/0_Hair/Elf_Hair_07"
+        },
+        {
+            "Name": "ElfCloth01",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_01"
+        },
+        {
+            "Name": "ElfCloth01",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_01"
+        },
+        {
+            "Name": "ElfCloth01",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_01"
+        },
+        {
+            "Name": "ElfCloth02",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_02"
+        },
+        {
+            "Name": "ElfCloth02",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_02"
+        },
+        {
+            "Name": "ElfCloth02",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_02"
+        },
+        {
+            "Name": "ElfCloth03",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_03"
+        },
+        {
+            "Name": "ElfCloth03",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_03"
+        },
+        {
+            "Name": "ElfCloth03",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_03"
+        },
+        {
+            "Name": "ElfCloth04",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_04"
+        },
+        {
+            "Name": "ElfCloth04",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_04"
+        },
+        {
+            "Name": "ElfCloth04",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_04"
+        },
+        {
+            "Name": "ElfCloth05",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_05"
+        },
+        {
+            "Name": "ElfCloth05",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_05"
+        },
+        {
+            "Name": "ElfCloth05",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_05"
+        },
+        {
+            "Name": "ElfCloth06",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_06"
+        },
+        {
+            "Name": "ElfCloth06",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_06"
+        },
+        {
+            "Name": "ElfCloth06",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_06"
+        },
+        {
+            "Name": "ElfCloth07",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_07"
+        },
+        {
+            "Name": "ElfCloth07",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_07"
+        },
+        {
+            "Name": "ElfCloth07",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_07"
+        },
+        {
+            "Name": "ElfCloth08",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_08"
+        },
+        {
+            "Name": "ElfCloth08",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_08"
+        },
+        {
+            "Name": "ElfCloth08",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_08"
+        },
+        {
+            "Name": "ElfCloth09",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_09"
+        },
+        {
+            "Name": "ElfCloth09",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_09"
+        },
+        {
+            "Name": "ElfCloth09",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_09"
+        },
+        {
+            "Name": "ElfCloth10",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_10"
+        },
+        {
+            "Name": "ElfCloth11",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_11"
+        },
+        {
+            "Name": "ElfCloth11",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_11"
+        },
+        {
+            "Name": "ElfCloth11",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_11"
+        },
+        {
+            "Name": "ElfCloth12",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_12"
+        },
+        {
+            "Name": "ElfCloth12",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_12"
+        },
+        {
+            "Name": "ElfCloth12",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_12"
+        },
+        {
+            "Name": "ElfCloth13",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_13"
+        },
+        {
+            "Name": "ElfCloth13",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_13"
+        },
+        {
+            "Name": "ElfCloth13",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_13"
+        },
+        {
+            "Name": "ElfCloth14",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_14"
+        },
+        {
+            "Name": "ElfCloth14",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_14"
+        },
+        {
+            "Name": "ElfCloth15",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_15"
+        },
+        {
+            "Name": "ElfCloth15",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_15"
+        },
+        {
+            "Name": "ElfCloth15",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_15"
+        },
+        {
+            "Name": "ElfCloth16",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_16"
+        },
+        {
+            "Name": "ElfCloth16",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_16"
+        },
+        {
+            "Name": "ElfCloth16",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_16"
+        },
+        {
+            "Name": "ElfCloth17",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_17"
+        },
+        {
+            "Name": "ElfCloth17",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_17"
+        },
+        {
+            "Name": "ElfCloth17",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_17"
+        },
+        {
+            "Name": "ElfCloth18",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_18"
+        },
+        {
+            "Name": "ElfCloth18",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_18"
+        },
+        {
+            "Name": "ElfCloth18",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_18"
+        },
+        {
+            "Name": "ElfCloth19",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_19"
+        },
+        {
+            "Name": "ElfCloth19",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_19"
+        },
+        {
+            "Name": "ElfCloth19",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_19"
+        },
+        {
+            "Name": "ElfCloth20",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_20"
+        },
+        {
+            "Name": "ElfCloth20",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_20"
+        },
+        {
+            "Name": "ElfCloth20",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/2_Cloth/Elf_Cloth_20"
+        },
+        {
+            "Name": "ElfPant01",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_01"
+        },
+        {
+            "Name": "ElfPant01",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_01"
+        },
+        {
+            "Name": "ElfPant02",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_02"
+        },
+        {
+            "Name": "ElfPant02",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_02"
+        },
+        {
+            "Name": "ElfPant03",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_03"
+        },
+        {
+            "Name": "ElfPant03",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_03"
+        },
+        {
+            "Name": "ElfPant04",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_04"
+        },
+        {
+            "Name": "ElfPant04",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_04"
+        },
+        {
+            "Name": "ElfPant05",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_05"
+        },
+        {
+            "Name": "ElfPant05",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_05"
+        },
+        {
+            "Name": "ElfPant06",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_06"
+        },
+        {
+            "Name": "ElfPant06",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_06"
+        },
+        {
+            "Name": "ElfPant07",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_07"
+        },
+        {
+            "Name": "ElfPant07",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_07"
+        },
+        {
+            "Name": "ElfPant08",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_08"
+        },
+        {
+            "Name": "ElfPant08",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_08"
+        },
+        {
+            "Name": "ElfPant09",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_09"
+        },
+        {
+            "Name": "ElfPant09",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_09"
+        },
+        {
+            "Name": "ElfPant10",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_10"
+        },
+        {
+            "Name": "ElfPant10",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_10"
+        },
+        {
+            "Name": "ElfPant11",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_11"
+        },
+        {
+            "Name": "ElfPant11",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_11"
+        },
+        {
+            "Name": "ElfPant12",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_12"
+        },
+        {
+            "Name": "ElfPant12",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_12"
+        },
+        {
+            "Name": "ElfPant13",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_13"
+        },
+        {
+            "Name": "ElfPant13",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_13"
+        },
+        {
+            "Name": "ElfPant14",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_14"
+        },
+        {
+            "Name": "ElfPant14",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_14"
+        },
+        {
+            "Name": "ElfPant15",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_15"
+        },
+        {
+            "Name": "ElfPant15",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_15"
+        },
+        {
+            "Name": "ElfPant16",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_16"
+        },
+        {
+            "Name": "ElfPant16",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_16"
+        },
+        {
+            "Name": "ElfPant17",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_17"
+        },
+        {
+            "Name": "ElfPant17",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_17"
+        },
+        {
+            "Name": "ElfPant18",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_18"
+        },
+        {
+            "Name": "ElfPant18",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_18"
+        },
+        {
+            "Name": "ElfPant19",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_19"
+        },
+        {
+            "Name": "ElfPant19",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_19"
+        },
+        {
+            "Name": "ElfPant20",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_20"
+        },
+        {
+            "Name": "ElfPant20",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/3_Pant/Elf_Pant_20"
+        },
+        {
+            "Name": "Elf_Helmet_01",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_01",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_01"
+        },
+        {
+            "Name": "Elf_Helmet_02",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_02",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_02"
+        },
+        {
+            "Name": "Elf_Helmet_03",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_03",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_03"
+        },
+        {
+            "Name": "Elf_Helmet_04",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_04",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_04"
+        },
+        {
+            "Name": "Elf_Helmet_05",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_05",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_05"
+        },
+        {
+            "Name": "Elf_Helmet_06",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_06",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_06"
+        },
+        {
+            "Name": "Elf_Helmet_07",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_07",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_07"
+        },
+        {
+            "Name": "Elf_Helmet_08",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_08",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_08"
+        },
+        {
+            "Name": "Elf_Helmet_09",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_09",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_09"
+        },
+        {
+            "Name": "Elf_Helmet_10",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_10",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_10"
+        },
+        {
+            "Name": "Elf_Helmet_11",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_11",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_11"
+        },
+        {
+            "Name": "Elf_Helmet_12",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_12",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_12"
+        },
+        {
+            "Name": "Elf_Helmet_13",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_13",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_13"
+        },
+        {
+            "Name": "Elf_Helmet_14",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_14",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_14"
+        },
+        {
+            "Name": "Elf_Helmet_15",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_15",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_15"
+        },
+        {
+            "Name": "Elf_Helmet_16",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_16",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_16"
+        },
+        {
+            "Name": "Elf_Helmet_17",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_17",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_17"
+        },
+        {
+            "Name": "Elf_Helmet_18",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_18",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_18"
+        },
+        {
+            "Name": "Elf_Helmet_19",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_19",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_19"
+        },
+        {
+            "Name": "Elf_Helmet_20",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Elf_Helmet_20",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/4_Helmet/Elf_Helmet_20"
+        },
+        {
+            "Name": "ElfArmor01",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_01"
+        },
+        {
+            "Name": "ElfArmor01",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_01"
+        },
+        {
+            "Name": "ElfArmor02",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_02"
+        },
+        {
+            "Name": "ElfArmor02",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_02"
+        },
+        {
+            "Name": "ElfArmor02",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_02"
+        },
+        {
+            "Name": "ElfArmor03",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_03"
+        },
+        {
+            "Name": "ElfArmor03",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_03"
+        },
+        {
+            "Name": "ElfArmor04",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_04"
+        },
+        {
+            "Name": "ElfArmor04",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_04"
+        },
+        {
+            "Name": "ElfArmor04",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_04"
+        },
+        {
+            "Name": "ElfArmor05",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_05"
+        },
+        {
+            "Name": "ElfArmor06",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_06"
+        },
+        {
+            "Name": "ElfArmor06",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_06"
+        },
+        {
+            "Name": "ElfArmor06",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_06"
+        },
+        {
+            "Name": "ElfArmor07",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_07"
+        },
+        {
+            "Name": "ElfArmor07",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_07"
+        },
+        {
+            "Name": "ElfArmor07",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_07"
+        },
+        {
+            "Name": "ElfArmor08",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_08"
+        },
+        {
+            "Name": "ElfArmor08",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_08"
+        },
+        {
+            "Name": "ElfArmor09",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_09"
+        },
+        {
+            "Name": "ElfArmor09",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_09"
+        },
+        {
+            "Name": "ElfArmor10",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_10"
+        },
+        {
+            "Name": "ElfArmor10",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_10"
+        },
+        {
+            "Name": "ElfArmor10",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_10"
+        },
+        {
+            "Name": "ElfArmor11",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_11"
+        },
+        {
+            "Name": "ElfArmor11",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_11"
+        },
+        {
+            "Name": "ElfArmor12",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_12"
+        },
+        {
+            "Name": "ElfArmor12",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_12"
+        },
+        {
+            "Name": "ElfArmor12",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_12"
+        },
+        {
+            "Name": "ElfArmor13",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_13"
+        },
+        {
+            "Name": "ElfArmor13",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_13"
+        },
+        {
+            "Name": "ElfArmor14",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_14"
+        },
+        {
+            "Name": "ElfArmor14",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_14"
+        },
+        {
+            "Name": "ElfArmor15",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_15"
+        },
+        {
+            "Name": "ElfArmor15",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_15"
+        },
+        {
+            "Name": "ElfArmor16",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_16"
+        },
+        {
+            "Name": "ElfArmor16",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_16"
+        },
+        {
+            "Name": "ElfArmor16",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_16"
+        },
+        {
+            "Name": "ElfArmor17",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_17"
+        },
+        {
+            "Name": "ElfArmor17",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_17"
+        },
+        {
+            "Name": "ElfArmor18",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_18"
+        },
+        {
+            "Name": "ElfArmor18",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_18"
+        },
+        {
+            "Name": "ElfArmor18",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_18"
+        },
+        {
+            "Name": "ElfArmor19",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_19"
+        },
+        {
+            "Name": "ElfArmor19",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/5_Armor/Elf_Armor_19"
+        },
+        {
+            "Name": "Elf_Weapon_03",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_03",
+            "PartSubType": "Sword",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/0_Sword/Elf_Weapon_03"
+        },
+        {
+            "Name": "Elf_Weapon_05",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_05",
+            "PartSubType": "Sword",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/0_Sword/Elf_Weapon_05"
+        },
+        {
+            "Name": "Elf_Weapon_07",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_07",
+            "PartSubType": "Sword",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/0_Sword/Elf_Weapon_07"
+        },
+        {
+            "Name": "Elf_Weapon_08",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_08",
+            "PartSubType": "Sword",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/0_Sword/Elf_Weapon_08"
+        },
+        {
+            "Name": "Elf_Weapon_11",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_11",
+            "PartSubType": "Sword",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/0_Sword/Elf_Weapon_11"
+        },
+        {
+            "Name": "Elf_Weapon_13",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_13",
+            "PartSubType": "Sword",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/0_Sword/Elf_Weapon_13"
+        },
+        {
+            "Name": "Elf_Weapon_17",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_17",
+            "PartSubType": "Sword",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/0_Sword/Elf_Weapon_17"
+        },
+        {
+            "Name": "Elf_Weapon_19",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_19",
+            "PartSubType": "Sword",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/0_Sword/Elf_Weapon_19"
+        },
+        {
+            "Name": "Elf_Weapon_02",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_02",
+            "PartSubType": "Bow",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/2_Bow/Elf_Weapon_02"
+        },
+        {
+            "Name": "Elf_Weapon_06",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_06",
+            "PartSubType": "Bow",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/2_Bow/Elf_Weapon_06"
+        },
+        {
+            "Name": "Elf_Weapon_14",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_14",
+            "PartSubType": "Bow",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/2_Bow/Elf_Weapon_14"
+        },
+        {
+            "Name": "Elf_Weapon_18",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_18",
+            "PartSubType": "Bow",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/2_Bow/Elf_Weapon_18"
+        },
+        {
+            "Name": "Elf_Shield_01",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Shield_01",
+            "PartSubType": "Shield",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/3_Shield/Elf_Shield_01"
+        },
+        {
+            "Name": "Elf_Shield_02",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Shield_02",
+            "PartSubType": "Shield",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/3_Shield/Elf_Shield_02"
+        },
+        {
+            "Name": "Elf_Shield_03",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Shield_03",
+            "PartSubType": "Shield",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/3_Shield/Elf_Shield_03"
+        },
+        {
+            "Name": "Elf_Shield_04",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Shield_04",
+            "PartSubType": "Shield",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/3_Shield/Elf_Shield_04"
+        },
+        {
+            "Name": "Elf_Weapon_16",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_16",
+            "PartSubType": "Shield",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/3_Shield/Elf_Weapon_16"
+        },
+        {
+            "Name": "Elf_Weapon_01",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_01",
+            "PartSubType": "Wand",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/5_Wand/Elf_Weapon_01"
+        },
+        {
+            "Name": "Elf_Weapon_04",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_04",
+            "PartSubType": "Wand",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/5_Wand/Elf_Weapon_04"
+        },
+        {
+            "Name": "Elf_Weapon_09",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_09",
+            "PartSubType": "Wand",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/5_Wand/Elf_Weapon_09"
+        },
+        {
+            "Name": "Elf_Weapon_10",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_10",
+            "PartSubType": "Wand",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/5_Wand/Elf_Weapon_10"
+        },
+        {
+            "Name": "Elf_Weapon_12",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_12",
+            "PartSubType": "Wand",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/5_Wand/Elf_Weapon_12"
+        },
+        {
+            "Name": "Elf_Weapon_15",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_15",
+            "PartSubType": "Wand",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/5_Wand/Elf_Weapon_15"
+        },
+        {
+            "Name": "Elf_Weapon_20",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Elf_Weapon_20",
+            "PartSubType": "Wand",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/6_Weapons/5_Wand/Elf_Weapon_20"
+        },
+        {
+            "Name": "Elf_Back_01",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_01",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_01"
+        },
+        {
+            "Name": "Elf_Back_02",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_02",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_02"
+        },
+        {
+            "Name": "Elf_Back_03",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_03",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_03"
+        },
+        {
+            "Name": "Elf_Back_04",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_04",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_04"
+        },
+        {
+            "Name": "Elf_Back_05",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_05",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_05"
+        },
+        {
+            "Name": "Elf_Back_06",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_06",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_06"
+        },
+        {
+            "Name": "Elf_Back_07",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_07",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_07"
+        },
+        {
+            "Name": "Elf_Back_08",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_08",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_08"
+        },
+        {
+            "Name": "Elf_Back_09",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_09",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_09"
+        },
+        {
+            "Name": "Elf_Back_10",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_10",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_10"
+        },
+        {
+            "Name": "Elf_Back_11",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_11",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_11"
+        },
+        {
+            "Name": "Elf_Back_12",
+            "UnitType": "Unit",
+            "PartType": "Back",
+            "SubType": "Elf_Back_12",
+            "PartSubType": "",
+            "Path": "Addons/Elf/0_Unit/0_Sprite/7_Back/Elf_Back_12"
+        }
+    ]
+}

@@ -378,6 +378,7 @@ MonoBehaviour:
   recordInterval: 0.02
   joystick: {fileID: 0}
   CharacterName: 
+  equippedSpriteName: Default
 --- !u!114 &3794453991845820296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneId: 0
-  _assetId: 1460760743
+  _assetId: 393240357
   serverOnly: 0
   hasSpawned: 0
 --- !u!114 &6974962420079858109

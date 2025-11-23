@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 14b6953d85dc84c25b6fabd0a0390332
+timeCreated: 1518508646
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Effect/Mat/WalkDust3.mat
+  uploadId: 821896

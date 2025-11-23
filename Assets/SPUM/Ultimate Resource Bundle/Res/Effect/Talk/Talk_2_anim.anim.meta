@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 63b3770a36f9f4bd39820161c17f76a9
+timeCreated: 1529509982
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Effect/Talk/Talk_2_anim.anim
+  uploadId: 821896

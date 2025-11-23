@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 4532d446710bb4ea4a11c0c0ef1f7595
+timeCreated: 1527678673
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Maps/BG/Tile01/Tileset01/TP_Tile03_Shadow11.asset
+  uploadId: 821896

@@ -125,7 +125,7 @@ public class GameNetworkManager : NetworkManager
         Vector3 spawnPosition = startPosition != null ? startPosition.position : Vector3.zero;
         Quaternion spawnRotation = startPosition != null ? startPosition.rotation : Quaternion.identity;
 
-        Sprite prefabs = RootManager.Instance.AddressableCDD.GetSprite("Pikachu");
+        Sprite prefabs = RootManager.Instance.AddressableCDD.GetSprite("Sword_2");
 
         if (prefabs != null)
         {

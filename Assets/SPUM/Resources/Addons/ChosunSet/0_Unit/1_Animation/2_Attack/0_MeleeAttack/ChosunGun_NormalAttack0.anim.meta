@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1bb7f6665a3b14178931cd41bf033fce
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Resources/Addons/ChosunSet/Unit/1_Animation/2_Attack/0_MeleeAttack/ChosunGun_NormalAttack0.anim
+  uploadId: 821896

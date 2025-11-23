@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: fda6dc8b84e184cc9ae2fa8994b82130
+timeCreated: 1518508646
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Effect/Mat/SlowLine.mat
+  uploadId: 821896

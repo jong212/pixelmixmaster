@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 400f84ca50ac94f20a75a7ecfbe2cfe8
+    m_Address: Sword_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4eb6038d67f34a14d95ac672d1906a8c
     m_Address: Pikachu
     m_ReadOnly: 0

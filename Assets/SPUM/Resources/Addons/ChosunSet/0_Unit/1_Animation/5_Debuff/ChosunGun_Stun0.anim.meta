@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 79dc451e0299a448994bd4e9534fc077
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 345828
+  packageName: 'SPUM : Ultimate Resource Bundle Pack'
+  packageVersion: 1.0.0
+  assetPath: Assets/SPUM/Resources/Addons/ChosunSet/Unit/1_Animation/5_Debuff/ChosunGun_Stun0.anim
+  uploadId: 821896
