@@ -3493,10 +3493,10 @@ TextureImporter:
         x: 32
         y: 416
         width: 16
-        height: 32
-      alignment: 9
-      pivot: {x: 0.5, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 15}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -10577,10 +10577,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 345828
-  packageName: 'SPUM : Ultimate Resource Bundle Pack'
-  packageVersion: 1.0.0
-  assetPath: Assets/SPUM/Ultimate Resource Bundle/Res/Maps/BG/Tile01/TP_Tile01.png
-  uploadId: 821896
