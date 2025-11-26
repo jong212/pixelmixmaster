@@ -205,6 +205,10 @@ MonoBehaviour:
   moveSpeed: 2
   detectionRadius: 10
   stunDuration: 0.7
+  alive: 1
+  respawnScheduled: 0
+  zoneId: 0
+  archetypeId: 0
 --- !u!114 &-3181330093237035278
 MonoBehaviour:
   m_ObjectHideFlags: 0

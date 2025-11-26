@@ -19,7 +19,7 @@ public class Monster : NetworkBehaviour
     [System.NonSerialized] public float nextRespawnTime = 0f;
 
     [HideInInspector]   public bool respawnScheduled = false;
-    [HideInInspector] public int zoneId;
+    [HideInInspector] public string zoneId;
     [HideInInspector] public int archetypeId;
     // 상태 변수
     [SyncVar]
@@ -57,6 +57,7 @@ public class Monster : NetworkBehaviour
     
     public override void OnStartClient()
     {
+        Debug.Log("test123sss");
         base.OnStartClient();
         // 클라이언트 시작 시 현재 색상 적용
         spriteRenderer.color = monsterColor;

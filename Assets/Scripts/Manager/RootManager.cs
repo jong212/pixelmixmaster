@@ -11,7 +11,7 @@ public class RootManager : Singleton<RootManager>
     public EndManager EndManager { get; private set; }
     public GameNetworkManager GameNetworkManager { get; private set; }
 
-    //public ChartManager ChartManager { get; private set; }
+    public GameDataManager GameDataManager{ get; private set; }
     public SetDataManager SetDataManager { get; private set; }
     //public AdManager AdManager { get; private set; }
     //public IAPManager IAPManager { get; private set; }
@@ -32,10 +32,12 @@ public class RootManager : Singleton<RootManager>
 #if UNITY_SERVER
         GameNetworkManager = FindObjectOfType<GameNetworkManager>();
         SetDataManager = new SetDataManager();
+        GameDataManager = FindObjectOfType<GameDataManager>();
 #else
         EndManager = new EndManager();
         GameNetworkManager = FindObjectOfType<GameNetworkManager>();
         SetDataManager = new SetDataManager();
+        GameDataManager = FindObjectOfType<GameDataManager>();
 #endif
 
 

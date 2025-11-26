@@ -5,6 +5,8 @@ using System.Collections;
 using UnityEngine.Tilemaps;
 using static GameNetworkManager;
 using System.Linq;
+using System;
+using Random = UnityEngine.Random;
 
 // ======================
 // 몬스터 데이터 청사진
@@ -19,7 +21,7 @@ public class SettingMonsterData
     public int health;
     public int damage;
     public int defense;
-    public int mapcode;   // ★ 이 맵에 속한 타입인지 구분
+    public string mapcode;   // ★ 이 맵에 속한 타입인지 구분
     public string position; // 예: { "x": 345.5, "y": 64.0, "z": 780.2 }
 }
 
@@ -29,21 +31,23 @@ public struct CreateCharacterMessage : NetworkMessage
 }
 
 public class GameNetworkManager : NetworkManager
-{  
+{
+    [Header("Server Data")]
+    private RemoteConfig _remoteConfig;
+    private BACKND.DataTable _dataTable;
+    private Dictionary<string, int> _mapinfo = new Dictionary<string, int>();
+
+    [Header("Parents")]
+    public Transform Mapparent;
+    public Transform Monsterparent;
+
+    public List<Transform> SvMapSpawnList = new List<Transform>();
+    private Dictionary<string, SettingMonsterData> _monsterConfigs;
+
     [Header("Game UI")]
     public GameObject JoystickPrefab;
 
-    [Header("Monster Settings")]
-    private BACKND.DataTable _dataTable;
-    private Dictionary<string, SettingMonsterData> _monsterConfigs;
 
-    [Header("Monster Spawn")]
-    // 맵별 목표 수(예: 1번=30, 2번=30)
-    private Dictionary<int, int> SpwnCount = new Dictionary<int, int>
-    {
-        { 1, 1 }, { 2, 1 }
-    };
-     
     public int MonsterMaxCount = 100;
     public float MonsterSpawnDelay = 2f;         // 몬스터 재생성 딜레이
     public float MinDistanceFromPlayers = 25f;   // 플레이어로부터 최소 거리
@@ -57,10 +61,18 @@ public class GameNetworkManager : NetworkManager
 
     public override void Awake()
     {
-        _dataTable = GetComponent<BACKND.DataTable>();
         // 화면 비율 설정
         SetCameraRect();
         base.Awake();
+    }
+    private void Start()
+    {
+        Init();
+    }
+    private void Init()
+    {
+        _dataTable = GetComponent<BACKND.DataTable>();
+        _remoteConfig = NetworkManager.Instance.RemoteConfig; 
     }
     // ======================
     //  실행 주체 : 서버
@@ -69,19 +81,50 @@ public class GameNetworkManager : NetworkManager
     // ======================    
     public override void OnStartServer()
     {
-        Debug.Log("서버 실행");
+        Debug.Log("1_서버 실행");
         base.OnStartServer();
 
-        InitServerSetData();                                                             // 몬스터 데이터 캐싱
-        NetworkServer.RegisterHandler<CreateCharacterMessage>(OnCreateCharacterMessage); // 데디 서버 입장에서는 국민(클라)과 소통하기 위해 국민청원 같은 사이트를 만드는? 개념으로 데이터 전달받기위해 아래와 같이 핸들러를 미리 등록
+        // 데디 서버 입장에서는 국민(클라)과 소통하기 위해 국민청원 같은 사이트를 만드는? 개념으로 데이터 전달받기위해 아래와 같이 핸들러를 미리 등록
+        NetworkServer.RegisterHandler<CreateCharacterMessage>(OnCreateCharacterMessage);
+
+        _mapinfo = _remoteConfig.GetValue<Dictionary<string, int>>("mapinfo");
+
+        // 1. map1:30 키쌍으로 된 RemoteConfig의 mapinfo json 데이터를 가져와서 GameDataManager의 네트워크 변수에 Add함 
+        // 2. 클라를 위한 것이며 클라는 해당 리스트의 map1 map2 이런 값을 보고 어드레서블에서 맵을 세팅함
+        // 3. 서버도 맵 세팅함 
+        SetMap();
+
+        // 서버가 데이터테이블 로드 하고 몬스터 정보 캐싱만 해둠
+        InitServerSetData();    
+        
         CalculateGroundBounds();
         Debug.Log("???");
-        // 그라운드 경계 계산
-        isServerRunning = true;                                                          // 이거 코루틴보다 밑에가있으면 안 됨 while그냥 종료되어버림 ㅋㅋ
-        monsterManagerCoroutine = StartCoroutine(MonsterManagerRoutine());               // 서버 시작 시 몬스터 관리 코루틴 시작
+
+        // 이거 코루틴보다 밑에가있으면 안 됨 while그냥 종료되어버림 ㅋㅋ
+        isServerRunning = true;
+
+        // 서버 시작 시 몬스터 관리 코루틴 시작
+        monsterManagerCoroutine = StartCoroutine(MonsterManagerRoutine());               
     }
-  
-    // 몬스터 데이터 캐싱: DataTable → Dictionary<string, SettingMonsterData>
+
+    [Server]
+    private void SetMap()
+    {
+        GameObject prefab = spawnPrefabs.Find(p => p.name == "GameDataManager");
+        GameObject go = Instantiate(prefab);
+        NetworkServer.Spawn(go);
+        var dataInstance = go.GetComponent<GameDataManager>();
+
+        foreach (var kvp in _mapinfo)
+        {
+            string mapName = kvp.Key;
+
+            Debug.Log($"1_2서버 실행 : GameDataManager 에 {mapName} 맵 변수 추가완료 ");
+            dataInstance.mapList.Add(mapName);
+        }
+        dataInstance.ServerMapSet();
+    }
+
     private void InitServerSetData()
     {
         // 딕셔너리 초기화
@@ -163,41 +206,50 @@ public class GameNetworkManager : NetworkManager
 
 
 
- 
-    [Server] // 초기 몬스터 스폰
+    // 초기 몬스터 스폰
+    [Server] 
     private void SpawnInitialMonsters()
     {
+
         if (_monsterConfigs == null || _monsterConfigs.Count == 0)
         {
             Debug.LogWarning("SpawnInitialMonsters: 몬스터 설정이 비어있습니다.");
             return;
         }
-        Debug.Log(SpwnCount);
-        foreach (var kv in SpwnCount)
+
+        // 맵 개수 만큼 돔 
+        foreach (var kv in _mapinfo)
         {
-            int mapId = kv.Key;
-            int target = kv.Value;
-            if (target <= 0) continue;
+            string mapKey = kv.Key;   // 예: "map1"
+            int target = kv.Value;    // 예: 30
 
-            // 1) 이 맵에 속한 타입들만 임시 리스트로 모으기
-            var typesForMap = new List<SettingMonsterData>();
-            foreach (var d in _monsterConfigs.Values)
+            // 맵이 실제 존재하지 않으면 continue
+            if (SvMapSpawnList.All(t => t.name != mapKey))
             {
-                if (d.mapcode == mapId)
-                    typesForMap.Add(d);
-            }
-
-            if (typesForMap.Count == 0)
-            {
-                Debug.LogWarning($"map {mapId}: 스폰 가능한 타입이 없습니다.");
+                Debug.LogWarning($"❌ {mapKey} 맵이 실제 SvMapSpawnList에 없음. 스폰 생략.");
                 continue;
             }
 
-            // 2) 라운드로빈으로 target 개수만큼 스폰
+            if (target <= 0) continue;
+
+            // 데이터 테이블에서 가져온 모든 몬스터 중 map1에 해당하는 몬스터만 걸러서 리스트에 넣음
+            var typesForMap = _monsterConfigs.Values
+                .Where(d => d.mapcode == mapKey)
+                .ToList();
+
+            if (typesForMap.Count == 0)
+            {
+                Debug.LogWarning($"{mapKey}: 스폰 가능한 몬스터 타입이 없습니다.");
+                continue;
+            }
+
+            // 스폰 개수 만큼 돔
+            // 맵 이름 첫 번쨰 매게 변수 mapKey로 전달 
+            // 두 번쨰 typeData는 몬스터 데이터임
             for (int i = 0; i < target; i++)
             {
                 var typeData = typesForMap[i % typesForMap.Count];
-                SpawnMonsterForMap(mapId, typeData);
+                SpawnMonsterForMap(mapKey, typeData); // mapKey 전달 (string으로 바꿈)
             }
         }
     }
@@ -207,8 +259,6 @@ public class GameNetworkManager : NetworkManager
     {
         // 초기 스폰(맵별 라운드로빈 이미 구현됨)
         SpawnInitialMonsters();
-        Debug.Log("서버 스폰 테스트");
-        Debug.Log(isServerRunning);
         while (isServerRunning)
         {
             Debug.Log("1");
@@ -265,12 +315,14 @@ public class GameNetworkManager : NetworkManager
         }
     }
 
+    // 실제 몬스터 스폰
+    // 맵 마다 스폰포인트가 여러개 있는데 이 중 랜덤으로 몬스터 배치
+    // 몬스터는 #Monster 하위의 맵별 오브젝트 자식으로 배치 되도록 함 (하이어라키 직관성)
     [Server]
-    private GameObject SpawnMonsterForMap(int mapId, SettingMonsterData data)
+    private GameObject SpawnMonsterForMap(string mapKey, SettingMonsterData data)
     {
         if (data == null) return null;
 
-        // 프리팹 이름은 data.name과 동일하다고 가정
         GameObject prefab = spawnPrefabs.Find(p => p.name == data.name);
         if (prefab == null)
         {
@@ -278,25 +330,55 @@ public class GameNetworkManager : NetworkManager
             return null;
         }
 
-        Vector3 pos = GetValidSpawnPosition();
-        GameObject go = Instantiate(prefab, pos, Quaternion.identity);
+        // parent 만들기
+        Transform parent = GetMonsterParent(mapKey);
+
+        // 여기서 맵 자식 중 랜덤으로 위치 설정
+        Vector3 pos = GetRandomSpawnPointFromMap(mapKey);  
+
+        GameObject go = Instantiate(prefab, pos, Quaternion.identity, parent); // ★ 부모 적용됨
+
 
         var m = go.GetComponent<Monster>();
         if (m != null)
         {
-            m.zoneId = mapId;                // 맵 식별자 주입(관리 편의)
-            m.archetypeId = data.monster_id; // 타입 식별자(원하면 사용)
+            m.zoneId = mapKey;
+            m.archetypeId = data.monster_id;
             m.SetGroundBounds(groundBounds);
-
-            // 원하면 여기서 스탯도 초기화 가능:
-            // m.maxHealth = data.health; m.currentHealth = data.health; ...
         }
 
         NetworkServer.Spawn(go);
         activeMonsters.Add(go);
         return go;
     }
-    
+    private Transform GetMonsterParent(string mapKey)
+    {
+        // 1) Monsterparent 밑에서 같은 이름의 자식 찾기
+        Transform mapRoot = Monsterparent.Find(mapKey);
+
+        // 2) 없으면 새로 생성
+        if (mapRoot == null)
+        {
+            GameObject go = new GameObject(mapKey);
+            go.transform.SetParent(Monsterparent, false);
+            go.transform.localPosition = Vector3.zero;
+            mapRoot = go.transform;
+        }
+
+        return mapRoot;
+    }
+    private Vector3 GetRandomSpawnPointFromMap(string mapKey)
+    {
+        Transform mapRoot = SvMapSpawnList.FirstOrDefault(t => t.name == mapKey);
+        if (mapRoot == null || mapRoot.childCount == 0)
+        {
+            Debug.LogWarning($"[스폰 위치 없음] {mapKey} 맵에 자식 오브젝트가 없습니다. 기본 위치 반환.");
+            return new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);  // 무조건 (0,0) 말고 랜덤
+        }
+
+        int index = Random.Range(0, mapRoot.childCount);
+        return mapRoot.GetChild(index).position;
+    }
     [Server] // 유효한 스폰 위치 찾기 (그라운드 크기 기반)
     private Vector3 GetValidSpawnPosition()
     {
@@ -492,48 +574,16 @@ public class GameNetworkManager : NetworkManager
             mainCamera.rect = rect;
         }
     }
+    
+
+    public SettingMonsterData GetMonsterSetting(string monsterId)
+    {
+        if (_monsterConfigs.TryGetValue(monsterId, out var setting))
+        {
+            return setting;
+        }
+
+        Debug.LogWarning($"몬스터 ID {monsterId} 설정 없음");
+        return null;
+    }
 }
-/*private void InitServerSetData()
-  {
-      // [ 몬스터 세팅 ]
-      var config = NetworkManager.Instance.RemoteConfig;
-
-      // Remote Config에서 monsterConfigs 키의 전체 JSON을 로드
-      _monsterConfigs = config.GetValue<Dictionary<string, SettingMonsterData>>("MonsterData");
-
-      if (_monsterConfigs == null || _monsterConfigs.Count == 0)
-      {
-          Debug.LogError("몬스터 설정을 불러오지 못했습니다.");
-          return;
-      }
-
-      Debug.Log($"몬스터 설정 {_monsterConfigs.Count}개 로드됨");
-      foreach (var kvp in _monsterConfigs)
-      {
-          var id = kvp.Key;
-          var data = kvp.Value;
-
-          Debug.Log($"[몬스터 ID: {id}]");
-          Debug.Log($"  이름: {data.name}");
-          Debug.Log($"  레벨: {data.level}");
-          Debug.Log($"  HP: {data.hp}");
-          Debug.Log($"  공격력: {data.attack}");
-          Debug.Log($"  이동속도: {data.moveSpeed}");
-          Debug.Log($"  리스폰 시간: {data.respawnTime}");
-      }
-      MonsterMaxCount = config.GetValue<int>("MonsterMaxCount");
-      MonsterSpawnDelay = config.GetValue<float>("MonsterSpawnDelay");
-      MinDistanceFromPlayers = config.GetValue<float>("MinDistanceFromPlayers");
-      SpawnRadius = config.GetValue<int>("SpawnRadius");
-  }
-
-  public SettingMonsterData GetMonsterSetting(string monsterId)
-  {
-      if (_monsterConfigs.TryGetValue(monsterId, out var setting))
-      {
-          return setting;
-      }
-
-      Debug.LogWarning($"몬스터 ID {monsterId} 설정 없음");
-      return null;
-  }*/

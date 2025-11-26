@@ -20,7 +20,7 @@ public class AddressableCDD : MonoBehaviour
     [SerializeField] private Slider _progressBar;
 
     [Header("Addressables Labels")]
-    [SerializeField] private string _prefabLabel = "Prefabs";
+    [SerializeField] private string _prefabLabel = "RegisterPrefab";
     [SerializeField] private string _spriteLabel = "Sprites";
 
     public Transform FilePatchObj;
@@ -29,9 +29,9 @@ public class AddressableCDD : MonoBehaviour
 
     public Image _bg;
     //  캐시용 딕셔너리
-    private Dictionary<string, GameObject> _prefabCache = new();
+    private Dictionary<string, GameObject> _registerprefabCache = new();
     private Dictionary<string, Sprite> _spriteCache = new();
-    public IReadOnlyDictionary<string, GameObject> PrefabCache => _prefabCache;
+    public IReadOnlyDictionary<string, GameObject> PrefabCache => _registerprefabCache;
     public IReadOnlyDictionary<string, Sprite> SpriteCache => _spriteCache;
     public void Initialize()
     {
@@ -53,6 +53,7 @@ public class AddressableCDD : MonoBehaviour
     private IEnumerator ServerLogic()
     {
         yield return StartCoroutine(LoadSprites());
+        yield return StartCoroutine(LoadRegisterPrefab());
     }
 #endif
     private IEnumerator CheckCatalogUpdate()
@@ -95,7 +96,13 @@ public class AddressableCDD : MonoBehaviour
         if (spriteSizeHandle.Status == AsyncOperationStatus.Succeeded)
             totalSize += spriteSizeHandle.Result;
 
+        var registerPrefabSizeHandle = Addressables.GetDownloadSizeAsync(_registerprefabCache);
+        yield return registerPrefabSizeHandle;
+        if (registerPrefabSizeHandle.Status == AsyncOperationStatus.Succeeded)
+            totalSize += registerPrefabSizeHandle.Result;
+
         Addressables.Release(spriteSizeHandle);
+        Addressables.Release(registerPrefabSizeHandle);
 
         // 다운로드 필요 여부 판단
         yield return new WaitForSeconds(0.3f);
@@ -124,22 +131,27 @@ public class AddressableCDD : MonoBehaviour
     private IEnumerator DownloadAllAssets()
     {
         var spriteDownload = Addressables.DownloadDependenciesAsync(_spriteLabel);
+        var registerPrefabSizeHandle = Addressables.DownloadDependenciesAsync(_registerprefabCache);
 
-        while (!spriteDownload.IsDone)
+        while (!spriteDownload.IsDone || !registerPrefabSizeHandle.IsDone)
         {
             var s = spriteDownload.GetDownloadStatus();
+            var r = registerPrefabSizeHandle.GetDownloadStatus();
 
-            long total = s.TotalBytes;
-            long downloaded = s.DownloadedBytes;
+            long total = s.TotalBytes + r.TotalBytes;
+            long downloaded = s.DownloadedBytes + r.DownloadedBytes;
 
             _progressBar.value = total > 0 ? (float)downloaded / total : 1f;
             yield return null;
         }
 
 
-        bool success = spriteDownload.Status == AsyncOperationStatus.Succeeded;
+        bool success = spriteDownload.Status == AsyncOperationStatus.Succeeded &&
+                       registerPrefabSizeHandle.Status == AsyncOperationStatus.Succeeded;
+            ;
 
         Addressables.Release(spriteDownload);
+        Addressables.Release(registerPrefabSizeHandle);
 
         if (success)
         {
@@ -156,7 +168,28 @@ public class AddressableCDD : MonoBehaviour
 
 
 
-    private IEnumerator LoadPrefabs()
+    /// <summary>
+    /// 클라 캐싱
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator LoadSprites()
+    {
+        var handle = Addressables.LoadAssetsAsync<Sprite>(_spriteLabel, (sprite) =>
+        {
+            if (!_spriteCache.ContainsKey(sprite.name))
+            {
+                _spriteCache.Add(sprite.name, sprite);
+                Debug.Log($"캐싱된 Sprite: {sprite.name}");
+            }
+        });
+        yield return handle;
+    }
+
+    /// <summary>
+    /// 클라 캐싱
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator LoadRegisterPrefab()
     {
         // Prefab 라벨에 포함된 모든 에셋 주소(Location) 가져오기
         var locationsHandle = Addressables.LoadResourceLocationsAsync(_prefabLabel, typeof(GameObject));
@@ -177,10 +210,11 @@ public class AddressableCDD : MonoBehaviour
             if (loadHandle.Status == AsyncOperationStatus.Succeeded)
             {
                 var prefab = loadHandle.Result;
-                if (!_prefabCache.ContainsKey(loc.PrimaryKey))
+                if (!_registerprefabCache.ContainsKey(loc.PrimaryKey))
                 {
-                    _prefabCache[loc.PrimaryKey] = prefab;
+                    _registerprefabCache[loc.PrimaryKey] = prefab;
                     Debug.Log($"✅ Cached Prefab Asset: {loc.PrimaryKey}");
+
                 }
             }
             else
@@ -192,22 +226,6 @@ public class AddressableCDD : MonoBehaviour
         // 여기서는 Release 금지 (Asset 자체이므로 유지)
     }
 
-
-    private IEnumerator LoadSprites()
-    {
-        var handle = Addressables.LoadAssetsAsync<Sprite>(_spriteLabel, (sprite) =>
-        {
-            Debug.Log($"[로드된 스프라이트 이름] => {sprite.name}");  // ✅ 여기가 중요!
-
-            if (!_spriteCache.ContainsKey(sprite.name))
-            {
-                _spriteCache.Add(sprite.name, sprite);
-                Debug.Log($"Cached Sprite: {sprite.name}");
-            }
-        });
-        yield return handle;
-    }
-
     // ?? Prefab + Sprite 로드 후 캐싱
     private IEnumerator LoadAllAssetsToCache(float delay = 0f)
     {
@@ -216,6 +234,9 @@ public class AddressableCDD : MonoBehaviour
 
         _statusText.text = "Loading Sprites...";
         yield return LoadSprites();
+
+        _statusText.text = "Loading RegisterPrefab...";
+        yield return LoadRegisterPrefab();
 
         _statusText.text = "All assets cached!";
         yield return new WaitForSeconds(0.5f);
@@ -227,7 +248,7 @@ public class AddressableCDD : MonoBehaviour
     // ?? 캐시 접근용 함수
     public GameObject GetPrefab(string name)
     {
-        _prefabCache.TryGetValue(name, out var prefab);
+        _registerprefabCache.TryGetValue(name, out var prefab);
         return prefab;
     }
     public void LogAllCachedSprites()
@@ -245,30 +266,6 @@ public class AddressableCDD : MonoBehaviour
         Debug.Log(sprite);
         return sprite;
     }
-    private void Update()
-    {
-        /* // PrefabCache 상태 확인
-         foreach (var kvp in _prefabCache)
-         {
-             if (kvp.Value == null)
-             {
-                 Debug.LogWarning($"❌ Destroyed prefab detected: {kvp.Key}");
-             }
-             else
-             {
-                 Debug.Log($"✅ Alive prefab: {kvp.Key}");
-             }
-         }
-
-         // SpriteCache 상태 확인 (참고용)
-         foreach (var kvp in _spriteCache)
-         {
-             if (kvp.Value == null)
-             {
-                 Debug.LogWarning($"❌ Destroyed sprite detected: {kvp.Key}");
-             }
-         }
- */
-    }
+  
 }
 
