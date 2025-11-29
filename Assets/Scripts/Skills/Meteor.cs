@@ -97,7 +97,7 @@ public class Meteor : NetworkBehaviour
                 Monster monster = hitObject.GetComponent<Monster>();
                 if (monster != null)
                 {
-                    monster.TakeDamage((int)damage);
+                    //monster.TakeDamage((int)damage);
                 }
             }
         }

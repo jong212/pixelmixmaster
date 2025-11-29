@@ -8063,7 +8063,7 @@ GameObject:
   - component: {fileID: 6731864846320133639}
   - component: {fileID: 5997498096471133736}
   - component: {fileID: 2591559683898159722}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tilemaps (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

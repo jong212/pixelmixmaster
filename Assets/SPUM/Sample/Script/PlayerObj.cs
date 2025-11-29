@@ -10,7 +10,7 @@ public class PlayerObj : MonoBehaviour
 {
     public SPUM_Prefabs _prefabs;
     public float _charMS;
-    private PlayerState _currentState;
+    public PlayerState _currentState;
 
     public Vector3 _goalPos;
     public bool isAction = false;
@@ -34,24 +34,33 @@ public class PlayerObj : MonoBehaviour
         IndexPair[state] = index;
     }
     public void PlayStateAnimation(PlayerState state){
+        Debug.Log(state.ToString());
         _prefabs.PlayAnimation(state, IndexPair[state]);
     }
     void Update()
     {
         if(isAction) return;
 
-        transform.position = new Vector3(transform.position.x,transform.position.y,transform.localPosition.y * 0.01f);
-        switch(_currentState)
-        {
-            case PlayerState.IDLE:
-            
-            break;
+        /*      transform.position = new Vector3(transform.position.x,transform.position.y,transform.localPosition.y * 0.01f);
+              switch(_currentState)
+              {
+                  case PlayerState.IDLE:
 
-            case PlayerState.MOVE:
-            DoMove();
-            break;
-        }
-        PlayStateAnimation(_currentState);
+                  break;
+
+                  case PlayerState.MOVE:
+                  DoMove();
+                  break;
+              }*/
+      /*  if (Input.GetMouseButtonDown(0))
+        {
+            _currentstate = playerstate.idle;
+            } else if (Input.GetMouseButtonDown(1))
+        {
+            _currentState = PlayerState.MOVE;
+                }*/
+
+            PlayStateAnimation(_currentState);
 
     }
 

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -5891975560530144231}
   m_Layer: 3
   m_Name: mon2
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,11 +200,23 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
+  monsterId: 0
+  zoneId: 
   maxHealth: 100
   currentHealth: 0
   moveSpeed: 2
-  detectionRadius: 10
-  stunDuration: 0.7
+  attackRange: 1.2
+  attackRate: 1.5
+  damage: 10
+  patrolRadius: 3
+  detectRadius: 5
+  aggroTimeout: 5
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  alive: 1
+  isStunned: 0
+  nextRespawnTime: 0
 --- !u!114 &3773447492689221715
 MonoBehaviour:
   m_ObjectHideFlags: 0

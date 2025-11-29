@@ -1,258 +1,337 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using BACKND;
-using System;
-using Random = UnityEngine.Random;
 
 public class Monster : NetworkBehaviour
 {
+    // ★ Return 상태 삭제
+    public enum State { Idle, Patrol, Chase, Attack }
+
+    [Header("Identity")]
+    public int monsterId;
+    public string zoneId;
+
     [Header("Stats")]
-    public int maxHealth = 100;
+    public float maxHealth = 100f;
     [SyncVar(hook = nameof(OnHealthChanged))]
-    public int currentHealth;
-    public float moveSpeed = 2f;
-    public float detectionRadius = 5f;
-    public float stunDuration = 0.5f;
+    public float currentHealth;
 
-    // ← 자동 동기화 대상 (늦게 접속한 클라도 수신)
-    [SyncVar(hook = nameof(OnAliveChanged))] public bool alive = true;
-    [System.NonSerialized] public float nextRespawnTime = 0f;
+    public float moveSpeed = 2.0f;
+    public float attackRange = 1.2f;
+    public float attackRate = 1.5f;
+    public int damage = 10;
 
-    [HideInInspector]   public bool respawnScheduled = false;
-    [HideInInspector] public string zoneId;
-    [HideInInspector] public int archetypeId;
-    // 상태 변수
-    [SyncVar]
-    private bool isStunned = false;
-    
-    // 색상 동기화를 위한 SyncVar
-    [SyncVar(hook = nameof(OnColorChanged))]
-    private Color monsterColor = Color.white;
-    
-    // 이동 관련 변수
-    private Vector3 targetPosition;
-    private float nextPositionChangeTime = 0f;
-    private float positionChangeInterval = 3f;
-    private Bounds groundBounds;
-    private bool hasGroundBounds = false;
-    
-    // 컴포넌트 참조
+    [Header("AI Settings")]
+    public float patrolRadius = 3f;     // 현 위치 기준 배회 반경
+    public float detectRadius = 5f;
+    public float aggroTimeout = 5f;     // 추격 포기 시간
+
+    public LayerMask obstacleLayer;     // 벽 레이어
+
+    [Header("State Sync")]
+    [SyncVar] public bool alive = true;
+    [SyncVar] public bool isStunned = false;
+    public float nextRespawnTime = 0f;
+
+    // --- 내부 로직 변수 ---
+    private State currentState = State.Idle;
+    // private Vector3 anchorPosition;  <-- 삭제됨
     private SpriteRenderer spriteRenderer;
+    private Collider2D monsterCollider;
+
+    // 어그로 시스템
+    private List<GameObject> aggroTargets = new List<GameObject>();
     private GameObject currentTarget;
-    
-    // 초기화
+
+    // 타이머 및 타겟 좌표
+    private float lastAttackTime;
+    private float lastAggroTime;
+    private float stateTimer;
+    private Vector3 moveTargetPos;
+
     public override void OnStartServer()
     {
         base.OnStartServer();
         currentHealth = maxHealth;
-        
-        // 서버에서만 초기 위치 설정
-        ChooseNewPosition();
+        // anchorPosition 설정 로직 삭제
+        ChangeState(State.Idle);
     }
-    
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        monsterCollider = GetComponent<Collider2D>();
     }
-    
-    public override void OnStartClient()
-    {
-        Debug.Log("test123sss");
-        base.OnStartClient();
-        // 클라이언트 시작 시 현재 색상 적용
-        spriteRenderer.color = monsterColor;
-    }
-    
-    // 색상 변경 훅 메서드
-    private void OnColorChanged(Color oldColor, Color newColor)
-    {
-        spriteRenderer.color = newColor;
-    }
-    
-    // 그라운드 경계 설정 메서드
-    public void SetGroundBounds(Bounds bounds)
-    {
-        groundBounds = bounds;
-        hasGroundBounds = true;
-    }
-    
+
     private void Update()
     {
-        if (!isServer) return;
-        
+        if (!isServer || !alive) return;
         if (isStunned) return;
-        
-        // 플레이어 감지 및 추적
-        DetectAndChasePlayer();
-        
-        // 일반 이동 로직
-        if (currentTarget == null && Time.time > nextPositionChangeTime)
-        {
-            ChooseNewPosition();
-            nextPositionChangeTime = Time.time + positionChangeInterval;
-        }
-        
-        // 이동 로직
-        MoveToTarget();
-    }
-    
-    // 플레이어 감지 및 추적 로직
-    [Server]
-    private void DetectAndChasePlayer()
-    {
-        // 현재 타겟이 없거나 타겟이 파괴되었다면
-        if (currentTarget == null || currentTarget.activeSelf == false)
-        {
-            // 주변 플레이어 탐색
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
-            
-            float closestDistance = float.MaxValue;
-            GameObject closestPlayer = null;
-            
-            foreach (Collider2D collider in colliders)
-            {
-                if (collider.CompareTag("Player"))
-                {
-                    float distance = Vector3.Distance(transform.position, collider.transform.position);
-                    if (distance < closestDistance)
-                    {
-                        closestDistance = distance;
-                        closestPlayer = collider.gameObject;
-                    }
-                }
-            }
-            
-            currentTarget = closestPlayer;
-        }
-        
-        // 타겟이 있으면 타겟 위치로 이동
-        if (currentTarget != null)
-        {
-            targetPosition = currentTarget.transform.position;
-        }
-    }
-    
-    // 이동 로직
-    [Server]
-    private void MoveToTarget()
-    {
-        // 목표 지점까지의 방향 계산
-        Vector3 direction = (targetPosition - transform.position).normalized;
-        
-        // 이동 속도 계산
-        Vector3 movement = direction * moveSpeed * Time.deltaTime;
-        
-        // 다음 위치 계산
-        Vector3 nextPosition = transform.position + movement;
-        
-        // 그라운드 경계 내에 있는지 확인
-        if (hasGroundBounds)
-        {
-            // 경계 내로 제한
-            float borderMargin = 0.5f;
-            nextPosition.x = Mathf.Clamp(nextPosition.x, groundBounds.min.x + borderMargin, groundBounds.max.x - borderMargin);
-            nextPosition.y = Mathf.Clamp(nextPosition.y, groundBounds.min.y + borderMargin, groundBounds.max.y - borderMargin);
-        }
-        
-        // 이동 적용
-        transform.position = nextPosition;
-        
-        // 방향에 따라 스프라이트 뒤집기
-        if (direction.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else if (direction.x > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
-    }
-    
-    // 새로운 이동 위치 선택
-    [Server]
-    private void ChooseNewPosition()
-    {
-        float randomX = Random.Range(-5f, 5f);
-        float randomY = Random.Range(-5f, 5f);
 
-        if (!hasGroundBounds)
+        switch (currentState)
         {
-            // 그라운드 경계가 없으면 현재 위치 주변으로 이동
-            targetPosition = transform.position + new Vector3(randomX, randomY, 0);
+            case State.Idle: ProcessIdle(); break;
+            case State.Patrol: ProcessPatrol(); break;
+            case State.Chase: ProcessChase(); break;
+            case State.Attack: ProcessAttack(); break;
+                // Return 케이스 삭제
+        }
+    }
+
+    // ========================================================================
+    // 1. 상태별 행동 로직
+    // ========================================================================
+
+    [Server]
+    private void ProcessIdle()
+    {
+        stateTimer += Time.deltaTime;
+
+        // 2~4초 쉬고 다시 배회
+        if (stateTimer > Random.Range(2f, 4f))
+        {
+            SetNewPatrolTarget();
+            ChangeState(State.Patrol);
+        }
+    }
+
+    [Server]
+    private void ProcessPatrol()
+    {
+        MoveTo(moveTargetPos, moveSpeed * 0.5f);
+
+        if (Vector3.Distance(transform.position, moveTargetPos) < 0.1f)
+        {
+            ChangeState(State.Idle);
+        }
+    }
+
+    [Server]
+    private void ProcessChase()
+    {
+        UpdateBestTarget();
+
+        // ★ 거리 체크(IsTooFarFromAnchor) 삭제됨. 
+        // 오직 타겟이 없거나 시간이 지났을 때만 포기.
+        if (currentTarget == null || IsAggroTimeout())
+        {
+            GiveUpChase(); // 복귀(Return) 대신 그냥 포기
             return;
         }
-        
-        // 그라운드 경계 내에서 랜덤 위치 선택
-        float borderMargin = 1.0f;
-        randomX = Random.Range(groundBounds.min.x + borderMargin, groundBounds.max.x - borderMargin);
-        randomY = Random.Range(groundBounds.min.y + borderMargin, groundBounds.max.y - borderMargin);
-        
-        targetPosition = new Vector3(randomX, randomY, 0);
-    }
-    
-    // 데미지 처리
-    [Server]
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        
-        // 스턴 처리
-        isStunned = true;
-        monsterColor = Color.red; // SyncVar를 통해 모든 클라이언트에 전파됨
 
-        StartCoroutine(ResetStunState());
-        
-        // 사망 처리
-        if (currentHealth <= 0)
+        float dist = Vector3.Distance(transform.position, currentTarget.transform.position);
+
+        if (dist <= attackRange)
         {
-            Die();
+            ChangeState(State.Attack);
+        }
+        else
+        {
+            MoveTo(currentTarget.transform.position, moveSpeed);
         }
     }
-    
-    // 스턴 상태 리셋
-    [Server]
-    private IEnumerator ResetStunState()
-    {
-        yield return new WaitForSeconds(stunDuration);
 
-        isStunned = false;
-        monsterColor = Color.white; // SyncVar를 통해 모든 클라이언트에 전파됨
+    [Server]
+    private void ProcessAttack()
+    {
+        if (currentTarget == null || !currentTarget.activeSelf)
+        {
+            ChangeState(State.Chase);
+            return;
+        }
+
+        float dist = Vector3.Distance(transform.position, currentTarget.transform.position);
+
+        if (dist > attackRange)
+        {
+            ChangeState(State.Chase);
+            return;
+        }
+
+        if (Time.time - lastAttackTime >= attackRate)
+        {
+            DoAttack();
+            lastAttackTime = Time.time;
+        }
     }
-    
-    // 사망 처리
+
+    // ProcessReturn() 함수 통째로 삭제됨
+
+    // ========================================================================
+    // 2. 행동 함수
+    // ========================================================================
+
+    [Server]
+    private void MoveTo(Vector3 target, float speed)
+    {
+        Vector3 direction = (target - transform.position).normalized;
+        float distToTarget = Vector3.Distance(transform.position, target);
+        float moveDist = speed * Time.deltaTime;
+
+        if (moveDist > distToTarget) moveDist = distToTarget;
+
+        if (!Physics2D.Raycast(transform.position, direction, 0.5f, obstacleLayer))
+        {
+            transform.position += direction * moveDist;
+        }
+
+        if (direction.x < -0.01f) spriteRenderer.flipX = true;
+        else if (direction.x > 0.01f) spriteRenderer.flipX = false;
+    }
+
+    [Server]
+    private void DoAttack()
+    {
+        if (currentTarget == null) return;
+
+        PlayerController pc = currentTarget.GetComponent<PlayerController>();
+        if (pc != null)
+        {
+            // pc.TakeDamage(damage); 
+        }
+
+        lastAggroTime = Time.time;
+        RpcPlayAttackEffect();
+    }
+
+    [ClientRpc]
+    private void RpcPlayAttackEffect()
+    {
+        // 애니메이션 등
+    }
+
+    [Server]
+    public void TakeDamage(int damageAmount, GameObject attacker)
+    {
+        if (!alive) return;
+
+        currentHealth -= damageAmount;
+
+        if (attacker != null && !aggroTargets.Contains(attacker))
+        {
+            aggroTargets.Add(attacker);
+        }
+
+        lastAggroTime = Time.time;
+
+        // Idle이든 Patrol이든 맞으면 바로 추격
+        if (currentState == State.Idle || currentState == State.Patrol)
+        {
+            ChangeState(State.Chase);
+        }
+
+        StartCoroutine(FlashColor());
+
+        if (currentHealth <= 0) Die();
+    }
+
+    // ========================================================================
+    // 3. 판단 및 유틸리티
+    // ========================================================================
+
+    [Server]
+    private void ChangeState(State newState)
+    {
+        currentState = newState;
+        stateTimer = 0f;
+    }
+
+    // ★ 이름 변경: GiveUpAndReturn -> GiveUpChase
+    [Server]
+    private void GiveUpChase()
+    {
+        currentTarget = null;
+        aggroTargets.Clear();
+
+        // ★ 집으로 안 감. 그냥 그 자리에서 바로 Idle 상태가 됨.
+        // 이러면 자연스럽게 그 주변을 다시 배회하기 시작함.
+        ChangeState(State.Idle);
+    }
+
+    [Server]
+    private void SetNewPatrolTarget()
+    {
+        // 현재 위치 기준으로 랜덤 이동 (앵커 거리 체크 삭제됨)
+        for (int i = 0; i < 5; i++)
+        {
+            Vector2 randomDir = Random.insideUnitCircle.normalized;
+            float distance = Random.Range(1f, patrolRadius);
+            Vector3 potentialPos = transform.position + (Vector3)(randomDir * distance);
+
+            // 벽 체크만 수행
+            if (!Physics2D.Raycast(transform.position, (potentialPos - transform.position).normalized, distance, obstacleLayer))
+            {
+                moveTargetPos = potentialPos;
+                return;
+            }
+        }
+        moveTargetPos = transform.position;
+    }
+
+    [Server]
+    private void UpdateBestTarget()
+    {
+        aggroTargets.RemoveAll(t => t == null || !t.activeSelf);
+
+        if (aggroTargets.Count == 0)
+        {
+            currentTarget = null;
+            return;
+        }
+
+        GameObject bestTarget = null;
+        float minDist = float.MaxValue;
+
+        foreach (var t in aggroTargets)
+        {
+            float d = Vector3.Distance(transform.position, t.transform.position);
+            if (d < minDist)
+            {
+                minDist = d;
+                bestTarget = t;
+            }
+        }
+        currentTarget = bestTarget;
+    }
+
+    [Server]
+    private bool IsAggroTimeout()
+    {
+        return Time.time - lastAggroTime > aggroTimeout;
+    }
+
     [Server]
     private void Die()
     {
-        Debug.Log("DIE...");
-        // 충돌 비활성화
-        if (GetComponent<Collider2D>() != null)
-        {
-            GetComponent<Collider2D>().enabled = false;
-        }
-
-        if (!alive) return;
-        alive = false;            // ★ 숨김 상태 전파(모든/늦은 클라 포함)
-        var col = GetComponent<Collider2D>();
-        if (col) col.enabled = false;  
-        nextRespawnTime = Time.time + 3f; // 예: 3초 후 리스폰
-
+        alive = false;
+        aggroTargets.Clear();
+        if (monsterCollider) monsterCollider.enabled = false;
     }
+
     [Server]
     public void ResetForRespawn()
     {
+        alive = true;
         currentHealth = maxHealth;
-        var col = GetComponent<Collider2D>();
-        if (col) col.enabled = true;
-        nextRespawnTime = 0f;
+        isStunned = false;
+        aggroTargets.Clear();
+        currentTarget = null;
+
+        if (monsterCollider) monsterCollider.enabled = true;
+
+        // 앵커 초기화 삭제됨
+        ChangeState(State.Idle);
     }
-    void OnAliveChanged(bool oldVal, bool newVal)
+
+    private IEnumerator FlashColor()
     {
-        foreach (var r in GetComponentsInChildren<Renderer>(true)) r.enabled = newVal;
-        foreach (var c in GetComponentsInChildren<Collider2D>(true)) c.enabled = newVal;
+        if (spriteRenderer) spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        if (spriteRenderer) spriteRenderer.color = Color.white;
     }
-    // 체력 변경 시 호출되는 메서드
-    private void OnHealthChanged(int oldHealth, int newHealth)
+
+    private void OnHealthChanged(float oldHealth, float newHealth)
     {
-        // 체력 UI 업데이트 등의 작업 수행
     }
 }

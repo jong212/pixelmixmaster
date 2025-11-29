@@ -37,6 +37,10 @@ public class GameNetworkManager : NetworkManager
     private BACKND.DataTable _dataTable;
     private Dictionary<string, int> _mapinfo = new Dictionary<string, int>();
 
+    [Header("Player Management")]
+    // ★ 현재 접속 중인 플레이어 목록 (몬스터나 게임 로직에서 참조)
+    public List<PlayerController> ActivePlayers = new List<PlayerController>();
+
     [Header("Parents")]
     public Transform Mapparent;
     public Transform Monsterparent;
@@ -61,8 +65,6 @@ public class GameNetworkManager : NetworkManager
 
     public override void Awake()
     {
-        // 화면 비율 설정
-        SetCameraRect();
         base.Awake();
     }
     private void Start()
@@ -79,6 +81,28 @@ public class GameNetworkManager : NetworkManager
     //  Awake 개념
     //  클라접속시 서버한테 메시지 보낼 수 있도록 미리 받을 준비 하기 위해 핸들러 등록
     // ======================    
+    
+    // =========================================================
+    // ★ 플레이어 등록/해제 (PlayerController에서 호출)
+    // =========================================================
+    public void RegisterPlayer(PlayerController player)
+    {
+        if (!ActivePlayers.Contains(player))
+        {
+            ActivePlayers.Add(player);
+            Debug.Log($"[Server] 플레이어 입장: {player.name} (현재 {ActivePlayers.Count}명)");
+        }
+    }
+
+    public void UnregisterPlayer(PlayerController player)
+    {
+        if (ActivePlayers.Contains(player))
+        {
+            ActivePlayers.Remove(player);
+            Debug.Log($"[Server] 플레이어 퇴장: {player.name} (현재 {ActivePlayers.Count}명)");
+        }
+    }
+
     public override void OnStartServer()
     {
         Debug.Log("1_서버 실행");
@@ -343,8 +367,7 @@ public class GameNetworkManager : NetworkManager
         if (m != null)
         {
             m.zoneId = mapKey;
-            m.archetypeId = data.monster_id;
-            m.SetGroundBounds(groundBounds);
+            m.monsterId = data.monster_id;
         }
 
         NetworkServer.Spawn(go);
@@ -475,6 +498,7 @@ public class GameNetworkManager : NetworkManager
 
         // 모든 몬스터 제거
         ClearAllMonsters();
+        ActivePlayers.Clear(); // 서버 종료 시 플레이어 목록 초기화
     }
     
     [Server] // 모든 몬스터 제거
@@ -545,35 +569,7 @@ public class GameNetworkManager : NetworkManager
         }
     }
 
-    private void SetCameraRect()
-    {
-        Camera mainCamera = Camera.main;
 
-        // 세로 모드에서는 9:16 비율 유지
-        float targetAspect = 9.0f / 16.0f;
-        float windowAspect = (float)Screen.width / (float)Screen.height;
-        float scaleWidth = windowAspect / targetAspect;
-
-        if (scaleWidth < 1.0f)
-        {
-            Rect rect = mainCamera.rect;
-            rect.width = scaleWidth;
-            rect.height = 1.0f;
-            rect.x = (1.0f - scaleWidth) / 2.0f;
-            rect.y = 0;
-            mainCamera.rect = rect;
-        }
-        else
-        {
-            float scaleHeight = 1.0f / scaleWidth;
-            Rect rect = mainCamera.rect;
-            rect.width = 1.0f;
-            rect.height = scaleHeight;
-            rect.x = 0;
-            rect.y = (1.0f - scaleHeight) / 2.0f;
-            mainCamera.rect = rect;
-        }
-    }
     
 
     public SettingMonsterData GetMonsterSetting(string monsterId)
