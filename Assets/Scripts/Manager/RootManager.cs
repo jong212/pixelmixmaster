@@ -31,12 +31,12 @@ public class RootManager : Singleton<RootManager>
 
 #if UNITY_SERVER
         GameNetworkManager = FindObjectOfType<GameNetworkManager>();
-        SetDataManager = new SetDataManager();
         GameDataManager = FindObjectOfType<GameDataManager>();
 #else
+       
         EndManager = new EndManager();
         GameNetworkManager = FindObjectOfType<GameNetworkManager>();
-        SetDataManager = new SetDataManager();
+        SetDataManager = FindObjectOfType<SetDataManager>();
         GameDataManager = FindObjectOfType<GameDataManager>();
 #endif
 
@@ -46,13 +46,20 @@ public class RootManager : Singleton<RootManager>
 
     public IEnumerator NextInit()
     {
+        // 어드레서블 리소스 다운
         AddressableCDD.Initialize();
         yield return new WaitUntil(() => AddressableCDD.IsReady);
         Debug.Log("AddressableCDD Ready!");
 
+        // 구글 로그인 
         EndManager.Initialize();
         yield return new WaitUntil(() => EndManager.IsReady);
         Debug.Log("EndManager Ready!");
+
+        // 뒤끝에서 유저정보, 몬스터 정보, 인벤정보 등 가져와서 변수에 세팅
+        SetDataManager.Initialize();
+        yield return new WaitUntil(() => SetDataManager.IsReady);
+        Debug.Log("SetDataManager Ready!");
     }
     /// <summary>
     /// COROUTINE 모노 안 받는 매니저에서 코루틴 못 쓸때 이거 호출하기

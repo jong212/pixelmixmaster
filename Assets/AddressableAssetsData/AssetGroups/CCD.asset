@@ -17,8 +17,1034 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6d977cceb2f529e4d9e28a2657c03599
   m_SerializeEntries:
-  - m_GUID: 3a359b94720dfb847bea65b0b0af88dc
-    m_Address: Assets/Resources_moved/Sprites/Pikachu 1.png
+  - m_GUID: 014107bccc00d5542a4d00fc270ead94
+    m_Address: Cloth_Right_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01b1a100a542e4f41ba8d9a7b8b4a5ea
+    m_Address: Normal_Hair4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 036d78a50e5198843a583497a0bd1578
+    m_Address: Elf_Cloth_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04583eaad3a5fa0409644af1bf8b7a58
+    m_Address: Undead_Weapon_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 048d55b9daeb5b043898410755917f53
+    m_Address: Eye7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 04e444ee7eba9004abd06d752189af6d
+    m_Address: suit_1_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 050f41e5122b30e4ca9061d47a9b34f1
+    m_Address: Weapon_Sorcerer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05235728eefce4c4fb26f610d81a7c33
+    m_Address: Orc_Helmet_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 060764953a77117439674d8c300cbd8a
+    m_Address: Elf_Pant_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 067d744e9ad228c4faccd5594e75f987
+    m_Address: Pant_Left_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 067dc0233432d7f4aa796a31667d64c6
+    m_Address: New_Armor_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 06ac35e874781614b9f9fb49cc64dc4b
+    m_Address: Back_Healer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07a8d218da65231469f511835903ac86
+    m_Address: winter3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07fd95b5358ea87498879028bbc37f2d
+    m_Address: Helmet_m06_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08add06670a45c545ae7b2091302a4a7
+    m_Address: farmer_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08ed9126502e4984fa1178aeed5bd8ed
+    m_Address: Undead_Pant_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0986304d104018e4c90afe1847c24081
+    m_Address: Cloth_Body_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09b71ee4e25be0f45990e33dd2617e16
+    m_Address: Horse2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09f3dc490e56e7c4d8c735b7dd86394d
+    m_Address: Foot_m02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a4f4eaee7e1f0342ba8dd74a8e8364b
+    m_Address: Orc_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a59e6f306d37c5479f0e9cf01d6dc0d
+    m_Address: Helmet_m05_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ae0581d786db21438157fb423802b5e
+    m_Address: Normal_Hair13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0aefa6b0840927d49b8565b5557cdd61
+    m_Address: Pant_Knight_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b2298b566cf3974493333a86dc978ea
+    m_Address: Eye4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b503acfef5e13946be78ec702da1c0a
+    m_Address: New_Cloth_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c98c6f82c508654db2118cb19b89b75
+    m_Address: Elf_Weapon_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d36725ff73c29c4facff7826e535a5e
+    m_Address: Cloth_Right_010
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d8fe5e5a782f4047990dc2764bfad7e
+    m_Address: Armor_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e1aa42d868b7224eacffc50715b953b
+    m_Address: Elf_Armor_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e5123b3b2ba9334b83dee27d66e3fb0
+    m_Address: New_Cloth_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e7bdfacc6cf97b4ba514d60d11235ec
+    m_Address: Helmet_m05_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0eaa3c3d296ae954ca4f8e0fb74ae683
+    m_Address: Human_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f7ff712b95159742b75760e50513ed8
+    m_Address: Shield_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11525673a2d4e73439e4c2f607d23aa9
+    m_Address: Helmet_m06_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11690737e009bdc45992920f51515e10
+    m_Address: face_eyelash
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11df523b8ee39144cad0811905d157be
+    m_Address: Normal_Helmet1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 121082bf68f2cba42b08854f784331d8
+    m_Address: Undead_Armor_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12cec89becf11984aa204dd48a5a6c4b
+    m_Address: Elf_Armor_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12f121170f2455e4eb0e035e3b62314b
+    m_Address: dress_3_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13c1160eb406d99468c34a66860074d7
+    m_Address: Back_Archer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13f37a8da405b9d45b75287e3491014b
+    m_Address: Helmet_m01_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14472ce9828338e42a25c581b88f02bd
+    m_Address: New_Cloth_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 145ece6a9d6267147bdda561fe97d534
+    m_Address: Elf_Armor_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 146daf62e84788144b2b10cb3c993b54
+    m_Address: BowBack_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14f2c22c3664f0947bb1f37246a0008d
+    m_Address: Elf_Armor_19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14f8005466bb6154f9e59ca92f0d8647
+    m_Address: Weapons_Sword_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1558b7bf0f347c14699411fd3b79df4c
+    m_Address: tee_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16267811115585c4eaa0118b76b150c2
+    m_Address: Elf_Pant_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 162dae2d950d3f14fa1eda360b847e75
+    m_Address: Elf_Weapon_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 174146d951dfd9b42846e4d899181683
+    m_Address: Ward_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 174746aaf1c78fa4ea0ee6f71c0a929d
+    m_Address: Cloth_Body_010
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 17f39da7d79d1f94ba9e6790010d0e0a
+    m_Address: face_acc_m02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 182f86fd1cb5c784a94bfff0a9bbd01d
+    m_Address: Elf_Pant_14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 185d08ac00f191346b26fd36a55d7cba
+    m_Address: winter3_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 189f2c115517529489093aad58ebb425
+    m_Address: Soon_Back1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18a5094c828fe76418f962154a36eff8
+    m_Address: New_Armor_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 196251cd4f3dc5d4e9d8afc8dc0b7a44
+    m_Address: Helmet_Knight_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19b0c5a5abbf90645b50045da4c7aab6
+    m_Address: Cloth_Rogue_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19b1970510a2894429be2c17c270e3f7
+    m_Address: tee_2_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19cea2b23ae6af14e8c7f59b495e61e7
+    m_Address: Undead_Armor_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19e15d891e37018459719b3d5a892993
+    m_Address: Elf_Cloth_14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 19f0b73d92ef1bf49ba2bdc5a47a90c1
+    m_Address: Helmet_m10_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a6518d0603d97648a08eceb171d24cf
+    m_Address: Cloth_Right_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a7102267082ec546a146aa2d83d284d
+    m_Address: Elf_Shield_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a89c08cc90bcb04cbe8ebdb8d773e82
+    m_Address: Zombie_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ac5f0097c80efa4f96596a95048521f
+    m_Address: Cloth_Left_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b0bfe3f45289244797a07d181b0052b
+    m_Address: Weapon_m_phone
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b1c1c50c737ddb40a338c061cc02074
+    m_Address: Helmet_m02_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b1e636a62774064598ce158e9f83479
+    m_Address: Elf_Armor_17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b322afe1c1aacc40aa58e3b5e419fa3
+    m_Address: Foot_m01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b5ffec38149da945bb8f39c5456952e
+    m_Address: Elf_Weapon_19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b9f7a06568070245877188a1c30d23d
+    m_Address: Undead_Helmet_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bb78e3207bb48945b5812c326ee2c6a
+    m_Address: Undead_Weapon_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bf83d4c7cd9be041ba31b45c2ca00b7
+    m_Address: Helmet_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c3edf9f358aa684d9786c9ead78309a
+    m_Address: Cloth_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d117f2ad3558a7419d14aa6c73aeb28
+    m_Address: Elf_Cloth_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d8b0914321161e4990833043b1d944f
+    m_Address: Cloth_Left_011
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1e3367b085d947d44a2bc00ab4a6392d
+    m_Address: Helmet_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f3c98e4b759baf4c83e35880aaa118d
+    m_Address: New_Weapon_20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2046975efe8545749ac31dcf87b3b5f0
+    m_Address: Hair_m05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 211533d95cc8a76449c06c45b39926ff
+    m_Address: Cloth_Left_004
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2115b0f637c481e409d8162e30520995
+    m_Address: Hair_m13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2125cf6766cc2844f82567ca014a25df
+    m_Address: face_acc_m05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 216b591113194384db62c6b2e9229bb1
+    m_Address: New_Weapon_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21e368cb6e6d8a04493bc7881e25ef71
+    m_Address: New_weapon_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21e53548a7ee1bc48b3485737ceea23d
+    m_Address: Hair_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22830168662fabd4ba54a9e05be7696a
+    m_Address: New_Cloth_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23576d41686403b46a4b20dc14a47bf0
+    m_Address: Eye10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2373bdc92f8c080498da17065fce136c
+    m_Address: face_acc_m06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23ee0f20aa1b9db478db82c411eb69d9
+    m_Address: New_Hair_13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23f3093e56b318b45baea7acc9f1a658
+    m_Address: Elf_Back_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 246a0c5616278ea47b53db049e9d3153
+    m_Address: Back_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 247c80189bccf084ebd419bc9f2c3ad5
+    m_Address: Eye16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 254eaa7b02b89934284092a5f09cf88f
+    m_Address: Elf_Back_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2554859ffdc43974b9267a61662ee7b9
+    m_Address: Helmet_m07_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 263dc82cdedd48d46ab09947dcf7b5ad
+    m_Address: Cloth_Archer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2796b84a8f1820745a3c9637fc292a13
+    m_Address: Elf_Pant_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27b3475d76886bb45aa2638f8e15caa5
+    m_Address: Armor_Left_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 280458342679869458c4e53b7f560cd9
+    m_Address: Orc_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 281086a3bfb7e4840abce166b0a22028
+    m_Address: Elf_Helmet_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 288472a3e74640642b677984b0dbfa62
+    m_Address: Orc_Pant_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28a9d0c42024cee4184559bed366f21b
+    m_Address: Cloth_Archer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2970345838f5bc34eb375d182c63c087
+    m_Address: Orc_Armor_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 299fb32007f9bb74ab185a37b307b4b2
+    m_Address: F_SR_Pants
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29b6605438a57ab428e52a9ef0251048
+    m_Address: Elf_Helmet_17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a0e292bebc3a0c44a9833a041c76247
+    m_Address: Elf_Cloth_13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a361b0071f63c94f9bccb16bd31e266
+    m_Address: Elf_Pant_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ad0799c2152e59458eb5c36c2c5daad
+    m_Address: Weapon_m_pan
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b24b54039fd6534fa3ba2bbc79a8a30
+    m_Address: Helmet_m03_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b27020933f5b8e4a8a0a5154012b6fc
+    m_Address: Helmet_m07_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b8940c0c72fc6b448292af612ff686c
+    m_Address: tee_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b8aeb0ef94f8c9428ccec5c23dea92a
+    m_Address: Orc_Armor_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bce771ad1da45146b9a49fbbcb108b8
+    m_Address: Cloth_7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c004b2951be8464292fd353363dcc17
+    m_Address: Cloth_Rogue_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c4c9de820801d348aabd0a38649aa96
+    m_Address: Elf_Shield_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c6ef3b2238964d4aa321a60cc393ea2
+    m_Address: New_Armor_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cc63818632e60f489230bcfa350fe6c
+    m_Address: hoodie_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cc7bad52bb93f546ade2293635ae128
+    m_Address: Elf_Weapon_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cd7ebb046e173d438c2275f99b4d07b
+    m_Address: F_SR_Cloth
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d69d1a182c2d7d45a4938c20c143525
+    m_Address: Hair_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d723871b1a5af64cb5ddee160bfd84d
+    m_Address: New_Weapon_16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2daab019699a5c64c8e5473797d3a531
+    m_Address: Elf_Weapon_16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2db850758eb881043ab66817d98e4d76
+    m_Address: Cloth_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dc093eb628e0ee4bbd5bca9417bbf67
+    m_Address: Cloth_Right_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e69fad640873f8489c760867e4aab78
+    m_Address: Undead_Armor_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f638e62467a64e4ebb875c07e9b7050
+    m_Address: Helmet_m08_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ff573a8c444bed448eb7277966e992b
+    m_Address: Hair_Rogue_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 302e41891010cb645a66c4ccbb2f2e35
+    m_Address: Foot_m05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30486bd87f2db7248ae80ae93c4c9953
+    m_Address: Foot_m03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 307907d3cbe633f4994be84b89c49b33
+    m_Address: Orc_Weapon_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30ec6c9ac1aafbf43bcc240750d883e4
+    m_Address: Helmet_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 316aba2adb8f79246825ee577c6ac416
+    m_Address: tee_2_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 324e4bd665624b0408c94b0e2b8f4fe6
+    m_Address: dress_5_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 328eb987457ae434b93ad2bd27f90040
+    m_Address: face_cheek
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3338eeef134599847bbfb4a6c9a70d6b
+    m_Address: Orc_Weapon_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 336f18f47c1184d40b866565ead757ae
+    m_Address: Undead_Weapon_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33c552c706635974f96f3f6622d534d6
+    m_Address: face_lip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33f8b9c535dcb1647af2438fd86cf841
+    m_Address: Undead_Pant_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 34c1353c12146674680f5ef529bc8c86
+    m_Address: Orc_Armor_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35ee0e3385bacc0468c63dd7bc1ef101
+    m_Address: Helmet_004
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 361a1ce9d6f753c49b17b087cb965bfa
+    m_Address: New_Pant_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36243b3c3cac4e740973d52c1d91a463
+    m_Address: New_Pant_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3674c13c397602d40828e30c244e570d
+    m_Address: Eye8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37205546384a219439b0f5708d00c3d2
+    m_Address: tee_1_g2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 377b2acdd3604a5448e3b79e3131a022
+    m_Address: dress_5_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3867d3ebca7b69c46991ff1c898539d0
+    m_Address: New_Cloth_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3869e81cecb45aa4e8efab898ac86d1f
+    m_Address: Helmet_008
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 387658d14875eb342a82d74ae7af908e
+    m_Address: Elf_Weapon_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3883b4188d7aa674086917f3cfe44478
+    m_Address: Weapons_Sword_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 390f4ff68eb8d504d9988b827ce20fbc
+    m_Address: FaceHair_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 393e8b85b17a8504aaacad9df11f8433
+    m_Address: Cloth_Right_005
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 395b45d6b488d8b439ebd580480fce04
+    m_Address: Undead_Weapon_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39fe1978f77c7b540ad8dc878ea2a48d
+    m_Address: Sword_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a03de24ac701c74596adbe5e24c9687
+    m_Address: Cloth_Right_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a27de94a15b8204cafebf95f6d88101
+    m_Address: New_Armor_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b5a1b2d3dd67c64fa7befbfff8682b9
+    m_Address: New_Shield_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b823af18a31af546a19388018ba495b
+    m_Address: Foot_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3bafb5b3b4917e44d9bedfc5f1b5c45f
+    m_Address: Cloth_Right_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cb01777013faf04b90c1f578eb46367
+    m_Address: New_Cloth_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cbd6bf61eb504e4cba646642c7482b0
+    m_Address: Elf_Weapon_17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cc3baf8cebe40e4296877180c30adb1
+    m_Address: Weapon_m_pouch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d0e08c1f820dd9459b0a31ce24239f1
+    m_Address: winter2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d1f2d70a322e1f4c9897ce40fcc3a55
+    m_Address: Helmet_m08_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d5e7224b095dcb4e922cc552c69904b
+    m_Address: Armor_Body_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3da9763034459e04d87cf4e2b69e05ce
+    m_Address: Helmet_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ddb1c6be19d82446b8505f14b11e55f
+    m_Address: Cloth_Body_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e41aea81f1694e49b36d8e3541f9b45
+    m_Address: Elf_Helmet_18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3e592e01759596e4b91ece38eea3098d
+    m_Address: New_Helmet_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ef47273e24f70044b8351f939471340
+    m_Address: Armor_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f4e478df17f9f849befe70a9b3d466b
+    m_Address: Elf_Hair_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f749ca19e181fe498c6e0f66191ca0c
+    m_Address: Elf_Pant_13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3feae17823857694bab4d6125c573460
+    m_Address: hoodie_c1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -29,14 +1055,3506 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4eb6038d67f34a14d95ac672d1906a8c
-    m_Address: Pikachu
+  - m_GUID: 404857404f3dc0849b3ed4f8546d0667
+    m_Address: Weapons_Sword_004
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8227158fad3139d4b8ca623fd78d2bb6
-    m_Address: Assets/Resources_moved/Sprites/Pikachu 2.png
+  - m_GUID: 40a9a665656e8204783a1f088e95550c
+    m_Address: New_Hair_20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4134cebbc0ed1a54c82d2fe32aae8343
+    m_Address: Elf_Back_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41495fd532af4d040889be033ac5523c
+    m_Address: Human_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 416ff8b65a33a7241a106b6684fe11ee
+    m_Address: Helmet_m08_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 419bb09d96b60aa48ba6c5ebdbf09b2c
+    m_Address: New_Cloth_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41afd9eb1828b0c4da3e2c0b54bbfba6
+    m_Address: Human_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41d0c88c53874c340bcadb358a588622
+    m_Address: Helmet_m10_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 426fb386f6233714291fd8e62be7fde5
+    m_Address: Orc_Cloth_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42cdbea143f56b144800171fab129726
+    m_Address: winter2_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42cedbe6ef98bb944a2674f3c201277c
+    m_Address: New_Cloth_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 42d87a977b00a0444859fe01515fcff3
+    m_Address: Cloth_Left_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 43c721f0625d766419c496d22deb6a2f
+    m_Address: Helmet_9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4402459316af9e44a8489d30ea53cbd7
+    m_Address: Elf_Armor_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4422c54a1fb86994e8977fc0d7c454d4
+    m_Address: dress_5_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 443457b1ec15c6a4fa681c17097977cd
+    m_Address: Cloth_Right_013
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44ba18054796bbb49b7d2670cd0b2eea
+    m_Address: Helmet_Archer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44bb00be7168a314c9e6328d69e0b3b2
+    m_Address: Undead_Pant_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44bfb04bf369c9043baebcf2ca5c7938
+    m_Address: Back_Archer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4517c493f5e0d9b4499772dbf193bc30
+    m_Address: Cloth_Body_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 453661f727f72c640990d5c2f27c0978
+    m_Address: Weapon_Healer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45b83fca6f864f244996ac96f723d0b1
+    m_Address: Helmet_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46db6c58d1888ef4bae8b387d2d2891b
+    m_Address: New_Weapon_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46fc9686a7f7ba64ebd86a5d1efe9813
+    m_Address: Elf_Hair_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47e48cc4db0793948a2cc64f6106fcda
+    m_Address: New_Cloth_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47f91187382db2740983e06e22c1eeee
+    m_Address: Normal_Hair1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 495c0499df72ac44cbe0c2a67812ae32
+    m_Address: Eye1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49b9bf609665de6439d95e53709c0779
+    m_Address: WoodShield3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ac75e9ed70fd024db6ff0456ca9c5e1
+    m_Address: Orc_Back_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b64183734777794bb9d62916d09cf5d
+    m_Address: Helmet_m01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b94d93cf573f9c4bbb5661821c5db44
+    m_Address: dress_1_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4be977e854ef8cb4ca403f98c2407ed4
+    m_Address: Orc_Mouse_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c61b7f24ef02fa4c95579ec721e4502
+    m_Address: SteelShield1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c70695dc38beed4592681a0a09dd840
+    m_Address: Cloth_Left_012
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cff3c5edf146574792365a578e7a4e2
+    m_Address: Elf_Weapon_15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dac61709b3920043a32e67bf7663091
+    m_Address: Back_Rogue_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4df886b0258d7064184af5baf3d50fd9
+    m_Address: Orc_Helmet_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dfa8f5e2f2eee047b40a6aa1c5b68ba
+    m_Address: Elf_Helmet_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e068344fe0ac24419c979769f127653
+    m_Address: Helmet_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f43ebbd35cc025499c2d98c5176c454
+    m_Address: tee_3_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50402ab989914be4ca6165b708ceb779
+    m_Address: Undead_Shield_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50455f5ab98763f4e8869a611c29a5e6
+    m_Address: New_Hair_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5058a3f6d0c25e844a281c5c756c1806
+    m_Address: Back_Knight_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 507ebeca65c0edb40900db1684c88a73
+    m_Address: Pant_Knight_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 510835e5adeae8d4f8950ebba59b4d2a
+    m_Address: Armor_Body_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 513eb8100b900fe44afa5393702b1039
+    m_Address: dress_4_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 515bbae59e7dc074382f2f1122665c08
+    m_Address: Helmet_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 516cad2401650a94294537befdea0032
+    m_Address: Helmet_m04_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 518e2f5e3d6e3074b89b9058c19872e0
+    m_Address: Hair_7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51ae7b6bfdbb49f4e91f4b14294009be
+    m_Address: Helmet_010
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51d5c972cf7c35845af542f1cc98f83b
+    m_Address: Elf_Back_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51f32b03ed9283440ac8d788f3c8d52f
+    m_Address: Cloth_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 526ee9ae89bc31749b2cef4abd31777d
+    m_Address: tee_3_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52b1a3f22e47fc94fb3ca9c9345a08d5
+    m_Address: face_acc_m04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 530b96e2541feec44bdb3e3043500101
+    m_Address: Helmet_m01_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 534a111fb5031fc4d9aef258fad29030
+    m_Address: Armor_8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53623189fa99a24438dc2ebc66c63b80
+    m_Address: Cloth_Healer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5367db0f8bf8f1842bb5230bc0cf668c
+    m_Address: Weapon_Knight_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53bba3806652f894d8c5480c8c6219a6
+    m_Address: Orc_Weapon_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 542ace5927ad5fe489e37488284fa060
+    m_Address: Orc_Cloth_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54401c250ae898446ae013ab7224eb11
+    m_Address: Zombie_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 54a4b967516b2e5488134b02d90fc56e
+    m_Address: Elf_Armor_15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5525f029129f56c4ba94c3a6afa95733
+    m_Address: Hair_m06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5574e57af267a134bb852a502e493bfc
+    m_Address: Zombie_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 560b906946692a1418251aac033ea7ae
+    m_Address: Weapons_Sword_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56105af02bf99c542b8b3e767bd0a7d7
+    m_Address: Undead_Helmet_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 565647ceea4615d47924bd049dc680ec
+    m_Address: New_Weapon_19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56bca7366e3c8354f90661327a6163c0
+    m_Address: Armor_Left_004
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58a336ce978726c4c90ae37c30cd3f41
+    m_Address: New_Back_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58d58bd19471ef84189934296c773be1
+    m_Address: Weapons_Sword_24
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58db54115adf4194db1be2152f01cf61
+    m_Address: Normal_Hair11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58f2bb19cf63871438a886914b875fb6
+    m_Address: winter2_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5956367cb7ac7e441be39892ab16ac4d
+    m_Address: winter1_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59fc233d197613e4ab18600acf5c3bdb
+    m_Address: Shield_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a0174bb57df8c4409150ae6313c2759
+    m_Address: Horse1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a61a10a20933cf48ad20a007ef498cc
+    m_Address: Hair_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5afbfaab0140a8642a8cdd79375b9581
+    m_Address: Elf_Cloth_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b82ca622a6b265449e55c3572c57bad
+    m_Address: Helmet_m04_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ba269d2b8085b841b23a1c6e6189056
+    m_Address: Elf_Weapon_18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c6d7bb582a1b9b41bc4696a318a3782
+    m_Address: Undead_Shield_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c9ad4600580c4a4f8ac089156d4031e
+    m_Address: Chosun_Gun
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cc9ca1b2bc555e46b97758677c79e0c
+    m_Address: Hair_m10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5cd6b2038ec984a4d88d7cfcdd8e97a8
+    m_Address: Armor_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5ddb7d1ea64a52043a95e46797c8a087
+    m_Address: Elf_Armor_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e877ec5696abc848bbf16dde65822e4
+    m_Address: Cloth_body_009
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f4d68b6ed93e1143a76488076e5b5ef
+    m_Address: Cloth_Right_012
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f85c3d848bcfb149b60532f249e821e
+    m_Address: Elf_Cloth_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fa26bc8d6b4d04449d581e4b8269646
+    m_Address: New_Helmet_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fa9a5aa68b9ef84db11b41dfce7b2b8
+    m_Address: Helmet_012
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60df80bdcbb8f7b43948258ce7a6a708
+    m_Address: Elf_Cloth_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60e0f1f9a76b62e46bfbdef465df98fa
+    m_Address: New_Armor_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60f8d5a5241ced443aa7bb978435f524
+    m_Address: Shield_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 612509aee558757468547605967f3272
+    m_Address: Cloth_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6166391862a8329468945f65d37562e4
+    m_Address: Elf_Weapon_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 619e227098fa49b4d9385cbba6b03382
+    m_Address: tee_2_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61ad82f02eda16743aebc1abddf28056
+    m_Address: New_Helmet_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6248cea356cfac44583cc6ac4887befe
+    m_Address: Hair_m02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62d7c36beab25574f8f01bb35f86b08c
+    m_Address: Elf_Armor_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 631065159098ff14885f039d8adc1928
+    m_Address: AxeLong1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 638a83a8d1a6b1e49937c3296e5e7e15
+    m_Address: New_Pant_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63ec2b87dc121b944b2cf8eef42db39c
+    m_Address: Cloth_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6470f21331b264842bcdb7040ddf8a89
+    m_Address: Pant_Rogue_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 648f60c3e9ced04488b01c899bf46081
+    m_Address: New_Hair_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64f9b8da4328e4e4fb9d54bba829f52c
+    m_Address: Hair_Sorceress
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 653403701b7f37e4b9f4e729b7c4528b
+    m_Address: Undead_Cloth_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6589bbe80b2c5e04aa11a2bf1ddd3ec3
+    m_Address: New_Weapon_17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 660b097c3d8d33a4dbef53533f9637b4
+    m_Address: Weapon_Healer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 660e76a52ead4ce4dbfb13a295d542df
+    m_Address: Weapon_Archer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66331d64628437a47907bef08fc6b252
+    m_Address: Elf_Helmet_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66c663a59be27bb438f6faf6d381931e
+    m_Address: New_Hair_15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66f4a425140bdac4782cd39838e27c06
+    m_Address: dress_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6730641021003f74495bcb7f93639a59
+    m_Address: New_Helmet_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 678c299ff4559184085086a4351005c3
+    m_Address: Hair_Knight_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67da57d6bbfdae343be1508d35143618
+    m_Address: Elf_Helmet_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67f90a81b49ad7548b5b4d121cb6f813
+    m_Address: Normal_Hair5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6875475f38ea00842b150b4f4acfb657
+    m_Address: Helmet_m04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 687ca8745aa964f44b83cc8185dbebc9
+    m_Address: Devil_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 688adb8e2ca73e84b9ad2e6a204c3689
+    m_Address: Elf_Helmet_20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68a29481200d01b4d829ab2f69a995f7
+    m_Address: Elf_Pant_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68b1a11f980482246a0561cd430b9acd
+    m_Address: Zombie_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68db8184c98c8fd47a38f8a155cab2c5
+    m_Address: New_Shield_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68fcabd045c3a2d4abf57bc2b1e756c7
+    m_Address: Pant_Left_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69b62d3201a9d85479328bfff0acf3a1
+    m_Address: Elf_Pant_15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a834378c836f8341a5e960c3f775468
+    m_Address: F_SR_Hammer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ae2c599f95f5284681920a6f463211a
+    m_Address: Elf_Helmet_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b560234eeee1f74986b89379498532d
+    m_Address: Helmet_Knight_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b77b793d01118647a5d7c5b3c84b44a
+    m_Address: dress_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b9c0520dcf6dc8498bd30e9a98161c1
+    m_Address: Elf_Armor_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c6c217ca67deea4a84e2c8c2a991ec8
+    m_Address: Cloth_Body_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d0bc1722e7e21442a7ed00053285ff8
+    m_Address: Shield_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d0ef1e165dd9cc46b08f47658c2c659
+    m_Address: Helmet_Healer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d8e9e501f56c5c4f8dad84a3f1bdddc
+    m_Address: New_Hair_18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d95136c16e51c249a190b0141538de9
+    m_Address: New_Hair_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6dd6448a379f0e54990f099be93e65cc
+    m_Address: suit_1_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6de2d979965617c4f881282d56bc8813
+    m_Address: Armor_Right_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e1669ad99c9c8940baa106f89b5a591
+    m_Address: Cloth_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e46e636625fa434789d93c59e480c95
+    m_Address: Weapons_Sword_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e7ae8135a634b9478589d302ce3cfa0
+    m_Address: Foot_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f19d7cff85ec014ca61c09492ea2295
+    m_Address: Elf_Weapon_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f2a340a9dfd8154cb8ecb49b2cc061e
+    m_Address: Back_Knight_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f35d0234c2f3df4fb012f618087b68b
+    m_Address: Back_Sorcerer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f4c16ac5e42eb746ad128cd876a0aae
+    m_Address: Helmet_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6fa4746690fe3b64ea470af4bfd0e328
+    m_Address: Helmet_m08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70e30728528c9bc42909d0c82d65e504
+    m_Address: Elf_Cloth_19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71661a1061099184db9d9def6ef5355c
+    m_Address: Elf_Back_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7214cf61c9a1275468f5750b78159062
+    m_Address: Elf_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72cd99631af6bb54aa05145fcc97f222
+    m_Address: Pant_Left_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74321200e29718f4e9d4946d4dd1a163
+    m_Address: RedHorse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 749556469293707468b476e08b758ff8
+    m_Address: New_Hair_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74e2326f6fb0ede49b59dbd923f03f4b
+    m_Address: Elf_Back_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74fa9320d095f6340a2269947957da05
+    m_Address: New_Helmet_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75099f49b142ff24d87c227cf6524cbb
+    m_Address: Undead_Cloth_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7553eff375068224182fa6d177469b22
+    m_Address: Orc_Pant_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75d7b18f2c397494f9e24a86eac047fd
+    m_Address: Elf_Weapon_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77624dd4d6af3ad429ed8b330337f934
+    m_Address: Helmet_007
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77c5b3f1ec13ec243bacd4b1d616d6e5
+    m_Address: New_Weapon_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77fa418dcdfa57e478aedd5af2083a30
+    m_Address: Bow_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78b9a1806b7f2f24b87ed64858407437
+    m_Address: New_Weapon_15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79155c8aca6c2884697650d851e6f4a5
+    m_Address: suit_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79487073c22862f499a792cac5779483
+    m_Address: Orc_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 794a3beaf5e4196498020fddc4273ef7
+    m_Address: Elf_Weapon_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79559584c9b9cff4a8870e9cd4f07182
+    m_Address: Shield_Sorceress
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79759d95ad7286b49b6fa6f4c0da9469
+    m_Address: New_Weapon_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a09f3782e0aa9d4c8c90b59a1468390
+    m_Address: Cloth_Right_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a5c5c9323dc0e040b4d9a12d0a92136
+    m_Address: FaceHair_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7aff3dd7f3fb1e64eacf4456d8ed116f
+    m_Address: Cloth_Left_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b4846a4a1104164ba4afd54aa4a1338
+    m_Address: Orc_Pant_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b652fd2033ee674f84c8b2883bfb20c
+    m_Address: suit_2_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b765e9631f5ac64cad75c9c9fc188fa
+    m_Address: New_Weapon_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bba8bbbc1329bb46a09d720bb9294f7
+    m_Address: Undead_Cloth_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bdbe8dae943e3742b6e913945db8f43
+    m_Address: Elf_Cloth_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bf33409a29afb2479d59b98b421bd31
+    m_Address: Helmet_8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c37586b7c42c2743b35943fd9e0af34
+    m_Address: New_Elf_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c8dcb24b893f674aa0cb420a6e1dcfd
+    m_Address: Elf_Pant_20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ccb086a43f928e4cb207acad6bdda9e
+    m_Address: Armor_Healer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d3266dc7b3c79a4b8032b67adc23f2e
+    m_Address: Helmet_m02_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dbf9b866820155419445b26a05be81f
+    m_Address: Hair_Healer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e725a0c59f38c9448c97c396f9a9e3e
+    m_Address: Normal_Armor1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e88bc13c3c205045933f2fdef761c69
+    m_Address: Eye
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e8c06d0d746969418c81c0b033f9d18
+    m_Address: Armor_Knight_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f3ae1280801bd64f88575eab38526d1
+    m_Address: Orc_Mouse_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f69d2e267eac624c8cf8deec85264c8
+    m_Address: Undead_Cloth_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fca90afb3e98a844890170d384ec0dd
+    m_Address: Helmet_m02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ff6ad6037bf62843baeb8e5b2888e02
+    m_Address: Cloth_Left_013
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80050da6bfe90be449b4c5cafaab3244
+    m_Address: Orc_Helmet_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8078b5f1303c12842bfc53e1b7b9f402
+    m_Address: Hair_8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80a22059641027246ab9dfa6ae167aa2
+    m_Address: Weapon_m_map
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80a50e7a7a368c643a2954c1db34c209
+    m_Address: Hair_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 811851dcbdefa094e99437939e525e5d
+    m_Address: Undead_Pant_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 819082ecfb1710943802a4a6bffe7dc7
+    m_Address: Normal_Mustache1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81d832a09af63f24590b6d3b3fb86ee2
+    m_Address: New_Weapon_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81f1a708ba1abe24b8a73c2bdb994aff
+    m_Address: Helmet_m09_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83564cc4629e73141bb5af823a3aa4f9
+    m_Address: Soon_Spear
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83839c414ac108c4f8b188c68ff88938
+    m_Address: Helmet_006
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83bfda5cb99be2d45af06227af983a4c
+    m_Address: Zombie_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 841739ce14e948249a998469e16bd7ff
+    m_Address: Cloth_Left_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 842dd7e2c07d26d4fa8f51b948373791
+    m_Address: Cloth_Body_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 843621d4553981c4f8f1880313a6b67b
+    m_Address: Armor_Body_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84431aede8b027a438a38431a947b144
+    m_Address: Helmet_m07_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84eb0b7cb826cfb419a152cf76c73819
+    m_Address: Undead_Helmet_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84eb50363e548df44a677475102cfe76
+    m_Address: Elf_Helmet_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 853e3c6c5b2f16945a333e6a3e9ab5ad
+    m_Address: New_Hair_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8635cd64a09b3b541884679163dd017f
+    m_Address: Elf_Helmet_13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 865c490aa27b4d24eb2c481c2f409dc4
+    m_Address: New_Cloth_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8663789abad79984992a05d33c572300
+    m_Address: Helmet_009
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86707b81983d2c14abed69ec465dbc6e
+    m_Address: New_Hair_17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8732fc59d526ad54184adb13c591e550
+    m_Address: New_Hair_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8733e0a4d906a9346b99e133e85d3c31
+    m_Address: suit_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 875bc36de3ecb744f96d695937291d71
+    m_Address: Shield_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8766beea30e4de243a3c292a74b82a8e
+    m_Address: Elf_Weapon_20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8793a538c7b19c34380b9fcdfe9c7042
+    m_Address: Armor_Body_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 879b4058f8271e94f83638da0f2a1bab
+    m_Address: Normal_Hair12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87a0b5ddfffcea749afcee1cdad1b2e6
+    m_Address: Weapons_Sword_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87c0fc616681af241b23335de12c158e
+    m_Address: Normal_Hair10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8827f72048108df469b946f8b58c1b49
+    m_Address: New_Helmet_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 885921ba3b43a374883aca849189aaf5
+    m_Address: Helmet_m03_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8876267bacdf9d44bba8079b88ff0869
+    m_Address: Orc_Weapon_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88e27170dc997ee4990e9c907a4087b8
+    m_Address: Eye3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88ec7e89ef84c4544918e034d2ec413e
+    m_Address: Hair_m09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8925c7dd5659adf4ca924ee0cae9749b
+    m_Address: Elf_Hair_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 893b76f404a64944eb50a14179f6535b
+    m_Address: Cloth_Left_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a022a60dac0515418bc92180924ed50
+    m_Address: Weapon_Rogue_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a968e7b86b92324d83a7a0e5a34e126
+    m_Address: New_Weapon_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b4d78720b8ca19458bd816e0a168822
+    m_Address: Pant_Right_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c2b3a9d26dffe142abcc588291e754f
+    m_Address: New_Helmet_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c3934349eb7e1c4ebbf49b8527925b4
+    m_Address: dress_1_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cbbc56bac438f140b01b557f7e993dd
+    m_Address: Cloth_Body_012
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cbc6844fb7df5d4ca17d76db8502a88
+    m_Address: Elf_Cloth_16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cdce64c582703148b32d615ff52ba1a
+    m_Address: New_Pant_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d3f8df4c48076344b7940cacce97093
+    m_Address: Elf_Back_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d4dd5aaa67ab7146a017a601c716b47
+    m_Address: Orc_Weapon_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d73a4b40c5c5a94197a37d874351919
+    m_Address: Undead_Armor_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dd06e9e2acffcc41a6e206dade7a889
+    m_Address: Orc_Hair_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e7c7e5df23b1aa49ac0da4cc3baff48
+    m_Address: Helmet_Archer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ea0dd6cde9bfb44794d115f3ed98d3e
+    m_Address: Foot_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ee47fea00565274cb104047cb9e336c
+    m_Address: F_SR_Helmet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f3ef6cfd85dec442ada1ba68f1c9454
+    m_Address: suit_3_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ffbe237e58f21c4eb60768c9eb22cca
+    m_Address: face_acc_m01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 904f9c3015c28cb4e9dd63b23e60c658
+    m_Address: Zombie_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 906ba842a14ed2e499548d7f81482dd7
+    m_Address: Hair_m04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90c5f0c9e21e2bc4e825cdc4f19d142a
+    m_Address: Undead_Armor_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91055f8e6da45774b852000ca42ea4fa
+    m_Address: New_Hair_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 911a4a18463191a42ba6d861ceaa340e
+    m_Address: Normal_Hair6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9149ed2a895136642840ad0a62fcd923
+    m_Address: 'Orc_Mouse_01 '
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 915a17d15649a8b4d8cb56263c509d61
+    m_Address: Eye0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 915b06ae535f90d43a75c12836e2b641
+    m_Address: New_Weapon_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91cb5793b8c65e343b717da365f237b1
+    m_Address: dress_3_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9237c49b38099ae4ea27063411c149c3
+    m_Address: Eye_Close
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9264f2af13a7e3a48aaf53a449906cad
+    m_Address: New_Pant_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 936685994b4c19745b5726e36d858916
+    m_Address: Shield_Knight_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94367f3f682b3bd41959bf8c30ddf15d
+    m_Address: Elf_Armor_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 943a1a6b5bf59634685098cd0c11a258
+    m_Address: Hair_m12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94f14104eb669224d9543724858189b8
+    m_Address: Helmet_Rogue_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 957d52c491d553745a0737f8704a63a4
+    m_Address: Helmet_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9584082961dbc0046acc62ca81390404
+    m_Address: Cloth_Body_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 959aaafff0df0984c8b50ccf5ccac33d
+    m_Address: Cloth_Right_011
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9643083d5863b3f42af7257c08e93546
+    m_Address: Hair_m03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9670e31515c5b6a47a7e4519db41bf8c
+    m_Address: Elf_Cloth_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96c1a6ba8fc8e8e4687baf3036e648ff
+    m_Address: New_Hair_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 972e3e72354e54949998112c6ad1ad0d
+    m_Address: Armor_Right_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 972efe841f704c749a57a27ad018d937
+    m_Address: New_Hair_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9794ff19e0173854ca7e0cada9c13c74
+    m_Address: Eye9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97ca2fa23520fa8449f0c85771ee68cd
+    m_Address: Orc_Shield_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97fef5f78397a2d43b4809ed2afd8014
+    m_Address: Weapon_Sorceress
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 982a0366244add44b84081f6a76cbbfa
+    m_Address: Elf_Armor_14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 986fd271afedad3488b017820fdc0109
+    m_Address: dress_2_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98717e835b162b94d83729d2129da291
+    m_Address: Elf_Hair_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 989d81c5901fa6743b9a9999a8d58ae6
+    m_Address: Orc_Weapon_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9900eb52de97a2542ae9d638ddd926b3
+    m_Address: Elf_Helmet_16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 990ae9b529d17e04fb426bf7b08bfa45
+    m_Address: Normal_Hair8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a979020155742444a0bb2534960d0cb
+    m_Address: Helmet_m09_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b3a6e0d65cf37545812ad524ab4a4a4
+    m_Address: Elf_Cloth_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b8cfd429131a824ea33e2a3c6d80efc
+    m_Address: New_Armor_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bb416e3f1aaeb34fbc9f39bcfdc3859
+    m_Address: Back_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c8995a8e81a23942b7f26b261b2d37b
+    m_Address: dress_4_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cf2d1aded885904ba58784015561402
+    m_Address: Weapon_m_shovel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d26cf5bbbdacb0469982e97e6a1a45b
+    m_Address: New_Helmet_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d3cf31c85caa3241bcc2513a2e8da64
+    m_Address: Elf_Cloth_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d504e8f9d116d545ba9acdd54560d9a
+    m_Address: suit_3_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9dea4d40181fb9944b9215c42f7190d0
+    m_Address: Undead_Weapon_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e064e927c7965f4ab9a5ecb3e52b0ac
+    m_Address: suit_2_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e6a9d5dba5f416428db2edea362b762
+    m_Address: Eye2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ed89a26cbad40b48b494d36d43486bd
+    m_Address: Hair_m01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fb61f579f28ae94895b03863a40bd24
+    m_Address: Armor_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fd952329a3064d47a87baab8e64168e
+    m_Address: Foot_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a02dae3f9bf0d714c961599798939221
+    m_Address: New_Pant_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a087b2473fce3fb40b737ba38bf3f502
+    m_Address: Elf_Helmet_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0d64f53465fe0743a58ae50b96b6a97
+    m_Address: Helmet_m04_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2226768902e7754f8e12e38bd0727ce
+    m_Address: Elf_Weapon_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a222745bc34c7fe4da78931d686e988e
+    m_Address: New_Pant_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a22c38a4903ad5849b1e4ae83de94df7
+    m_Address: New_Helmet_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a25956549e9e37e4f94de02707732d2b
+    m_Address: New_Pant_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2e903d24b996cb4ebde5db780b40461
+    m_Address: Elf_Helmet_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2f62382618ebfd46ba55d9753781300
+    m_Address: New_Pant_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2fa0865a4af6dc48a8203934f1b9cac
+    m_Address: hoodie
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3a8f63d992341b4d8ef5f1b3e454abd
+    m_Address: Foot_m04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3bb336c3bff6be4db28b6e65384e99c
+    m_Address: Back_Sorceress
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4248377eb42c58468508af4a68ab661
+    m_Address: Orc_Armor_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a463a99722c9e9c42887ffb5ba2842b9
+    m_Address: Orc_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a49ec202d2aa4bd418955e02edd2e3d4
+    m_Address: Cloth_Healer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a4c0f5d42ee53834eae5c2d2d539d373
+    m_Address: Hair_Knight_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a50888c02dbd3fc4d85d19e0925269b9
+    m_Address: Armor_Left_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a51489c1206883b45b5e416a11b0690a
+    m_Address: Cloth_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a56d1a6e48237d745b7b0be990412137
+    m_Address: New_Weapon_09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a57f3c75488dbbd429b2eb38431c1d5f
+    m_Address: Undead_Helmet_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5b194b96ba0c874095e5f4020da41c4
+    m_Address: Undead_Helmet_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a627541c76305384aacd1d80db967a96
+    m_Address: Weapons_Sword_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a63fb46d5dcb307479e8d85294cc064d
+    m_Address: Sword_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a70a5b453bed8f54cb057755dbd47ac2
+    m_Address: Elf_Weapon_14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7ec223c1ffc5b8438586cd6d55a7646
+    m_Address: FaceHair_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a82d136c212d59243892047c879a30db
+    m_Address: dress_2_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a82e4ed1b26f9224b972302b8cbb516b
+    m_Address: tee_1_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8787dc63736e8c49bfa0d020d763635
+    m_Address: Hair_m08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a88ece37673f34d4398dc27053918e3b
+    m_Address: Helmet_m09
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8a7c043307b0f245ba1997ed00ea40e
+    m_Address: Undead_Helmet_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a902619b719510d44be00b9606dfd673
+    m_Address: Cloth_Left_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a906f59770600ac4daa39b94e129866e
+    m_Address: Weapon_m_coffee
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a934cbc56f2c2da45afa8b40007374f5
+    m_Address: Cloth_body_008
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a994e697566eae34fafb5c6b438532cd
+    m_Address: New_Weapon_18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9a311f5738524b4dab703d0d8f36045
+    m_Address: New_Helmet_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9f1d34a782d40c4e9ce28ec35a6ed0a
+    m_Address: Undead_Back_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa07b45eb7b857d4c98367d97d2ab602
+    m_Address: face_acc_m03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa0bca986c469fa41aab8a8fd351c1cd
+    m_Address: Elf_Cloth_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab28d3528b58b7241b2f937c1a767692
+    m_Address: Human_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab4cb8823221db244807df685968992c
+    m_Address: dress_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac616ed498490e24692d9b12b7b48c49
+    m_Address: Armor_Sorcerer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acb04a64fcf6c78419a6887ae5571716
+    m_Address: Orc_Helmet_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: accf933de8faef74296e2581d80faf7c
+    m_Address: Pant_Healer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acd456f176d76a2429cf1f9dafc1e2f8
+    m_Address: Cloth_Body_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acd65847f98d54a48a86696f89b94e24
+    m_Address: Undead_Armor_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: acf9fb4fd743a6443931926ae3788c77
+    m_Address: Hair_Sorcerer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad14252d01f067049b3c75011c96177a
+    m_Address: dress_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad9b1a2ba712abf438b4747f57f20060
+    m_Address: Orc_Mouse_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adeb3be393ae11741995c89f20c6174e
+    m_Address: New_Shield_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae37afa4efdbde94696d080bea31864a
+    m_Address: New_Back_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae4ccbdfe56d405479b21dfa981dc9b7
+    m_Address: Cloth_Left_010
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae536fb924240c94fb15dfdfd26a8f02
+    m_Address: BlackHorse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af0c31f5cd42d7f4dab4e0df1abd4e29
+    m_Address: Cloth_Body_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b01cb82dc003fc442b11ff492b5db7ac
+    m_Address: Orc_Weapon_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b087d364391f78b47b9c1f33cc6a3771
+    m_Address: Helmet_m02_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0b18f1c1e3264b4eb92d8ce169651d1
+    m_Address: Armor_Body_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0d7f4646ae5c8540b6f2f3a9fe73e72
+    m_Address: Weapon_m_surf
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1266f11851fa11428ce0dbbd9c4dcf6
+    m_Address: New_Armor_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b15472bb108f41e4ba65eeb1ec5e0b24
+    m_Address: Elf_Cloth_15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1bebca70255f49499c8d0f378742a42
+    m_Address: Elf_Pant_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b242c9366fdb2924393307ea71aeb0c9
+    m_Address: Cloth_Right_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b2526e50f930aa14bb19ca0cc0f9583b
+    m_Address: Armor_Rogue_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b36c368c1ef48e5488f57e58277b5033
+    m_Address: Undead_Cloth_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b451ebf0fbe212a46b6b038d645e1537
+    m_Address: Orc_Weapon_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b478e2c3b5a493b478172f040e27c846
+    m_Address: farmer_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b54342c18b36f6c42b0fc6bbabe4bcda
+    m_Address: Helmet_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b551484aa335c3a439d37dc458e73778
+    m_Address: Pant_Healer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b55a94472c522674c9beae732eb5d00d
+    m_Address: Hair_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5c81a6c8dbbb914cb5d2ec6ffc5467b
+    m_Address: Shield_Knight_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5fce5c61cc40e74f8ad9327197f4414
+    m_Address: Undead_Weapon_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b67c372412f52cf45935b8d6b9adf8b3
+    m_Address: Orc_Weapon_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b74e2bbb0cc5e544287ea2d5aa56877c
+    m_Address: Elf_Weapon_13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7dda4a64b7da504ba7c5856fa07d390
+    m_Address: Normal_Helmet3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b82a2541e86cf4e40af99a9327fc2b20
+    m_Address: Helmet_m05_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b83a238540b03ec4bb258b4016fe8d92
+    m_Address: Helmet_m07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8628a0de153216429b2fa3c37fea625
+    m_Address: Armor_Body_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b87ca6e014a982c4eb7569044dd82c19
+    m_Address: Orc_Cloth_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b89133cf5c2ec4543bc5d59aa9376fd9
+    m_Address: Helmet_m02_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8bc15b63d799cb42a216e84687d3cb6
+    m_Address: Undead_Weapon_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b96b6109b3afed243bf11036305aae4e
+    m_Address: Pant_Sorceress
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b97984dee2027c141aedccdec7984444
+    m_Address: winter3_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b97a6108d13bfcf4eab40f17178507df
+    m_Address: Undead_Helmet_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b99c854700e367c4c895bc1d6f1e75c0
+    m_Address: Shield_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9b2b9d4950ab834e85cbadde5341196
+    m_Address: New_Armor_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9d60cf77e51d5649a8b3270bf65c4cd
+    m_Address: suit_1_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba4a1658ce420b3488e0dfb0d3c7a27a
+    m_Address: Armor_Right_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba9458e6456b3ec448ad89b9dc4ccfa1
+    m_Address: Cloth_Body_005
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba9733fa13a5ade4b9e08d06e7b01e17
+    m_Address: Orc_Cloth_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bac4d2bdc30688b40ab4a1a58a53a6f6
+    m_Address: Sword_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bad0e93617e422b4cb2202cae51a3b99
+    m_Address: Normal_Hair9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb1eaa45d94268742a14154686acd14d
+    m_Address: WoodShield1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb33e32f27ceb04438e99ca4fc197e0f
+    m_Address: Weapon_m_board
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb6fafe05b46ca741b615729d71c79dc
+    m_Address: New_Hair_16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb9488c8761e9e94088051abe5d2f350
+    m_Address: Weapon_m_laptop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc1acc1578aee2f408bec57724f46f82
+    m_Address: Armor_Left_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc32982b0bca6364d97dc59d5c3482b6
+    m_Address: Elf_Pant_16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc499f4492daa81438be5bda6b94453e
+    m_Address: Armor_Rogue_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc7761c75443fcd4ba26909a2f606913
+    m_Address: New_Hair_19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bca8da2face8513429ee84c616a1b141
+    m_Address: Elf_Pant_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcc4175e232c4634ebcb155024fbaa0d
+    m_Address: Helmet_m09_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcd630773182cc34daca4998eddbd39e
+    m_Address: Armor_Body_004
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bced93ab03f1fa946926f800a0d96948
+    m_Address: Undead_Weapon_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd58e7f49f8759548b527631427895a3
+    m_Address: Armor_7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd5fce87318a89f458ab4ca56b2bbfe3
+    m_Address: Elf_Armor_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd6e6c72ba22e0741b12d128b093ef21
+    m_Address: Orc_Back_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd97e2ffdd5707f488527d33424aa7d4
+    m_Address: Elf_Back_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdf8bc50d42fc244d9d5bad2668073f9
+    m_Address: Undead_Weapon_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be18c3e1f49e61241b59487c2a17099b
+    m_Address: winter1_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be5197819d134ea469ccbbe05fd65bc6
+    m_Address: Elf_Helmet_14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be636a063c6b9db498ee6218259ef21b
+    m_Address: Elf_Armor_13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be811e9a8d80dc548a1c9f615e2afd7f
+    m_Address: Elf_Armor_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be86b2e7c20d5ff45aaa9ac2bd636845
+    m_Address: Helmet_Sorceress
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be9bc8cf6fae1544a9f63c4029f90c9c
+    m_Address: farmer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bea076b692f088841949d968b5ef599b
+    m_Address: Helmet_m10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bedeb925b1065124a98ac11571681ecf
+    m_Address: Helmet_m06_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf90ec2e2523e7241a10c15c07c15617
+    m_Address: Helmet_m06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfe6934670820e741ab8e4f78b9eccce
+    m_Address: Orc_Cloth_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c039555f790d19d40acf37d24c17a9a3
+    m_Address: Cloth_Left_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0846ec7b1891d14e90b8924ebb83747
+    m_Address: Armor_Body_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0d8d8a0c7c3f974d819f764ef4ec6b5
+    m_Address: Skelton_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c160f37b1a41265459499221f5cc7cfe
+    m_Address: Cloth_Sorceress
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1757d46cc000ee48ace5719c49e1664
+    m_Address: WoodShield4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c19bfdf0acd1dcf4b93e41bb09c9fe4d
+    m_Address: Hair_Archer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c224905daeafb0346aaa1bf6cb019e3e
+    m_Address: dress_1_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c28253150f4de674bb273bfbf53bb5db
+    m_Address: Elf_Cloth_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3270fb7d59dc84409425fe50b72780f
+    m_Address: Pant_Left_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c379abede4b15464499213d2c5ffcfd7
+    m_Address: suit_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3863ae5e6774b744a4c8103a7dc2f70
+    m_Address: Elf_Pant_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c396a9c96b2f4554b9a0c19f13f35e6b
+    m_Address: Pant_Right_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3d57ce76b16b3e4c9fe98be0cd6a2b2
+    m_Address: Undead_Cloth_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c444f848f271f8e478a77bf63d549595
+    m_Address: New_Pant_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5a54663970b77048ae4f9bf45d09039
+    m_Address: Armor_Healer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5d6a808310485841b10cf8c411a9f29
+    m_Address: Orc_Helmet_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5fafe4052530f34e80753af9e49306b
+    m_Address: farmer_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c60f1e0ef86f7584abeebc4b36e67753
+    m_Address: Sword_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c61dff71bd5276440bb9b5819e7162b9
+    m_Address: FaceHair_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6277d6f8ea88d146a2db78bcda1db62
+    m_Address: Weapons_Sword_003
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c66ad97ee9b015d4f87b3d1a7bae6854
+    m_Address: Helmet_m01_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c69074dde0092004db91c48c4a694fb6
+    m_Address: FaceHair_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6e501402ba824d45ae8aef2836fd596
+    m_Address: dress_2_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7055630a170ec947bed45f65d549fda
+    m_Address: Pant_Right_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c72c58966e0faf442abb68da2ceca647
+    m_Address: Weapon_Rogue_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c76b87d62516f674e87295a2af3df319
+    m_Address: Helmet_7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c797781fe2fe75a4a8b921b82384bda7
+    m_Address: Armor_Right_004
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c879c182405c2b34ca5faef9451c69c3
+    m_Address: New_Armor_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c890e171dbc510048a0a92b2a0f7d101
+    m_Address: New_Armor_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8a26ce938394a54f8610a905a5ba109
+    m_Address: Elf_Back_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8b68f0ba488c0646aed33eed991570d
+    m_Address: Pant_Left_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9102c8dee10f814c9993f9a2362b9cc
+    m_Address: tee_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9ac3240cc1231d478de5d8941057b12
+    m_Address: Cloth_8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca2a055bf53bed74aa930edd6536a5e5
+    m_Address: New_Shield_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cac24579ad513d6469dd2b2125bf63b3
+    m_Address: winter1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cad96f8862f3f784eb1d60650256feff
+    m_Address: winter3_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: caf65983d26fd5d41945327b752288ac
+    m_Address: Cloth_9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb43a3e700c1935429b235eb3079671e
+    m_Address: dress_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbd55c7094b14c44898acd9ca3f149b9
+    m_Address: Eye11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc1307b27a9519746b24adbcfb094a51
+    m_Address: Hair_Healer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc19226bc59e634469b0482c39fc2727
+    m_Address: Helmet_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc265a1ac0c86d74d94cdaa8a342c5f4
+    m_Address: Helmet_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc587b0b4b69e2340b93a0400cae88a7
+    m_Address: New_Cloth_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc93b04d1ca437b4ca96a5f01d426e04
+    m_Address: Elf_Shield_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc9adc1fc3ba4a848b139782fbcbadf3
+    m_Address: Helmet_m10_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd1a5057a4b7b9e4faf1cf16b1798e88
+    m_Address: Elf_Pant_18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce30c981a8bb5e8429827d7e31a80cb6
+    m_Address: Armor_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce409fa93938f714482d10a40bdaa37c
+    m_Address: Pant_Right_001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce52157ce3d1ef941abcd6e8c0505d2e
+    m_Address: Elf_Pant_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ceb3f899cd5870b4eab16abe45b9a49f
+    m_Address: Armor_Archer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf3e81f580b01b2479a1fa06d01a36ab
+    m_Address: New_Pant_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf632e41ead0f674fa9b4c6da9d32dab
+    m_Address: suit_2_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d02d55a3ca090e74eb3e80d482e548b3
+    m_Address: suit_3_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d03b0f412cd5c09448883622d1a0cd4a
+    m_Address: Cloth_body_006
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d078d4b00fe03904b92ab183566670ac
+    m_Address: Cloth_body_007
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0bf6cf95923d944eb35774147234e4c
+    m_Address: Armor_Body_005
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0f8b2dbdc01a924b82522105fafc341
+    m_Address: New_Elf_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d12b9280b41433e489a5f5e208c8d38e
+    m_Address: Cloth_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1ab4ce1f8bfbb94b8119c75dc518b98
+    m_Address: Pant_Rogue_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1ac713fc708de34da2925c21366eedb
+    m_Address: Back_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d1ca1ab9ae40c2f4888d7b3d2da78b76
+    m_Address: Hair_Arhcer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d21b17911b6daed4c9c45874f5c91e8c
+    m_Address: Weapon_Knight_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d21d9ba4cc7d4f84598e77a05a0a0323
+    m_Address: Elf_Pant_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2e275e347b2e57498b4d1621097c55f
+    m_Address: Helmet_m09_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d366d7569de64d340a2376d96639ecc4
+    m_Address: Orc_Hair_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d37bea36997951645b1fe8190f218656
+    m_Address: Helmet_m10_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d48b28f670601044c87d45e9c129a1a1
+    m_Address: Helmet_m11_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5445c9effb42544e8b53fabbe66295e
+    m_Address: Back_Rogue_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5f3875327923ab4abad437648ac13a8
+    m_Address: Elf_Helmet_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d69ec816f44ed8140a06c635537513c1
+    m_Address: Eye6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7829d53bcb4555499af2bfbb58a7ad7
+    m_Address: Weapon_m_beer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7b633b7bf53c56488c7f43bf6cf4b68
+    m_Address: Cloth_Body_004
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7bfc4207e04d3947b2148bb9fe97e2d
+    m_Address: Armor_Archer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7ec443cccdc96540b82ac4fd6c802cb
+    m_Address: Undead_Shield_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8082abe1bc722f4d9a1d3e9dae0a670
+    m_Address: Cloth_Left_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d82cd4bf907847648b53b9cb7a30886e
+    m_Address: Cloth_Body_013
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d889415fa87abfd4aa3579a5c177319c
+    m_Address: Elf_Weapon_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d929e56343c6a184180e4dc4ef3b3c9e
+    m_Address: New_Hair_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d940120b0106fbe4f90da0814fcc5f86
+    m_Address: Elf_Cloth_17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d94f4a50786439a48985594e6aeb28f5
+    m_Address: New_Weapon_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9629f90e48fadc48a704182ccc17086
+    m_Address: Helmet_m01_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d969aa74ee60554469d98035be954c2c
+    m_Address: Human_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9a81ee6f8615724eb752030ef1841b1
+    m_Address: Weapons_Sword_005
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9da4d61ed9e346488ebee1d57193117
+    m_Address: Elf_Pant_19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da54660a52cf57c4fb2b9e12a4715069
+    m_Address: Normal_Cloth1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da97d24d531265e46b06af4cc63f595a
+    m_Address: Elf_Armor_16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dab100f8b6e045348bb284d417b66244
+    m_Address: Elf_Pant_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dadb431cf4db205438bc5c098f5c2232
+    m_Address: Hair_m07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db0b3b0882b6e194e8edc4c84bf1d735
+    m_Address: tee_3_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: db6b0d69530bb1a4f80f89587203df4a
+    m_Address: Undead_Cloth_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc0c8daefe0c871479f3924715ad5d22
+    m_Address: Elf_Cloth_18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcb026a473a6fda418f3038e8e88c82e
+    m_Address: New_Hair_08
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcc68caa4f41441418ffab0849c36c4e
+    m_Address: Helmet_Sorcerer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd4b2053a8a848149a9f4d3e4f324fcf
+    m_Address: Shield_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: de6390afd7176dd48ae3e9f2554c55bd
+    m_Address: winter1_c1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: deea8bbeb61b6aa4ba6b39609c785102
+    m_Address: Armor_Body_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df122d56696f90a45ace1081cb91031e
+    m_Address: Helmet_m03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df6842d15bfd8a74ca4b9cc3e94b8c8d
+    m_Address: Undead_Weapon_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df73ea1b0be764d419abc05a82304b13
+    m_Address: tee_1_g1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfa08bd8e418b3342be4299bacbad7e3
+    m_Address: Helmet_m04_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e01b16798694f0944b31d52d77210d9c
+    m_Address: Elf_Helmet_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e05289bf8c767754291726831a270893
+    m_Address: Cloth_Body_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0afec30089950e43a879e51382bf297
+    m_Address: Cloth_Knight_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1a0699ad3585e543a00bb245aa896a6
+    m_Address: Elf_Armor_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1e696385fcf14048991879f29273a1d
+    m_Address: Weapon_m_mic
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1e79844d058b834b9823d90ece11dad
+    m_Address: Armor_Knight_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e20d4745441f64641a93e7b1b32d104f
+    m_Address: Helmet_m11_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e21dd5ee2b16d4d4f944b3ac7d730741
+    m_Address: Hair_9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2974c8a9382b674aa5f857eadf6fdf4
+    m_Address: Elf_Pant_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e39b0ba296353664aa573f2477a61383
+    m_Address: Hair_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3ebca83e66fc7048b07d12e746949e2
+    m_Address: Elf_Weapon_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4cfbf7d2b6148c47ac20b90aea3dfcf
+    m_Address: Elf_Cloth_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5766412d67ca4e4cbc32be5b7948ff2
+    m_Address: Cloth_Right_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5ae07922130e5540b040d43e72a0238
+    m_Address: Helmet_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e5b8d25494127cb4b923382db00629f0
+    m_Address: Pant_Right_002
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6202f9ea923c694b99f0318fe8b58ba
+    m_Address: Cloth_Body_011
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e68340bce7d85924e839cf8d57d6ef1a
+    m_Address: Cloth_Knight_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e688ddb2e97426347a59dc95fee193f1
+    m_Address: Orc_Back_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6abe32438b0c32458ca27aa2aafaf6e
+    m_Address: Normal_Hair2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e72e9ec37bedb2d4a9da9053f61b338c
+    m_Address: Helmet_m03_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7728079d7b03044a8e7d3e23a367f36
+    m_Address: New_Hair_14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e81553f903c23b941b4fe5425141a82e
+    m_Address: Elf_Cloth_20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e841887a38357574dacbec561cf63159
+    m_Address: Elf_Weapon_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e85d6cf2822111d419ec1b8776969b8f
+    m_Address: New_Hair_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e861bdcd9957b0c4bb087a6118295d9b
+    m_Address: Elf_Hair_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e86cc024268f9cc4bbdc66566d14b5e1
+    m_Address: AxeSmall1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9aea059af370ce42bef437114e06d40
+    m_Address: Cloth_Left_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9c293d681c32f444894fd1de5fd31ee
+    m_Address: Undead_Pant_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea019dd64e5ac0c459b35b5c0759e559
+    m_Address: Armor_Left_005
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea84277596e6f7b48bab45aed5c3eb10
+    m_Address: Elf_Back_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eaf165e3978e82847aa204fbfc8c39f4
+    m_Address: Shield_Sorcerer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb446a7b26139fb47afc7b57bfb1d33b
+    m_Address: Elf_Helmet_19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb8b2300c5f4c7c49b634286b396d3f8
+    m_Address: AxeNormal1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec846190c04dc844f9ab63482e7c812c
+    m_Address: Eye5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecb09291825e34941ad39fbc3db234b1
+    m_Address: Pant_Archer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed1437fa439015e448749a09aff50965
+    m_Address: Hair_Rogue_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed67f9074b7f2734699f2c154e9b1a8c
+    m_Address: Axe_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edb89b162a72b4947ae2f983b0ade573
+    m_Address: Cloth_Right_004
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edc68300a0d4ebc45b9c10213440053d
+    m_Address: Helmet_005
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edd0acec5d0204543abc398d339bd9d9
+    m_Address: Armor_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edf25ce1ec871444aa489ece1ccb3581
+    m_Address: Elf_Helmet_15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee3c65490a34d8e46b75c7832409915b
+    m_Address: winter2_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eec52be794bf50a41ab5d88aedbaa497
+    m_Address: Pant_Sorcerer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef9a46a26970d7541a3aeac20acb5290
+    m_Address: New_Pant_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efaddf96abdaed74a840b87d9b9b038a
+    m_Address: Shield_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: efd53ddfbe126b843a2884eae3bdd1f0
+    m_Address: Elf_Back_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f081df0ba7372054081436fa985f925e
+    m_Address: Elf_Hair_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0b61369a9c96a743a14a6e9bf8eb59b
+    m_Address: Sword_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0b6bc9ce1899cb45be80fca0169799e
+    m_Address: Cloth_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0bb76028cee67d45b9f81dd1198d65b
+    m_Address: Elf_Shield_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f103a747b2121634b90438afa306f018
+    m_Address: Orc_Pant_03
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f12163d224b77ec4b8ec7abefac34694
+    m_Address: Helmet_Rogue_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f16850e57d0d99743b31a3bc5cf9aeaf
+    m_Address: Helmet_m11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1cc4beb2229b9e439c7ae44c5e76453
+    m_Address: New_Cloth_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f245f6bfd4a9676418ed7aa0db1eb7cf
+    m_Address: Armor_Right_005
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f27b1d5462368344aac8602968f57298
+    m_Address: Elf_Pant_17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f27f89cae56aefb4cb3b4cca6befab39
+    m_Address: Helmet_m05_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2bf92152fbd86c48b9ec31ae67101c6
+    m_Address: dress_3_c2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2fce325b02e56e40af2a3417590bf92
+    m_Address: Elf_Helmet_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f31b945cc47665041a3d59021f432500
+    m_Address: Spear_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f31d2e8d855003b428b7b6981dbbad51
+    m_Address: Orc_Hair_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f37ae785b48af0844bf31f95adecb0db
+    m_Address: Elf_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3da58f730c91204a831170ee88bd75b
+    m_Address: Elf_Back_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4abdb08103fa054292deff6811ea654
+    m_Address: Normal_Hair7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f51c5283bab78694fba65fb3f383249a
+    m_Address: Helmet_m08_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f562e08e2a9ddbe46a5d5a614cdfab6f
+    m_Address: dress_4_g
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5c6451ba48c671438a0036dff755bca
+    m_Address: Elf_Hair_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6c64d4031330fa41abfd10d1cd55d7f
+    m_Address: Shield_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6f8b714563a52a40a6389c5ee56c09e
+    m_Address: Helmet_m03_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f87967ca2e1733241b4552b63c084782
+    m_Address: Elf_Armor_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8b2a3c259f99aa47ba4d1841fe5bb99
+    m_Address: New_Weapon_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8c0c02962e9b4047b6bf2f0ba19cf8e
+    m_Address: WoodShield2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f912bfbf550714e4b84e9ffbe1ce8a9b
+    m_Address: Cloth_Sorcerer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f91ed24414cd34d4fb3365efa72f287d
+    m_Address: Hair_m11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f92ac58b0bcfa7847825a9ae656b6936
+    m_Address: Cloth_Right_04
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f95fe77fc63153f4387dadc6571c93e1
+    m_Address: Elf_Helmet_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f98d44014269a584697910f058505dd8
+    m_Address: Normal_Helmet2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa67675075a00b745b1f9ad97cf0b547
+    m_Address: Undead_Back_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb447f493cb307b4891986e11fe07c0a
+    m_Address: Helmet_011
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fbd58a9fcd05ab74e85339a7436a21a4
+    m_Address: New_Armor_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc1141bfa0aa056419d342cffbb7ef6d
+    m_Address: New_Weapon_13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc17641c906ba834fb7d642cc2369870
+    m_Address: Helmet_Healer_1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -46,6 +4564,102 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Prefabs
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc6320d82eff8c54483bc1137f4807c4
+    m_Address: Armor_Body_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc818df1e9491c54398f2f2b4c72089a
+    m_Address: New_Weapon_14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc8803fb25098ae4597ea1dcca2582be
+    m_Address: Cloth_Left_005
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc9096a39d2d46e44b374ba1a6b81ee5
+    m_Address: Helmet_m07_black
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc9a7f72f9821804ea48eeb428b59c70
+    m_Address: Normal_Hair3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd638fec00a8c0b48bfcedcbd6cc1d3c
+    m_Address: Elf_Armor_18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd6b51c25076016489d629d4b456b940
+    m_Address: Shield_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd6d15edf240c8a479014a5b65181aae
+    m_Address: Armor_Body_05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fda7ba9c30b905a4fa2fd391123ac108
+    m_Address: Helmet_m11_blonde
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdca5c5e1812ce74382b732ff82339b2
+    m_Address: Normal_Mustache2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdf7705f51ce87346b7512f25f09042c
+    m_Address: Weapon_Archer_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe4020064386ad8409943a366429d9a2
+    m_Address: Undead_Armor_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe623c89bb6c30a40ab4df5c42905567
+    m_Address: Helmet_m11_color
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: feb767c498ce98b48ad95619985fbb38
+    m_Address: Back_Healer_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff26b557a99300049a2cda357703e8a8
+    m_Address: Helmet_m05
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffafed36bc140014fba3f6d801d8081b
+    m_Address: Helmet_m06_brown
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f2b6a1bb20e544f47ad189852cc6ef0b, type: 2}

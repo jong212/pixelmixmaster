@@ -1,0 +1,679 @@
+{
+    "Name": "ChosunSet",
+    "Path": "Assets/SPUM/Resources/Addons",
+    "Version": "",
+    "CreationDate": "2025-11-23 14:37:46",
+    "SpumAnimationData": [
+        {
+            "index": 0,
+            "Name": "ChosunGun_idle0.anim",
+            "StateType": "IDLE",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/0_Idle/ChosunGun_idle0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": ""
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Move0.anim",
+            "StateType": "MOVE",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/1_Move/ChosunGun_Move0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": ""
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Move1.anim",
+            "StateType": "MOVE",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/1_Move/ChosunGun_Move1.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": ""
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Run0.anim",
+            "StateType": "MOVE",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/1_Move/ChosunGun_Run0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": ""
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Run1.anim",
+            "StateType": "MOVE",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/1_Move/ChosunGun_Run1.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": ""
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_NormalAttack0.anim",
+            "StateType": "ATTACK",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/2_Attack/0_MeleeAttack/ChosunGun_NormalAttack0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": "MeleeAttack"
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Fire0.anim",
+            "StateType": "ATTACK",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/2_Attack/1_LongRangeAttack/ChosunGun_Fire0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": "LongRangeAttack"
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Damaged0.anim",
+            "StateType": "DAMAGED",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/3_Damaged/ChosunGun_Damaged0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": ""
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Die0.anim",
+            "StateType": "DEATH",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/4_Death/ChosunGun_Die0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": ""
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Stun0.anim",
+            "StateType": "DEBUFF",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/5_Debuff/ChosunGun_Stun0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": ""
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Conecntrate0.anim",
+            "StateType": "OTHER",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/6_Other/0_Concentrate/ChosunGun_Conecntrate0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": "Concentrate"
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Buff0.anim",
+            "StateType": "OTHER",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/6_Other/1_Buff/ChosunGun_Buff0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": "Buff"
+        },
+        {
+            "index": 0,
+            "Name": "ChosunGun_Sit0.anim",
+            "StateType": "OTHER",
+            "ClipPath": "Addons/ChosunSet/0_Unit/1_Animation/6_Other/2_Etc/ChosunGun_Sit0.anim",
+            "HasData": false,
+            "UnitType": "Unit",
+            "SubCategory": "Etc"
+        }
+    ],
+    "SpumTextureData": [
+        {
+            "Name": "Cloth001",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_001"
+        },
+        {
+            "Name": "Cloth002",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_002"
+        },
+        {
+            "Name": "Cloth003",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_003"
+        },
+        {
+            "Name": "Cloth004",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_004"
+        },
+        {
+            "Name": "Cloth005",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_005"
+        },
+        {
+            "Name": "Cloth006",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_body_006"
+        },
+        {
+            "Name": "Cloth007",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_body_007"
+        },
+        {
+            "Name": "Cloth008",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_body_008"
+        },
+        {
+            "Name": "Cloth009",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_body_009"
+        },
+        {
+            "Name": "Cloth010",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_010"
+        },
+        {
+            "Name": "Cloth011",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_011"
+        },
+        {
+            "Name": "Cloth012",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_012"
+        },
+        {
+            "Name": "Cloth013",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Body_013"
+        },
+        {
+            "Name": "Cloth001",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_001"
+        },
+        {
+            "Name": "Cloth002",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_002"
+        },
+        {
+            "Name": "Cloth003",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_003"
+        },
+        {
+            "Name": "Cloth004",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_004"
+        },
+        {
+            "Name": "Cloth005",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_005"
+        },
+        {
+            "Name": "Cloth010",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_010"
+        },
+        {
+            "Name": "Cloth011",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_011"
+        },
+        {
+            "Name": "Cloth012",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_012"
+        },
+        {
+            "Name": "Cloth013",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Left_013"
+        },
+        {
+            "Name": "Cloth001",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_001"
+        },
+        {
+            "Name": "Cloth002",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_002"
+        },
+        {
+            "Name": "Cloth003",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_003"
+        },
+        {
+            "Name": "Cloth004",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_004"
+        },
+        {
+            "Name": "Cloth005",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_005"
+        },
+        {
+            "Name": "Cloth010",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_010"
+        },
+        {
+            "Name": "Cloth011",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_011"
+        },
+        {
+            "Name": "Cloth012",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_012"
+        },
+        {
+            "Name": "Cloth013",
+            "UnitType": "Unit",
+            "PartType": "Cloth",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/2_Cloth/Cloth_Right_013"
+        },
+        {
+            "Name": "Pant001",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/3_Pant/Pant_Left_001"
+        },
+        {
+            "Name": "Pant002",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/3_Pant/Pant_Left_002"
+        },
+        {
+            "Name": "Pant001",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/3_Pant/Pant_Right_001"
+        },
+        {
+            "Name": "Pant002",
+            "UnitType": "Unit",
+            "PartType": "Pant",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/3_Pant/Pant_Right_002"
+        },
+        {
+            "Name": "Helmet_001",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_001",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_001"
+        },
+        {
+            "Name": "Helmet_002",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_002",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_002"
+        },
+        {
+            "Name": "Helmet_003",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_003",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_003"
+        },
+        {
+            "Name": "Helmet_004",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_004",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_004"
+        },
+        {
+            "Name": "Helmet_005",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_005",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_005"
+        },
+        {
+            "Name": "Helmet_006",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_006",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_006"
+        },
+        {
+            "Name": "Helmet_007",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_007",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_007"
+        },
+        {
+            "Name": "Helmet_008",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_008",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_008"
+        },
+        {
+            "Name": "Helmet_009",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_009",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_009"
+        },
+        {
+            "Name": "Helmet_010",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_010",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_010"
+        },
+        {
+            "Name": "Helmet_011",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_011",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_011"
+        },
+        {
+            "Name": "Helmet_012",
+            "UnitType": "Unit",
+            "PartType": "Helmet",
+            "SubType": "Helmet_012",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/4_Helmet/Helmet_012"
+        },
+        {
+            "Name": "Armor001",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Body_001"
+        },
+        {
+            "Name": "Armor002",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Body_002"
+        },
+        {
+            "Name": "Armor003",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Body_003"
+        },
+        {
+            "Name": "Armor004",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Body_004"
+        },
+        {
+            "Name": "Armor005",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Body",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Body_005"
+        },
+        {
+            "Name": "Armor002",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Left_002"
+        },
+        {
+            "Name": "Armor003",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Left_003"
+        },
+        {
+            "Name": "Armor004",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Left_004"
+        },
+        {
+            "Name": "Armor005",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Left",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Left_005"
+        },
+        {
+            "Name": "Armor002",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Right_002"
+        },
+        {
+            "Name": "Armor003",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Right_003"
+        },
+        {
+            "Name": "Armor004",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Right_004"
+        },
+        {
+            "Name": "Armor005",
+            "UnitType": "Unit",
+            "PartType": "Armor",
+            "SubType": "Right",
+            "PartSubType": "",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/5_Armor/Armor_Right_005"
+        },
+        {
+            "Name": "Weapons_Sword_001",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_001",
+            "PartSubType": "Sword",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_001"
+        },
+        {
+            "Name": "Weapons_Sword_002",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_002",
+            "PartSubType": "Sword",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_002"
+        },
+        {
+            "Name": "Weapons_Sword_003",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_003",
+            "PartSubType": "Sword",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_003"
+        },
+        {
+            "Name": "Weapons_Sword_004",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_004",
+            "PartSubType": "Sword",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_004"
+        },
+        {
+            "Name": "Weapons_Sword_005",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Weapons_Sword_005",
+            "PartSubType": "Sword",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/6_Weapons/0_Sword/Weapons_Sword_005"
+        },
+        {
+            "Name": "Chosun_Gun",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Chosun_Gun",
+            "PartSubType": "Bow",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/6_Weapons/2_Bow/Chosun_Gun"
+        },
+        {
+            "Name": "Shield_001",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Shield_001",
+            "PartSubType": "Shield",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/6_Weapons/3_Shield/Shield_001"
+        },
+        {
+            "Name": "Shield_002",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Shield_002",
+            "PartSubType": "Shield",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/6_Weapons/3_Shield/Shield_002"
+        },
+        {
+            "Name": "Shield_003",
+            "UnitType": "Unit",
+            "PartType": "Weapons",
+            "SubType": "Shield_003",
+            "PartSubType": "Shield",
+            "Path": "Addons/ChosunSet/0_Unit/0_Sprite/6_Weapons/3_Shield/Shield_003"
+        }
+    ]
+}
