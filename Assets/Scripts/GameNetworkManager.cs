@@ -7,6 +7,8 @@ using static GameNetworkManager;
 using System.Linq;
 using System;
 using Random = UnityEngine.Random;
+using LitJson;
+using UnityEngine.UI;
 
 // ======================
 // 몬스터 데이터 청사진
@@ -25,9 +27,15 @@ public class SettingMonsterData
     public string position; // 예: { "x": 345.5, "y": 64.0, "z": 780.2 }
 }
 
+
 public struct CreateCharacterMessage : NetworkMessage
 {
     public string CharacterName;
+    // 서버의 SyncVar에 바로 꽂아줄 데이터들
+    public string WeaponData;
+    public string HelmetData;
+    public string ClothData;
+    public string PantData;
 }
 
 public class GameNetworkManager : NetworkManager
@@ -184,7 +192,8 @@ public class GameNetworkManager : NetworkManager
      
     /// <summary> 
     /// 실행주체 : 서버
-    /// 서버가 메시지를 받아들이고 > 데이터 세팅 후 최종적으로 > AddPlayerForConnection을 통해 Spawn함
+    /// 서버가 메시지를 받아들이고 > 
+    /// 데이터 세팅 후 최종적으로 > AddPlayerForConnection을 통해 Spawn함
     /// </summary>
     private void OnCreateCharacterMessage(NetworkConnectionToClient conn, CreateCharacterMessage message)
     {
@@ -192,21 +201,21 @@ public class GameNetworkManager : NetworkManager
         Vector3 spawnPosition = startPosition != null ? startPosition.position : Vector3.zero;
         Quaternion spawnRotation = startPosition != null ? startPosition.rotation : Quaternion.identity;
 
-        Sprite prefabs = RootManager.Instance.AddressableCDD.GetSprite("Sword_2");
+        //Sprite prefabs = RootManager.Instance.AddressableCDD.GetSprite("Sword_2");
 
-        if (prefabs != null)
-        {
+        
             GameObject players = Instantiate(playerPrefab, spawnPosition, spawnRotation);
             var playerController = players.GetComponent<PlayerController>();
-            playerController.equippedSpriteName = prefabs.name;
+            playerController.weaponName = message.WeaponData;
+            playerController.helmetName = message.HelmetData;
+            playerController.ClothName = message.ClothData;
+            playerController.PantName = message.PantData;
+
             playerController.CharacterName = message.CharacterName;
 
-            NetworkServer.AddPlayerForConnection(conn, players);
-        }
-        else
-        {
-            Debug.LogError("❌ Addressables 프리팹을 찾을 수 없습니다: Pikachu");
-        }
+
+    NetworkServer.AddPlayerForConnection(conn, players);
+        
         //GameObject player = Instantiate(playerPrefab, spawnPosition, spawnRotation);
     }
     /// <summary> 
@@ -220,12 +229,84 @@ public class GameNetworkManager : NetworkManager
     {
         base.OnClientConnect();
         Debug.Log(" 클라 실행");
-        CreateCharacterMessage createCharacterMessage = new CreateCharacterMessage
+        string weaponToSend = "Default";
+        string helmetToSend = "Default";
+        string ClothToSend = "Default";
+        string PantToSend = "Default";
+        // 2. equipInventory JSON 데이터 순회
+        // (JsonData가 딕셔너리 형태라고 가정: "0":null, "10":{...})
+        var equiData = RootManager.Instance.SetDataManager.equipInventory;
+        var chartData = RootManager.Instance.ChartManager.InvenInfoList;
+        if (equiData != null)
+        { 
+            //  key "1" 
+            foreach (string key in equiData.Keys)
+            {
+                // key "5"
+                // itemData {"itemId":"3","count":1,"isEquip":true}
+                JsonData itemData = equiData[key];
+
+                // 2-1. 데이터가 null이 아니고, 실제 아이템이 들어있는지 확인
+                if (itemData == null) continue;
+
+                // 2-2. 착용 중인 아이템인지 확인 (isEquip == true)
+                // JsonData에서 bool 값을 가져올 때 안전하게 처리
+                bool isEquip = false;
+                if (itemData.Keys.Contains("isEquip") && (bool)itemData["isEquip"])
+                {
+                    isEquip = true;
+                }
+
+                if (isEquip)
+                {
+                    // itemid > 3 (실제 착용중인 값)
+                    int itemId = int.Parse(itemData["itemId"].ToString());
+
+                    // 차트를 Find로 순회하면서 위의 3값과 일치하는 row를 찾는다
+                    InvenInfo info = chartData.Find(x => x.ItemId == itemId);
+
+                    if (info != null)
+                    {
+                        // 2-5. 타입에 따라 메시지 변수에 이름(또는 ID) 할당
+                        // (info.Type 값은 프로젝트에 정의된 문자열과 일치해야 합니다 예: "Weapon", "Hat")
+                        switch (info.Type)
+                        {
+                            case "Weapon": // 예시 타입명
+                                weaponToSend = info.Name; // SyncVar에 넣을 값 (예: "LongSword")
+                                break;
+                            case "Helmet":
+                                if(info.Direct == "F")
+                                {
+                                    helmetToSend = info.Name + "_Front";
+                                } else
+                                {
+                                    helmetToSend = info.Name + "_Back";
+                                }                                
+                                break;
+                            case "Cloth": 
+                                ClothToSend = info.Name;
+                                break;
+                            case "Pant": 
+                                PantToSend = info.Name;
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 3. 메시지 생성 및 전송
+        CreateCharacterMessage msg = new CreateCharacterMessage
         {
             CharacterName = "Player1",
+            WeaponData = weaponToSend,
+            HelmetData = helmetToSend,
+            ClothData = ClothToSend,
+            PantData = PantToSend
         };
 
-        NetworkClient.Send(createCharacterMessage);
+        NetworkClient.Send(msg);
+        Debug.Log($"서버로 전송: 무기-{weaponToSend}, 모자-{helmetToSend}, 신발-{ClothToSend}");
     }
 
 

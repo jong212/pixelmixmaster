@@ -7,12 +7,22 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 public class RootManager : Singleton<RootManager>
 {
+    // 리소스 다운
     public AddressableCDD AddressableCDD { get; private set; }
+
+    public ChartManager ChartManager { get; private set; }
+    // 구글 로그인
     public EndManager EndManager { get; private set; }
+
+    // 서버 데이터 다운
     public GameNetworkManager GameNetworkManager { get; private set; }
 
+    // 맵 세팅
     public GameDataManager GameDataManager{ get; private set; }
+
+    // 뒤끝 유저 데이터 가져오기
     public SetDataManager SetDataManager { get; private set; }
+    public UI UI { get; private set; }
     //public AdManager AdManager { get; private set; }
     //public IAPManager IAPManager { get; private set; }
     // public TileManager TileManager { get; private set; }
@@ -33,11 +43,13 @@ public class RootManager : Singleton<RootManager>
         GameNetworkManager = FindObjectOfType<GameNetworkManager>();
         GameDataManager = FindObjectOfType<GameDataManager>();
 #else
-       
+
+        ChartManager = new ChartManager();
         EndManager = new EndManager();
         GameNetworkManager = FindObjectOfType<GameNetworkManager>();
-        SetDataManager = FindObjectOfType<SetDataManager>();
-        GameDataManager = FindObjectOfType<GameDataManager>();
+        SetDataManager     = FindObjectOfType<SetDataManager>();
+        GameDataManager    = FindObjectOfType<GameDataManager>();
+        UI                 = FindObjectOfType<UI>();
 #endif
 
 
@@ -46,20 +58,24 @@ public class RootManager : Singleton<RootManager>
 
     public IEnumerator NextInit()
     {
-        // 어드레서블 리소스 다운
         AddressableCDD.Initialize();
         yield return new WaitUntil(() => AddressableCDD.IsReady);
-        Debug.Log("AddressableCDD Ready!");
+        Debug.Log("어드레서블 리소스 다운 완료!");
 
-        // 구글 로그인 
+
+
         EndManager.Initialize();
         yield return new WaitUntil(() => EndManager.IsReady);
-        Debug.Log("EndManager Ready!");
-
-        // 뒤끝에서 유저정보, 몬스터 정보, 인벤정보 등 가져와서 변수에 세팅
+        Debug.Log("구글 로그인 완료 !");
+        ChartManager.Initialize();
+        yield return new WaitUntil(() => ChartManager.IsReady);
         SetDataManager.Initialize();
         yield return new WaitUntil(() => SetDataManager.IsReady);
-        Debug.Log("SetDataManager Ready!");
+        Debug.Log("뒤끝에서 유저정보, 몬스터 정보, 인벤정보 등 가져와서 변수에 세팅완료");
+
+        UI.Initialize();
+        yield return new WaitUntil(() => SetDataManager.IsReady);
+        Debug.Log("UI Canvas 세팅완료 !");
     }
     /// <summary>
     /// COROUTINE 모노 안 받는 매니저에서 코루틴 못 쓸때 이거 호출하기

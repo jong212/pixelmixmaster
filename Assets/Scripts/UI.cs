@@ -1,4 +1,5 @@
 using BackEnd;
+using BackEnd.Quobject.SocketIoClientDotNet.Client;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,11 @@ public class UI : MonoBehaviour
 
     public void Initialize()
     {
-        SetIngameUI();
+
+        SetSprites();
+        SetUIData();
     }
-    private void SetIngameUI()
+    private void SetSprites()
     {
         var uiSprites = RootManager.Instance.AddressableCDD.SpriteCache;
 
@@ -47,5 +50,83 @@ public class UI : MonoBehaviour
             }
         }
         IsReady = true;
+    }
+    private void SetUIData()
+    {
+
+    }
+    public enum UIPanelType
+    {
+        Inventory,
+        Info,
+        Pet,
+        Setting,
+        Shop
+    }
+
+    [Header("Hierarchy에 있는 패널들을 넣어주세요")]
+    public List<BasePanel> panels; // GameObject 대신 BasePanel 스크립트를 리스트로 받음
+
+    private Dictionary<UIPanelType, BasePanel> panelDic;
+    private void Awake()
+    {
+        panelDic = new Dictionary<UIPanelType, BasePanel>();
+
+        foreach (var p in panels)
+        {
+            if (p == null) continue;
+
+            // 딕셔너리에 타입별로 등록
+            if (!panelDic.ContainsKey(p.panelType))
+            {
+                panelDic.Add(p.panelType, p);
+            }
+
+            // 시작할 때 다 닫기
+            p.Close();
+        }
+    }
+
+    public void Show(UIPanelType type)
+    {
+        // 1. 모든 패널 닫기 (하나만 켜지는 모드)
+        foreach (var kv in panelDic)
+        {
+            kv.Value.Close();
+        }
+
+        // 2. 원하는 패널만 열기 (Open 함수 호출로 데이터 갱신 가능)
+        if (panelDic.ContainsKey(type))
+        {
+            panelDic[type].Open();
+        }
+    }
+
+    public void Toggle(UIPanelType type)
+    {
+        if (!panelDic.ContainsKey(type)) return;
+
+        bool isActive = panelDic[type].gameObject.activeSelf;
+
+        if (isActive)
+        {
+            panelDic[type].Close(); // 닫기
+        }
+        else
+        {
+            Show(type); // 열기 (나머지는 닫힘)
+        }
+    }
+    public void OnClickInventory()
+    {
+        Toggle(UIPanelType.Inventory);
+    }
+    public void OnClickInfo()
+    {
+        Toggle(UIPanelType.Info);
+    }
+    public void OnClickPet()
+    {
+        Toggle(UIPanelType.Pet);
     }
 }

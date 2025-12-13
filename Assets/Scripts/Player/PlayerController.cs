@@ -4,6 +4,8 @@ using UnityEngine;
 using BACKND;
 using SimpleInputNamespace;
 using UnityEngine.Tilemaps;
+using UnityEditor.VersionControl;
+using UnityEditor.Experimental.GraphView;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -34,14 +36,32 @@ public class PlayerController : NetworkBehaviour
     private bool isFacingRight = true;
     private Camera mainCamera;
     private Coroutine meteorCoroutine;
-    public SpriteRenderer parts_sward;
+    public SpriteRenderer parts_weapon;
+    public SpriteRenderer parts_helmet_front;
+    public SpriteRenderer parts_helmet_back;
+    public SpriteRenderer parts_cloth;
+    public SpriteRenderer parts_cloth_left;
+    public SpriteRenderer parts_cloth_right;
+    public SpriteRenderer parts_pant_left;
+    public SpriteRenderer parts_pant_right;
+ 
     private NetworkAnimator networkAnim;
     private PlayerObj playerObj;
     [SyncVar] public string CharacterName;
 
     [Header("Sprite")]
-    [SyncVar(hook = nameof(OnSpriteChanged))]
-    public string equippedSpriteName = "Default";
+    [SyncVar(hook = nameof(ChangeWeapon))]
+    public string weaponName = "Default";
+
+    [SyncVar(hook = nameof(ChangeHelment))]
+    public string helmetName = "Default";
+
+    [SyncVar(hook = nameof(ChangeCloth))]
+    public string ClothName = "Default";
+
+    [SyncVar(hook = nameof(ChangePant))]
+    public string PantName = "Default";
+
     [SyncVar(hook = nameof(OnAnimStateChanged))]
     private PlayerState _netState = PlayerState.IDLE;
     private SpriteRenderer spriteRenderer;
@@ -71,21 +91,115 @@ public class PlayerController : NetworkBehaviour
         //spriteRenderer = GetComponent<SpriteRenderer>(); // ✅ SpriteRenderer 연결
     }
   
-    private void OnSpriteChanged(string oldName, string newName)
+ 
+    private void ChangeWeapon(string oldName, string newName)
     {
-        Sprite test = RootManager.Instance.AddressableCDD.GetSprite(newName);
-        if (test  != null)
+        ChangeEquip("Weapon",oldName,newName);
+    }
+    private void ChangeHelment(string oldName, string newName)
+    {
+        ChangeEquip("Helmet", oldName, newName);
+    }
+    private void ChangeCloth(string oldName, string newName)
+    {
+        ChangeEquip("Cloth",oldName,newName);
+    }
+    private void ChangePant(string oldName, string newName)
+    {
+        ChangeEquip("Pant",oldName,newName);
+    }
+    private void ChangeEquip(
+    string partsName,
+    string oldName,
+    string newName
+)
+    {
+        // false == Front, 
+        // true == Back
+        Sprite sprite = null;
+        Sprite leftSprite = null;
+        Sprite rightSprite = null;
+
+        // 1️⃣ Helmet: Front / Back 처리
+        bool helmetBackOrFrontValue = false;
+
+        if (partsName == "Helmet")
         {
-            Debug.Log(newName);
-            parts_sward.sprite = test;
+            if (newName.Contains("_Front"))
+            {
+                newName = newName.Replace("_Front", "");
+            }
+            else if (newName.Contains("_Back"))
+            {
+                newName = newName.Replace("_Back", "");
+                helmetBackOrFrontValue = true;
+            }
+        }
+
+        // 2️⃣ 파츠별 스프라이트 로딩 전략
+        if (partsName == "Pant")
+        {
+            // ❗ Pant는 기본 sprite 없음
+            leftSprite = RootManager.Instance.AddressableCDD.GetSprite(newName + "_Left");
+            rightSprite = RootManager.Instance.AddressableCDD.GetSprite(newName + "_Right");
+
+            if (leftSprite == null && rightSprite == null)
+            {
+                Debug.LogWarning($"Pant 스프라이트를 찾을 수 없습니다: {newName}");
+                return;
+            }
         }
         else
         {
-            Debug.LogWarning($"스프라이트를 찾을 수 없습니다: {newName}");
-        }
-    }
+            // Weapon / Helmet / Cloth
+            sprite = RootManager.Instance.AddressableCDD.GetSprite(newName);
 
-  
+            if (sprite == null)
+            {
+                Debug.LogWarning($"스프라이트를 찾을 수 없습니다: {newName}");
+                return;
+            }
+
+            // Cloth는 Left / Right 추가
+            if (partsName == "Cloth")
+            {
+                leftSprite = RootManager.Instance.AddressableCDD.GetSprite(newName + "_Left");
+                rightSprite = RootManager.Instance.AddressableCDD.GetSprite(newName + "_Right");
+            }
+        }
+
+        switch (partsName)
+        {
+            case "Weapon":
+                parts_weapon.sprite = sprite;
+                break;
+
+            case "Helmet":
+                if (!helmetBackOrFrontValue)
+                {
+                    parts_helmet_front.sprite = sprite;
+                    parts_helmet_back.sprite = null;
+                }
+                else
+                {
+                    parts_helmet_back.sprite = sprite;
+                    parts_helmet_front.sprite = null;
+                }
+                break;
+
+            case "Cloth":
+                parts_cloth.sprite = sprite;
+                parts_cloth_left.sprite = leftSprite;
+                parts_cloth_right.sprite = rightSprite;
+                break;
+
+            case "Pant":
+                parts_pant_left.sprite = leftSprite;
+                parts_pant_right.sprite = rightSprite;
+                break;
+        }
+
+    }
     public override void OnStartLocalPlayer()
     {
         mainCamera = Camera.main;

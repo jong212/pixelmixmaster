@@ -1956,10 +1956,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373660968240607813}
+  - component: {fileID: 7660930770579730839}
   - component: {fileID: 3155895109677931650}
   - component: {fileID: 2872040170116991020}
   - component: {fileID: 4647245502450781972}
-  - component: {fileID: 7660930770579730839}
   - component: {fileID: 362162494209997383}
   - component: {fileID: -5933672426328595745}
   - component: {fileID: 4935632066278991683}
@@ -1987,6 +1987,43 @@ Transform:
   - {fileID: 6087323856214034442}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7660930770579730839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845918878731098688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffae1386454547d299ecb2cb797551e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  moveSpeed: 5
+  attackRange: 1.5
+  attackDamage: 10
+  cameraOffset: {x: 0, y: 0, z: -10}
+  cameraSmoothing: 0.125
+  meteorSpawnInterval: 2
+  positionHistory: []
+  recordInterval: 0.02
+  joystick: {fileID: 0}
+  parts_weapon: {fileID: 3575886614174594213}
+  parts_helmet_back: {fileID: 4381703521606579743}
+  parts_helmet_front: {fileID: 5338130673721642512}
+  parts_cloth: {fileID: 3286966284282685037}
+  parts_cloth_left: {fileID: 8257120255262065224}
+  parts_cloth_right: {fileID: 8866122411813545661}
+  parts_pant_left: {fileID: 2402019719367174166}
+  parts_pant_right: {fileID: 1339949194909727669}
+  CharacterName: 
+  weaponName: Default
+  helmetName: Default
+  ClothName: Default
+  PantName: Default
 --- !u!114 &3155895109677931650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5000,33 +5037,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7660930770579730839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3845918878731098688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffae1386454547d299ecb2cb797551e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  moveSpeed: 5
-  attackRange: 1.5
-  attackDamage: 10
-  cameraOffset: {x: 0, y: 0, z: -10}
-  cameraSmoothing: 0.125
-  meteorSpawnInterval: 2
-  positionHistory: []
-  recordInterval: 0.02
-  joystick: {fileID: 0}
-  parts_sward: {fileID: 3575886614174594213}
-  CharacterName: 
-  equippedSpriteName: Default
 --- !u!114 &362162494209997383
 MonoBehaviour:
   m_ObjectHideFlags: 0

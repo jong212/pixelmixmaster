@@ -179,7 +179,7 @@ public class AddressableCDD : MonoBehaviour
             if (!_spriteCache.ContainsKey(sprite.name))
             {
                 _spriteCache.Add(sprite.name, sprite);
-                Debug.Log($"캐싱된 Sprite: {sprite.name}");
+                //Debug.Log($"캐싱된 Sprite: {sprite.name}");
             }
         });
         yield return handle;
@@ -251,19 +251,10 @@ public class AddressableCDD : MonoBehaviour
         _registerprefabCache.TryGetValue(name, out var prefab);
         return prefab;
     }
-    public void LogAllCachedSprites()
-    {
-        foreach (var kvp in _spriteCache)
-        {
-            Debug.Log($"[Cache Key] {kvp.Key} → Sprite Name: {kvp.Value.name}");
-        }
-    }
+
     public Sprite GetSprite(string name)
     {
-        Debug.Log(name);
-        LogAllCachedSprites();
         _spriteCache.TryGetValue(name, out var sprite);
-        Debug.Log(sprite);
         return sprite;
     }
   
