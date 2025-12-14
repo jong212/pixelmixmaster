@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6d977cceb2f529e4d9e28a2657c03599
   m_SerializeEntries:
-  - m_GUID: 00443504d398fb649911f241c877a73f
-    m_Address: Sword_11
+  - m_GUID: 0333edc28441b7349a9d338718d32f23
+    m_Address: hp6
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -29,44 +29,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 04a9e3c4661a9b6469a0ebaab208c794
-    m_Address: Sword_12
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 068143ef29117dd488cb54fb0192766d
     m_Address: Pant_1_Right
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0beee892f2f5eb54d9ba60a67213b00e
-    m_Address: Sword_6
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 10c767dfb932db54eb9a050291f1e615
-    m_Address: Sword_21
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1893a33dc066b5b4a9d5128b132b3fef
     m_Address: Helmet_2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 221ec54b4976e8e49b88979a048fd674
-    m_Address: Sword_7
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 25a24f8fd1505c5459987d9fee1b557f
-    m_Address: Sword_3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -95,26 +65,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 36f0fd8c11e2e6a47957d5810dfe6b7b
-    m_Address: Sword_15
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 38812f80c96860445b54d88a66d3c813
-    m_Address: Sword_13
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3fb37dafd71cc0b47ad33f9627c585b1
-    m_Address: Sword_19
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 406c4c88a3a62e64e9da670b6f7e4a3d
-    m_Address: Sword_5
+  - m_GUID: 4505c2460fb22164c9792187629765ce
+    m_Address: hp4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -137,30 +89,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4b497754416435c43ab6b6f6a845f816
-    m_Address: Sword_20
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4cc0adbd9a237c54a8d9681e08dc2c2b
-    m_Address: Sword_23
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4d4d2a271cd7398428f79d32611781b8
-    m_Address: Sword_4
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 50a9e65bac5847d49ab5aa975d9c6b07
-    m_Address: Sword_8
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 515f224b4a40cf64bbeca8d4932add10
     m_Address: Cloth_2_Right
     m_ReadOnly: 0
@@ -173,14 +101,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 55156d3f3a3cd7846842caeb1a5db125
-    m_Address: Sword_16
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5cd89077f7c890e43ba19d6ab1bb515c
-    m_Address: Sword_18
+  - m_GUID: 58b209c0f212f2049b6f299bc841d5f1
+    m_Address: hp1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -197,31 +119,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83669ad259d236b43be9d27ce056b9b0
+    m_Address: hp7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 855992335a6c1ed4d9cdf03c46ebb481
-    m_Address: Sword_2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8aecb720961862843836478e9c7f7fce
-    m_Address: Sword_14
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8bfbdb67d8824a94e8e5019935d3c897
-    m_Address: Sword_17
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8e294b846d0b02f439b15fd2cbb2b6a2
-    m_Address: Sword_10
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprites
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 92c5023de042a4840a0f00a672f03a0a
     m_Address: Sword_2
     m_ReadOnly: 0
     m_SerializedLabels:
@@ -233,14 +137,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a45fdf6d99aa2e7428d8d12bf6e75b9c
-    m_Address: Sword_9
+  - m_GUID: a951e58af6b1c2143b0fbd9fc5fc6ea9
+    m_Address: Cloth_1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a951e58af6b1c2143b0fbd9fc5fc6ea9
-    m_Address: Cloth_1
+  - m_GUID: ad5dcf37e6ff19c408d5866a2c0ba383
+    m_Address: hp3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bbfe610a77b84dc4eba5e7a4892679b5
+    m_Address: hp2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdb22d4f5f3a61441b3cb652cade0b0c
+    m_Address: hp5
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
@@ -251,8 +167,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f0b61369a9c96a743a14a6e9bf8eb59b
-    m_Address: Sword_22
+  - m_GUID: d62557adab067104bb36f3ab5e84f8ff
+    m_Address: hp8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1692d7bd35e7e14eb40170baa32a93e
+    m_Address: hp9
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites

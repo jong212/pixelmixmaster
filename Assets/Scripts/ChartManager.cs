@@ -31,6 +31,7 @@ public class InvenInfo
     public string Direct { get; private set; }
     public float Sx { get; private set; }
     public float Sy { get; private set; }
+    public int Hp { get; private set; }
     public InvenInfo(JsonData json)
     {
         ItemId = int.Parse(json["ItemId"].ToString());
@@ -39,6 +40,7 @@ public class InvenInfo
         Atk = float.Parse(json["Atk"].ToString());
         CanLv = int.Parse(json["CanLv"].ToString());
         Direct = json["Direct"].ToString();
+        Hp = int.Parse(json["Hp"].ToString());
         Sx = float.Parse(json["Sx"].ToString());
         Sy = float.Parse(json["Sy"].ToString());
 

@@ -1,18 +1,41 @@
-using TMPro;
+ï»¿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ItemSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ItemSlotUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    [Header("½½·Ô ³»ºÎ ÄÄÆ÷³ÍÆ® ¿¬°á")]
+    [Header("ìŠ¬ë¡¯ ë‚´ë¶€ ì»´í¬ë„ŒíŠ¸")]
     public Image itemIcon;
     public TextMeshProUGUI amountText;
+    public Image RoundLine;
+
+    [Header("ë°˜ì‘ ì„¤ì •")]
+    public float pressScale = 0.9f;
+    public float dragScale = 1.2f;
+
+    private bool consumedByPopup = false;
+
 
     public int SlotIndex { get; private set; }
     private InventoryPopup inventory;
+    private ScrollRect scrollRect;
+    private float originalAlpha;
 
-    private float originalAlpha;  // ¡Ú ¿ø·¡ ¾ËÆÄ ÀúÀå¿ë
+    // â˜… ì•„ì´í…œ ê³ ìœ ì˜ ìŠ¤ì¼€ì¼(Sx, Sy)ì„ ê¸°ì–µí•˜ëŠ” ë³€ìˆ˜
+    private Vector3 currentBaseScale = Vector3.one;
+
+    // ìƒíƒœ ë³€ìˆ˜ë“¤
+    private bool isPointerDown = false;
+    private bool isLongPressed = false;
+    private bool isItemDragging = false;
+    private float pressTimer = 0f;
+    private const float LongPressDuration = .7f;
+
+    private void Awake()
+    {
+        scrollRect = GetComponentInParent<ScrollRect>();
+    }
 
     public void Init(int index, InventoryPopup inven)
     {
@@ -20,15 +43,66 @@ public class ItemSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         inventory = inven;
     }
 
-    public void SetSlot(Sprite sprite, int amount)
+    private void Update()
     {
-        itemIcon.sprite = sprite;
+        // ê¾¹ ëˆ„ë¥´ê¸° ì²´í¬
+        if (isPointerDown && !isLongPressed)
+        {
+            pressTimer += Time.deltaTime;
+            // ê¸°ì–µí•´ë‘” ìŠ¤ì¼€ì¼ ê¸°ì¤€ìœ¼ë¡œ 0.9ë°° ì‘ì•„ì§
+            Vector3 targetScale = currentBaseScale * pressScale;
+            itemIcon.transform.localScale = Vector3.Lerp(itemIcon.transform.localScale, targetScale, Time.deltaTime * 10f);
 
+            if (pressTimer >= LongPressDuration && itemIcon.sprite != null)
+            {
+                OnLongPressComplete();
+            }
+        }
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (consumedByPopup)
+        {
+            consumedByPopup = false; // ë‹¤ìŒ ì…ë ¥ì„ ìœ„í•´ ë¦¬ì…‹
+            return;
+        }        // ì•„ì´í…œ ì—†ìœ¼ë©´ ë¬´ì‹œ
+        if (itemIcon.sprite == null) return;
+        // ë“œë˜ê·¸ì˜€ìœ¼ë©´ í´ë¦­ ì·¨ì†Œ
+        if (isItemDragging) return;
+        // ë¡±í”„ë ˆìŠ¤ì˜€ìœ¼ë©´ í´ë¦­ ì·¨ì†Œ
+        if (isLongPressed) return;
+        // ğŸ‘‰ ì—¬ê¸°ì„œ ClickPopup ë„ìš°ê¸°
+        inventory.ShowItemClickPopup(this);
+    }
+    private void OnLongPressComplete()
+    {
+        isLongPressed = true;
+        inventory.HideItemClickPopup();
+        // 1ì´ˆ ë’¤ ê¸°ì–µí•´ë‘” ìŠ¤ì¼€ì¼ ê¸°ì¤€ìœ¼ë¡œ 1.2ë°° ì»¤ì§
+        itemIcon.transform.localScale = currentBaseScale * dragScale;
+
+#if UNITY_ANDROID || UNITY_IOS
+            Handheld.Vibrate(); 
+#endif
+    }
+
+    // â˜…â˜…â˜… [í•µì‹¬ ë³€ê²½] sx, sy ê°’ì„ ë°›ì•„ì„œ ê¸°ì–µí•©ë‹ˆë‹¤. (ê¸°ë³¸ê°’ 1f) â˜…â˜…â˜…
+    public void SetSlot(Sprite sprite, int amount, bool isEquipValue, float sx = 1f, float sy = 1f)
+    {
+        // 1. ìŠ¤ì¼€ì¼ ê¸°ì–µ
+        currentBaseScale = new Vector3(sx, sy, 1f);
+
+        // 2. ì•„ì´ì½˜ ì„¤ì • ë° í¬ê¸° ì ìš©
+        itemIcon.sprite = sprite;
+        itemIcon.transform.localScale = currentBaseScale; // ë°”ë¡œ ì ìš©
+
+        // 3. ê¸°íƒ€ ì„¤ì •
         Color c = itemIcon.color;
         c.a = 1f;
         itemIcon.color = c;
-
         itemIcon.gameObject.SetActive(true);
+
+        RoundLine.gameObject.SetActive(isEquipValue);
 
         if (amount > 1)
         {
@@ -45,53 +119,100 @@ public class ItemSlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     public void ClearSlot()
     {
         itemIcon.sprite = null;
+        // ë¹„ìš¸ ë•ŒëŠ” 1,1,1ë¡œ ì´ˆê¸°í™”í•˜ê±°ë‚˜ ì›í•˜ëŠ” ëŒ€ë¡œ ì„¤ì •
+        currentBaseScale = Vector3.one;
+        itemIcon.transform.localScale = Vector3.one;
 
         Color c = itemIcon.color;
-        c.a = 0f; // ¡Ú ºó ½½·ÔÀº Åõ¸í
+        c.a = 0f;
         itemIcon.color = c;
-
+        RoundLine.gameObject.SetActive(false);
         amountText.gameObject.SetActive(false);
     }
 
-    // ========================================================
-    // DRAG EVENT
-    // ========================================================
+    // ... (OnPointerDown, OnPointerUp ë“±ì€ ìœ„ ë¡œì§ì— ë§ì¶° ë³µêµ¬ë§Œ í•˜ë©´ ë˜ë¯€ë¡œ ìƒëµ) ...
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        consumedByPopup = inventory.HideItemClickPopup();
+        if (itemIcon.sprite == null) return;
+        isPointerDown = true;
+        isLongPressed = false;
+        isItemDragging = false;
+        pressTimer = 0f;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        isPointerDown = false;
+        pressTimer = 0f;
+        // ë“œë˜ê·¸ ì¤‘ì´ ì•„ë‹ˆë©´ ì›ë˜ í¬ê¸°ë¡œ ë³µêµ¬
+        if (!isItemDragging && itemIcon.sprite != null)
+        {
+            itemIcon.transform.localScale = currentBaseScale;
+        }
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (itemIcon.sprite == null)
-            return;  // ¡Ú ºó ½½·Ô µå·¡±× ±İÁö!
+        if (isLongPressed)
+        {
+            if (itemIcon.sprite == null) return;
 
-        // ¡Ú ¿ø·¡ ¾ËÆÄ°ª ÀúÀå
-        originalAlpha = itemIcon.color.a;
+            isItemDragging = true;
+            originalAlpha = itemIcon.color.a;
 
-        // ÇöÀç ½ºÇÁ¶óÀÌÆ®, ¼ö·® °¡Á®¿À±â
-        Sprite sprite = itemIcon.sprite;
-        int count = amountText.gameObject.activeSelf ? int.Parse(amountText.text) : 1;
+            // ìŠ¬ë¡¯ ìì‹ ì€ ì»¤ì§„ ìƒíƒœ ìœ ì§€
+            itemIcon.transform.localScale = currentBaseScale * dragScale;
 
-        inventory.StartDrag(this, sprite, count);
+            Sprite sprite = itemIcon.sprite;
+            int count = amountText.gameObject.activeSelf ? int.Parse(amountText.text) : 1;
 
-        // µå·¡±× Áß ¹İÅõ¸í Ã³¸®
-        Color c = itemIcon.color;
-        c.a = 0.4f;
-        itemIcon.color = c;
+            // â˜…â˜…â˜… [í•µì‹¬] ê¸°ì–µí•´ë‘” sx, sy ê°’ì„ ì¸ë²¤í† ë¦¬ì— ì „ë‹¬ â˜…â˜…â˜…
+            inventory.StartDrag(this, sprite, count, currentBaseScale);
+
+            Color c = itemIcon.color;
+            c.a = 0.4f;
+            itemIcon.color = c;
+        }
+        else // ìŠ¤í¬ë¡¤
+        {
+            isItemDragging = false;
+            isPointerDown = false;
+
+            if (itemIcon.sprite != null)
+                itemIcon.transform.localScale = currentBaseScale; // ë³µêµ¬
+
+            if (scrollRect != null) scrollRect.OnBeginDrag(eventData);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        inventory.Drag(eventData);
+        if (isItemDragging) inventory.Drag(eventData);
+        else if (scrollRect != null) scrollRect.OnDrag(eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (itemIcon.sprite != null)
+        if (isItemDragging)
         {
-            // ¡Ú ºó ½½·ÔÀÌ ¾Æ´Ï¶ó¸é ¿ø·¡ ¾ËÆÄ º¹±¸
-            Color c = itemIcon.color;
-            c.a = originalAlpha;
-            itemIcon.color = c;
+            if (itemIcon.sprite != null)
+            {
+                Color c = itemIcon.color;
+                c.a = originalAlpha;
+                itemIcon.color = c;
+                itemIcon.transform.localScale = currentBaseScale; // ì›ë˜ í¬ê¸°ë¡œ ë³µêµ¬
+            }
+            inventory.EndDrag(this, eventData);
+        }
+        else
+        {
+            if (scrollRect != null) scrollRect.OnEndDrag(eventData);
         }
 
-        inventory.EndDrag(this, eventData);
+        isPointerDown = false;
+        isLongPressed = false;
+        isItemDragging = false;
+        pressTimer = 0f;
     }
 }
