@@ -1964,6 +1964,7 @@ GameObject:
   - component: {fileID: -5933672426328595745}
   - component: {fileID: 4935632066278991683}
   - component: {fileID: -6189009142673538331}
+  - component: {fileID: -4231575379095562708}
   m_Layer: 6
   m_Name: MainPlayer
   m_TagString: Player
@@ -2012,8 +2013,8 @@ MonoBehaviour:
   recordInterval: 0.02
   joystick: {fileID: 0}
   parts_weapon: {fileID: 3575886614174594213}
-  parts_helmet_back: {fileID: 4381703521606579743}
   parts_helmet_front: {fileID: 5338130673721642512}
+  parts_helmet_back: {fileID: 4381703521606579743}
   parts_cloth: {fileID: 3286966284282685037}
   parts_cloth_left: {fileID: 8257120255262065224}
   parts_cloth_right: {fileID: 8866122411813545661}
@@ -5121,6 +5122,20 @@ MonoBehaviour:
   _currentState: 0
   _goalPos: {x: 0, y: 0, z: 0}
   isAction: 0
+--- !u!114 &-4231575379095562708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845918878731098688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5934a5063fe5d1148b73962c95bdc7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPlayer: {fileID: 1373660968240607813}
+  subPlayers: []
 --- !u!1 &3959728615261246137
 GameObject:
   m_ObjectHideFlags: 0

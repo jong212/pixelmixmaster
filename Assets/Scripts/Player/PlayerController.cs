@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BACKND;
 using SimpleInputNamespace;
-using UnityEngine.Tilemaps;
-using UnityEditor.VersionControl;
-using UnityEditor.Experimental.GraphView;
+using LitJson;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -30,8 +28,8 @@ public class PlayerController : NetworkBehaviour
     private float recordTimer = 0f;
 
     // 입력 및 구성 요소
-    private Vector2 movement;
-    private Rigidbody2D rb;
+    public Vector2 movement;
+    public Rigidbody2D rb;
     public Joystick joystick;
     private bool isFacingRight = true;
     private Camera mainCamera;
@@ -65,6 +63,8 @@ public class PlayerController : NetworkBehaviour
     [SyncVar(hook = nameof(OnAnimStateChanged))]
     private PlayerState _netState = PlayerState.IDLE;
     private SpriteRenderer spriteRenderer;
+
+
     // =================================================================
     // ★ 1. 서버 접속 시: 출석부에 내 이름 적기
     // =================================================================
@@ -114,6 +114,13 @@ public class PlayerController : NetworkBehaviour
     string newName
 )
     {
+        // ⭐ 장착 안 한 상태
+        if (string.IsNullOrEmpty(newName) || newName == "Default")
+        {
+            ClearPart(partsName);
+            return;
+        }
+
         // false == Front, 
         // true == Back
         Sprite sprite = null;
@@ -200,6 +207,31 @@ public class PlayerController : NetworkBehaviour
         }
 
     }
+    private void ClearPart(string partsName)
+    {
+        switch (partsName)
+        {
+            case "Weapon":
+                parts_weapon.sprite = null;
+                break;
+
+            case "Helmet":
+                parts_helmet_front.sprite = null;
+                parts_helmet_back.sprite = null;
+                break;
+
+            case "Cloth":
+                parts_cloth.sprite = null;
+                parts_cloth_left.sprite = null;
+                parts_cloth_right.sprite = null;
+                break;
+
+            case "Pant":
+                parts_pant_left.sprite = null;
+                parts_pant_right.sprite = null;
+                break;
+        }
+    }
     public override void OnStartLocalPlayer()
     {
         mainCamera = Camera.main;
@@ -224,10 +256,10 @@ public class PlayerController : NetworkBehaviour
 
         // B. 공격 테스트 (스페이스바)
         // ※ 모바일이라면 UI 버튼 OnClick 이벤트에 PerformAttack()을 연결하세요.
-        if (Input.GetKeyDown(KeyCode.Space))
+ /*       if (Input.GetKeyDown(KeyCode.Space))
         {
             PerformAttack();
-        }
+        }*/
 
         // 좌우 방향 회전
         if (movement.x > 0.1f && !isFacingRight)
@@ -396,4 +428,62 @@ public class PlayerController : NetworkBehaviour
             playerObj.PlayStateAnimation(newState);
         }
     }
+    public void ApplyAllEquipment(JsonData equipInventory)
+    {
+        // 1️⃣ 현재 장착된 타입 추적
+        HashSet<string> equippedTypes = new HashSet<string>();
+
+        if (equipInventory != null)
+        {
+            foreach (string key in equipInventory.Keys)
+            {
+                JsonData data = equipInventory[key];
+                if (data == null) continue;
+                if (!data.Keys.Contains("itemId")) continue;
+                if (!data.Keys.Contains("isEquip")) continue;
+                if (!bool.Parse(data["isEquip"].ToString())) continue;
+
+                int itemId = int.Parse(data["itemId"].ToString());
+                InvenInfo info = RootManager.Instance.ChartManager.InvenInfoList
+                    .Find(x => x.ItemId == itemId);
+
+                if (info == null) continue;
+                if (!InventoryLogic.Instance.IsEquipType(info.Type)) continue;
+
+                equippedTypes.Add(info.Type);
+
+                switch (info.Type)
+                {
+                    case "Weapon":
+                        weaponName = info.Name;
+                        break;
+                    case "Helmet":
+                        helmetName = info.Name;
+                        break;
+                    case "Cloth":
+                        ClothName = info.Name;
+                        break;
+                    case "Pant":
+                        PantName = info.Name;
+                        break;
+                }
+            }
+        }
+
+        // 2️⃣ 한 번도 안 나온 타입 = 미착용 → Default
+        if (!equippedTypes.Contains("Weapon"))
+            weaponName = "Default";
+
+        if (!equippedTypes.Contains("Helmet"))
+            helmetName = "Default";
+
+        if (!equippedTypes.Contains("Cloth"))
+            ClothName = "Default";
+
+        if (!equippedTypes.Contains("Pant"))
+            PantName = "Default";
+    }
+
+
+
 }

@@ -3,6 +3,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+public struct ItemPopupContext
+{
+    public int slotIndex;
+    public int itemId;
+
+    public ItemPopupContext(int itemId, int slotIndex)
+    {
+        this.slotIndex = slotIndex;
+        this.itemId = itemId;
+    }
+}
+
 
 public class InventoryPopup : BasePanel
 {
@@ -30,7 +42,11 @@ public class InventoryPopup : BasePanel
 
         // 슬롯 초기화
         for (int i = 0; i < _slots.Length; i++)
+        {
+            Debug.Log("a" + i);
             _slots[i].Init(i, this);
+
+        }
     }
 
     public override void Open()
@@ -286,17 +302,40 @@ public class InventoryPopup : BasePanel
     }
     public void ShowItemClickPopup(ItemSlotUI slot)
     {
-        // 슬롯 클릭
+        // 이미 열려 있으면 닫기 (토글 동작)
         if (HideItemClickPopup())
-        {
             return;
-        }
-        clickPopup.gameObject.SetActive(true);
-        SetPopupPosition(slot);
 
-        // 아이템 정보 세팅
-        //SetItemInfo(slot);
+        int slotIndex = slot.SlotIndex;
+
+        JsonData inven = SetDataManager.Instance.equipInventory;
+        if (inven == null)
+            return;
+
+        string key = slotIndex.ToString();
+
+        // 슬롯에 아이템이 있는지 검증
+        if (!inven.Keys.Contains(key))
+            return;
+
+        JsonData itemData = inven[key];
+        if (itemData == null || !itemData.Keys.Contains(KEY_ITEM_ID))
+            return;
+
+        // 🔑 팝업 시점의 아이템 ID 스냅샷
+        int itemId = SafeParseInt(itemData, KEY_ITEM_ID);
+
+        // 컨텍스트 생성 (slot + itemId)
+        ItemPopupContext context = new ItemPopupContext(itemId, slotIndex);
+
+        // 팝업 오픈
+        ItemInfoPopup popup = clickPopup.GetComponent<ItemInfoPopup>();
+        popup.Open(context);
+
+        // 위치 조정
+        SetPopupPosition(slot);
     }
+
     private void SetPopupPosition(ItemSlotUI slot)
     {
         RectTransform slotRt = slot.GetComponent<RectTransform>();
