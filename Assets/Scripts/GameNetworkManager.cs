@@ -366,14 +366,13 @@ public class GameNetworkManager : NetworkManager
         SpawnInitialMonsters();
         while (isServerRunning)
         {
-            Debug.Log("1");
             // 0) 진짜로 파괴(null)된 참조만 정리 (숨김/죽음 상태는 그대로 유지)
             for (int i = activeMonsters.Count - 1; i >= 0; --i)
             {
                 if (activeMonsters[i] == null)
                     activeMonsters.RemoveAt(i);
             }
-            Debug.Log(activeMonsters.Count);
+            //Debug.Log(activeMonsters.Count);
             // 1) alive == false 인 몬스터만 보고 리스폰 스케줄/실행
             for (int i = 0; i < activeMonsters.Count; i++)
             {
@@ -406,7 +405,6 @@ public class GameNetworkManager : NetworkManager
                     var col = go.GetComponent<Collider2D>();
                     if (col) col.enabled = true;
                     m.nextRespawnTime = 0f;
-
                     // 보이기 ON (SyncVar라면 클라에 자동 반영)
                     m.alive = true;
 
@@ -515,9 +513,10 @@ public class GameNetworkManager : NetworkManager
             
             // 플레이어가 있는 경우에만 플레이어와의 거리 체크
             bool isTooCloseToPlayer = false;
-            PlayerController[] players = FindObjectsOfType<PlayerController>();
-            
-            if (players.Length > 0)
+            //PlayerController[] players = FindObjectsOfType<PlayerController>();
+            var players = ActivePlayers;
+
+            if (players.Count > 0)
             {
                 foreach (var player in players)
                 {
@@ -543,7 +542,7 @@ public class GameNetworkManager : NetworkManager
             }
             
             // 유효한 위치라면 반환 (플레이어가 없으면 플레이어 거리 체크 무시)
-            if ((!isTooCloseToPlayer || players.Length == 0) && !isTooCloseToMonster)
+            if ((!isTooCloseToPlayer || players.Count == 0) && !isTooCloseToMonster)
             {
                 return position;
             }

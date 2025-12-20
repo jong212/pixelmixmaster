@@ -64,6 +64,27 @@ public class PlayerController : NetworkBehaviour
     private PlayerState _netState = PlayerState.IDLE;
     private SpriteRenderer spriteRenderer;
 
+    [Header("Auto Combat Settings")]
+    public bool enableAutoCombat = true;
+
+    private float autoDetectRadius = 3f;   // 이 거리 안에 있으면 조이스틱으로 움직여도 계속 같은 몬스터 타겟 유지
+    private float autoChaseRadius = 6f;   // 기존 타겟 유지 최대 거리 (넘으면 타겟 버림)
+
+    public float autoAttackInterval = 0.7f; // 몇초에 한 번 공격할지
+    public float autoScanInterval = 0.2f;   // 타겟 탐색 주기(성능용)
+    public float inputDeadZone = 0.15f;     // 조이스틱 데드존
+
+    public float attackStateLockTime = 0.35f; // ATTACK 애니 락 시간(서버)
+
+    public LayerMask monsterLayer; // (선택) 몬스터 레이어 지정하면 더 정확/빠름
+
+    private Vector2 _inputMove;
+    private Vector2 _autoMove;
+
+    private GameObject _currentTarget;
+    private float _nextAutoAttackTime;
+    private float _nextScanTime;
+    private Coroutine _attackLockCo;
 
     // =================================================================
     // ★ 1. 서버 접속 시: 출석부에 내 이름 적기
@@ -90,29 +111,13 @@ public class PlayerController : NetworkBehaviour
         playerObj = GetComponent<PlayerObj>();
         //spriteRenderer = GetComponent<SpriteRenderer>(); // ✅ SpriteRenderer 연결
     }
-  
- 
-    private void ChangeWeapon(string oldName, string newName)
-    {
-        ChangeEquip("Weapon",oldName,newName);
-    }
-    private void ChangeHelment(string oldName, string newName)
-    {
-        ChangeEquip("Helmet", oldName, newName);
-    }
-    private void ChangeCloth(string oldName, string newName)
-    {
-        ChangeEquip("Cloth",oldName,newName);
-    }
-    private void ChangePant(string oldName, string newName)
-    {
-        ChangeEquip("Pant",oldName,newName);
-    }
-    private void ChangeEquip(
-    string partsName,
-    string oldName,
-    string newName
-)
+
+
+    private void ChangeWeapon(string oldName, string newName) => ChangeEquip("Weapon", oldName, newName);
+    private void ChangeHelment(string oldName, string newName) => ChangeEquip("Helmet", oldName, newName);
+    private void ChangeCloth(string oldName, string newName) => ChangeEquip("Cloth", oldName, newName);
+    private void ChangePant(string oldName, string newName) => ChangeEquip("Pant", oldName, newName);
+    private void ChangeEquip(    string partsName,    string oldName,    string newName)
     {
         // ⭐ 장착 안 한 상태
         if (string.IsNullOrEmpty(newName) || newName == "Default")
@@ -235,7 +240,6 @@ public class PlayerController : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         mainCamera = Camera.main;
-        //RootManager.Instance.SetDataManager.InitializeOnServerSetData(this);
         GameNetworkManager networkManager = NetworkManager.Instance as GameNetworkManager;
         if (networkManager != null)
         {
@@ -250,16 +254,32 @@ public class PlayerController : NetworkBehaviour
     private void Update()
     {
         if (!isLocalPlayer) return;
+        if (joystick == null) return; // 조이스틱 세팅 안됐을 때 null 방지
 
-        // **조이스틱 입력**
-        movement = new Vector2(joystick.xAxis.value, joystick.yAxis.value);
+        // ✅ 조이스틱 입력
+        _inputMove = new Vector2(joystick.xAxis.value, joystick.yAxis.value);
+        bool hasInput = _inputMove.sqrMagnitude > (inputDeadZone * inputDeadZone);
 
-        // B. 공격 테스트 (스페이스바)
-        // ※ 모바일이라면 UI 버튼 OnClick 이벤트에 PerformAttack()을 연결하세요.
- /*       if (Input.GetKeyDown(KeyCode.Space))
+        // ✅ 입력 있으면 수동 이동 우선
+        if (hasInput)
         {
-            PerformAttack();
-        }*/
+            _autoMove = Vector2.zero;
+            movement = _inputMove;
+        }
+        else
+        {
+            // ✅ 멈췄을 때 자동전투
+            if (enableAutoCombat)
+            {
+                AutoCombatUpdate();
+                movement = _autoMove;
+            }
+            else
+            {
+                _autoMove = Vector2.zero;
+                movement = Vector2.zero;
+            }
+        }
 
         // 좌우 방향 회전
         if (movement.x > 0.1f && !isFacingRight)
@@ -272,10 +292,103 @@ public class PlayerController : NetworkBehaviour
             isFacingRight = false;
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        // 4. 애니메이션 상태 업데이트 (핵심 로직)
+
+        // 애니메이션 상태 업데이트
         HandleAnimationState();
-        // 🔥 위치 히스토리 기록
-        RecordPositionHistory();
+    }
+    private void AutoCombatUpdate()
+    {
+        // 1️⃣ 타겟 유효성
+        if (!IsTargetValid(_currentTarget))
+            _currentTarget = null;
+
+        // 2️⃣ 타겟이 있으면 → 노란색 범위로 유지 체크
+        if (_currentTarget != null)
+        {
+            float dist = Vector2.Distance(transform.position, _currentTarget.transform.position);
+
+            // 🟡 노란색(기존 타겟 유지 범위)
+            if (dist > autoDetectRadius)
+            {
+                _currentTarget = null; // 전투 종료
+            }
+        }
+
+        // 3️⃣ 타겟 없을 때만 → 파란색 범위로 탐색
+        if (_currentTarget == null)
+        {
+            _currentTarget = AcquireNearestTarget(autoChaseRadius);
+
+            if (_currentTarget == null)
+            {
+                _autoMove = Vector2.zero;
+                return;
+            }
+        }
+
+        // 4️⃣ 거리 판단
+        float d = Vector2.Distance(transform.position, _currentTarget.transform.position);
+
+        if (d > attackRange)
+        {
+            _autoMove = (_currentTarget.transform.position - transform.position).normalized;
+        }
+        else
+        {
+            _autoMove = Vector2.zero;
+
+            if (Time.time >= _nextAutoAttackTime)
+            {
+                _nextAutoAttackTime = Time.time + autoAttackInterval;
+                CmdAutoAttackMonster(_currentTarget);
+            }
+        }
+    }
+
+    private bool IsTargetValid(GameObject target)
+    {
+        if (target == null) return false;
+        if (!target.CompareTag("Monster")) return false;
+
+        Monster m = target.GetComponent<Monster>();
+        if (m == null) return false;
+        if (!m.alive) return false;
+
+        return true;
+    }
+
+    private GameObject AcquireNearestTarget(float radius)
+    {
+        Collider2D[] hits;
+
+        if (monsterLayer.value != 0)
+            hits = Physics2D.OverlapCircleAll(transform.position, radius, monsterLayer);
+        else
+            hits = Physics2D.OverlapCircleAll(transform.position, radius);
+
+        GameObject best = null;
+        float bestDist = float.MaxValue;
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            var col = hits[i];
+            if (col == null) continue;
+            if (!col.CompareTag("Monster")) continue;
+
+            GameObject go = col.gameObject;
+
+            Monster m = go.GetComponent<Monster>();
+            if (m == null || !m.alive) continue;
+
+            float d = Vector2.Distance(transform.position, go.transform.position);
+            if (d < bestDist)
+            {
+                bestDist = d;
+                best = go;
+            }
+        }
+
+        return best;
     }
     // ★ 상태 판단 및 서버 전송 로직
     private void HandleAnimationState()
@@ -287,7 +400,7 @@ public class PlayerController : NetworkBehaviour
 
         if (movement.sqrMagnitude > 0.01f)
         {
-            Debug.Log("test123");
+           // Debug.Log("test123");
             targetState = PlayerState.MOVE;
         }
         else
@@ -320,43 +433,7 @@ public class PlayerController : NetworkBehaviour
             rb.velocity = Vector2.zero;
         }
     }
-    // =================================================================
-
-    // [Client] 공격 버튼을 누르면 실행되는 함수
-    public void PerformAttack()
-    {
-        // 1. 내 주변(attackRange)에 있는 콜라이더 탐색
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange);
-
-        foreach (var hit in hits)
-        {
-            // 2. 몬스터인지 태그로 확인 (반드시 몬스터 프리팹 Tag를 'Monster'로 설정하세요)
-            if (hit.CompareTag("Monster"))
-            {
-                // 3. 서버에 타격 요청
-                CmdAttackMonster(hit.gameObject);
-
-                // (선택) 한 번에 한 마리만 때리기 (광역기면 break 삭제)
-                break;
-            }
-        }
-    }
-
-    // [Server] 클라이언트의 요청을 받아 실제 데미지를 주는 함수
-    [Command]
-    private void CmdAttackMonster(GameObject targetMonster)
-    {
-        if (targetMonster == null) return;
-
-        // 몬스터 스크립트 가져오기
-        Monster monsterScript = targetMonster.GetComponent<Monster>();
-
-        if (monsterScript != null && monsterScript.alive)
-        {
-            // 몬스터에게 데미지를 주고, 공격자(나, this.gameObject)를 알려줌 -> 어그로 시작
-            monsterScript.TakeDamage(attackDamage, this.gameObject);
-        }
-    }
+  
     // ===================================================================================
     // 스네이크: 플레이어 이동 히스토리 기록 (펫들이 따라갈 경로)
     // ===================================================================================
@@ -482,6 +559,63 @@ public class PlayerController : NetworkBehaviour
 
         if (!equippedTypes.Contains("Pant"))
             PantName = "Default";
+    }
+    // =================================================================
+    // (추가) 자동 공격 서버 처리
+    // =================================================================
+    [Command]
+    private void CmdAutoAttackMonster(GameObject targetMonster)
+    {
+        if (targetMonster == null) return;
+        if (!targetMonster.CompareTag("Monster")) return;
+
+        Monster monsterScript = targetMonster.GetComponent<Monster>();
+        if (monsterScript == null || !monsterScript.alive) return;
+
+        // 서버에서 거리 검증 (약간 여유)
+        float dist = Vector2.Distance(transform.position, targetMonster.transform.position);
+        if (dist > attackRange + 0.25f) return;
+
+        // ATTACK 상태로 잠깐 고정
+        _netState = PlayerState.ATTACK;
+
+        // 데미지
+        monsterScript.TakeDamage(attackDamage, this.gameObject);
+
+        // ATTACK -> IDLE 복귀
+        if (_attackLockCo != null)
+            StopCoroutine(_attackLockCo);
+
+        _attackLockCo = StartCoroutine(ServerAttackStateLock());
+    }
+
+    [Server]
+    private IEnumerator ServerAttackStateLock()
+    {
+        yield return new WaitForSeconds(attackStateLockTime);
+
+        if (_netState == PlayerState.ATTACK)
+            _netState = PlayerState.IDLE;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        // 🔴 공격
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        // 🟡 기존 타겟 유지
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, autoDetectRadius);
+
+        // 🔵 타겟 없을 때 탐색
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, autoChaseRadius);
+
+        if (_currentTarget != null)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawLine(transform.position, _currentTarget.transform.position);
+        }
     }
 
 

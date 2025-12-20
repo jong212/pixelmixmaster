@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BACKND;
+using UnityEngine.UI;
 
 public class Monster : NetworkBehaviour
 {
@@ -16,7 +17,7 @@ public class Monster : NetworkBehaviour
     public float maxHealth = 100f;
     [SyncVar(hook = nameof(OnHealthChanged))]
     public float currentHealth;
-
+    public Image fill;
     public float moveSpeed = 2.0f;
     public float attackRange = 1.2f;
     public float attackRate = 1.5f;
@@ -30,7 +31,8 @@ public class Monster : NetworkBehaviour
     public LayerMask obstacleLayer;     // 벽 레이어
 
     [Header("State Sync")]
-    [SyncVar] public bool alive = true;
+    [SyncVar(hook = nameof(OnAliveChanged))]
+    public bool alive = true;
     [SyncVar] public bool isStunned = false;
     public float nextRespawnTime = 0f;
 
@@ -304,9 +306,30 @@ public class Monster : NetworkBehaviour
     [Server]
     private void Die()
     {
+        if (!alive) return;
+
         alive = false;
+
         aggroTargets.Clear();
-        if (monsterCollider) monsterCollider.enabled = false;
+        currentTarget = null;
+
+        // 서버 전용 처리
+        // - 드랍 생성
+        // - 점수 계산
+        // - 리스폰 타이머 세팅
+
+    }
+ 
+    private void OnAliveChanged(bool oldValue, bool newValue)
+    {
+        if (monsterCollider)
+            monsterCollider.enabled = newValue;
+
+        if (spriteRenderer)
+            spriteRenderer.enabled = newValue;
+
+        if (fill != null)
+            fill.transform.parent.gameObject.SetActive(newValue);
     }
 
     [Server]
@@ -314,7 +337,12 @@ public class Monster : NetworkBehaviour
     {
         alive = true;
         currentHealth = maxHealth;
+
         isStunned = false;
+
+        if (fill != null)
+            fill.transform.parent.gameObject.SetActive(true);
+
         aggroTargets.Clear();
         currentTarget = null;
 
@@ -333,5 +361,11 @@ public class Monster : NetworkBehaviour
 
     private void OnHealthChanged(float oldHealth, float newHealth)
     {
+        if (fill == null) return;
+
+        float ratio = Mathf.Clamp01(newHealth / maxHealth);
+        fill.fillAmount = ratio;
+
+        Debug.Log("MonsterHP" + newHealth);
     }
 }
