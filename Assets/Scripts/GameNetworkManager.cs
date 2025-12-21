@@ -396,19 +396,17 @@ public class GameNetworkManager : NetworkManager
                 // 예약 시간이 지났으면 리스폰
                 if (Time.time >= m.nextRespawnTime)
                 {
-                    // 위치 재설정
-                    go.transform.position = GetValidSpawnPosition();
+                    // ★ 해당 몬스터의 맵에서 랜덤 스폰 포인트 가져오기
+                    Vector3 respawnPos = GetRandomSpawnPointFromMap(m.zoneId);
+                    go.transform.position = respawnPos;
 
-                    // 상태 초기화 (ResetForRespawn() 있으면 그거 쓰고, 없으면 아래 기본값)
-                    // m.ResetForRespawn();
+                    // 상태 초기화
                     m.currentHealth = m.maxHealth;
                     var col = go.GetComponent<Collider2D>();
                     if (col) col.enabled = true;
                     m.nextRespawnTime = 0f;
-                    // 보이기 ON (SyncVar라면 클라에 자동 반영)
                     m.alive = true;
 
-                    // 폭주 방지(선택)
                     yield return null;
                 }
             }
@@ -475,92 +473,17 @@ public class GameNetworkManager : NetworkManager
         if (mapRoot == null || mapRoot.childCount == 0)
         {
             Debug.LogWarning($"[스폰 위치 없음] {mapKey} 맵에 자식 오브젝트가 없습니다. 기본 위치 반환.");
-            return new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);  // 무조건 (0,0) 말고 랜덤
+            return new Vector3(Random.Range(-5f, 5f), Random.Range(-5f, 5f), 0);
         }
 
         int index = Random.Range(0, mapRoot.childCount);
-        return mapRoot.GetChild(index).position;
-    }
-    [Server] // 유효한 스폰 위치 찾기 (그라운드 크기 기반)
-    private Vector3 GetValidSpawnPosition()
-    {
-        // 최대 시도 횟수 설정
-        int maxAttempts = 30;
+        Vector3 basePos = mapRoot.GetChild(index).position;
         
-        // 스폰 중심점 (맵의 중앙)
-        Vector3 spawnCenter = groundBounds.center;
+        // ★ 스폰 포인트 기준으로 반경 2.0f 내에서 랜덤 오프셋 추가
+        Vector2 randomOffset = Random.insideUnitCircle * 2.0f; // 반경 2.0f
+        Vector3 finalPos = basePos + new Vector3(randomOffset.x, randomOffset.y, 0);
         
-        // 그라운드 크기와 SpawnRadius 중 작은 값 사용
-        float mapWidth = groundBounds.size.x;
-        float mapHeight = groundBounds.size.y;
-        float effectiveRadius = Mathf.Min(SpawnRadius, Mathf.Min(mapWidth, mapHeight) / 2);
-        
-        for (int i = 0; i < maxAttempts; i++)
-        {
-            // 원 내부에 랜덤하게 위치 생성 (균등 분포를 위해 sqrt 사용)
-            float angle = Random.Range(0f, Mathf.PI * 2);
-            float distance = Mathf.Sqrt(Random.Range(0f, 1f)) * effectiveRadius;
-            
-            float posX = spawnCenter.x + Mathf.Cos(angle) * distance;
-            float posY = spawnCenter.y + Mathf.Sin(angle) * distance;
-            
-            // 그라운드 경계 내로 제한
-            float borderMargin = 1.0f;
-            posX = Mathf.Clamp(posX, groundBounds.min.x + borderMargin, groundBounds.max.x - borderMargin);
-            posY = Mathf.Clamp(posY, groundBounds.min.y + borderMargin, groundBounds.max.y - borderMargin);
-            
-            Vector3 position = new Vector3(posX, posY, 0);
-            
-            // 플레이어가 있는 경우에만 플레이어와의 거리 체크
-            bool isTooCloseToPlayer = false;
-            //PlayerController[] players = FindObjectsOfType<PlayerController>();
-            var players = ActivePlayers;
-
-            if (players.Count > 0)
-            {
-                foreach (var player in players)
-                {
-                    if (Vector3.Distance(position, player.transform.position) < MinDistanceFromPlayers)
-                    {
-                        isTooCloseToPlayer = true;
-                        break;
-                    }
-                }
-            }
-            
-            // 다른 몬스터와의 거리도 확인
-            bool isTooCloseToMonster = false;
-            float minMonsterDistance = 2.0f; // 몬스터 간 최소 거리
-            
-            foreach (var monster in activeMonsters)
-            {
-                if (monster != null && Vector3.Distance(position, monster.transform.position) < minMonsterDistance)
-                {
-                    isTooCloseToMonster = true;
-                    break;
-                }
-            }
-            
-            // 유효한 위치라면 반환 (플레이어가 없으면 플레이어 거리 체크 무시)
-            if ((!isTooCloseToPlayer || players.Count == 0) && !isTooCloseToMonster)
-            {
-                return position;
-            }
-        }
-        
-        // 최대 시도 횟수를 초과하면 그냥 랜덤 위치 반환
-        float fallbackAngle = Random.Range(0f, Mathf.PI * 2);
-        float fallbackDistance = Mathf.Sqrt(Random.Range(0f, 1f)) * effectiveRadius;
-        
-        float fallbackX = spawnCenter.x + Mathf.Cos(fallbackAngle) * fallbackDistance;
-        float fallbackY = spawnCenter.y + Mathf.Sin(fallbackAngle) * fallbackDistance;
-        
-        // 그라운드 경계 내로 제한
-        float fbBorderMargin = 1.0f;
-        fallbackX = Mathf.Clamp(fallbackX, groundBounds.min.x + fbBorderMargin, groundBounds.max.x - fbBorderMargin);
-        fallbackY = Mathf.Clamp(fallbackY, groundBounds.min.y + fbBorderMargin, groundBounds.max.y - fbBorderMargin);
-        
-        return new Vector3(fallbackX, fallbackY, 0);
+        return finalPos;
     }
 
     public override void OnStopServer()

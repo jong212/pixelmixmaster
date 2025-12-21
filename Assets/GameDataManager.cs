@@ -20,7 +20,7 @@ public class GameDataManager : NetworkBehaviour
             }
         }
 
-    }
+    } 
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -30,11 +30,11 @@ public class GameDataManager : NetworkBehaviour
             var a = RootManager.Instance.AddressableCDD.GetPrefab(map);
             if(a != null)
             {
-                Debug.Log($"1_3¼­¹ö ½ÇÇà : Å¬¶ó´Ü¿¡¼­ {map}·ÎµåÇØ¼­ ¼¼ÆÃ¿Ï·á");
+                Debug.Log($"1_3ì•„ì•„ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : Å¬ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½ {map}ï¿½Îµï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½Ã¿Ï·ï¿½");
                 Instantiate(a, RootManager.Instance.GameNetworkManager.Mapparent);
             }
         }
-        // ¿øÇÏ´Â ·ÎÁ÷ ½ÇÇà
+        // dd
     }
 
 }

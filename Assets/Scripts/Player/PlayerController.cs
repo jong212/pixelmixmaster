@@ -576,6 +576,21 @@ public class PlayerController : NetworkBehaviour
         float dist = Vector2.Distance(transform.position, targetMonster.transform.position);
         if (dist > attackRange + 0.25f) return;
 
+        // ★ 공격 전에 몬스터 방향으로 회전
+        Vector3 dirToMonster = targetMonster.transform.position - transform.position;
+        if (dirToMonster.x > 0 && !isFacingRight)
+        {
+            // 몬스터가 오른쪽에 있는데 왼쪽 보고 있으면 → 오른쪽으로 회전
+            isFacingRight = true;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (dirToMonster.x < 0 && isFacingRight)
+        {
+            // 몬스터가 왼쪽에 있는데 오른쪽 보고 있으면 → 왼쪽으로 회전
+            isFacingRight = false;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+
         // ATTACK 상태로 잠깐 고정
         _netState = PlayerState.ATTACK;
 

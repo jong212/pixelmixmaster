@@ -51,6 +51,8 @@ public class Monster : NetworkBehaviour
     private float lastAggroTime;
     private float stateTimer;
     private Vector3 moveTargetPos;
+    private Vector3 lastPosition;  // ★ 추가: 이전 프레임 위치
+    private float stuckTimer = 0f;  // ★ 추가: 막힌 시간 측정
 
     public override void OnStartServer()
     {
@@ -101,9 +103,41 @@ public class Monster : NetworkBehaviour
     [Server]
     private void ProcessPatrol()
     {
+        Vector3 directionToTarget = (moveTargetPos - transform.position).normalized;
+        float distanceToTarget = Vector3.Distance(transform.position, moveTargetPos);
+        
+        // ★ 목적지까지 벽이 있는지 체크
+        if (Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleLayer))
+        {
+            // 벽이 있으면 즉시 새로운 목표 설정
+            Debug.Log("Patrol: 경로에 벽 감지, 새 목표 설정");
+            SetNewPatrolTarget();
+            stuckTimer = 0f;
+            return;
+        }
+
+        // ★ 움직이지 못하는 상태 감지 (0.5초 동안 거의 안 움직이면)
+        if (Vector3.Distance(transform.position, lastPosition) < 0.01f)
+        {
+            stuckTimer += Time.deltaTime;
+            if (stuckTimer > 0.5f)
+            {
+                Debug.Log("Patrol: 0.5초간 움직임 없음, 새 목표 설정");
+                SetNewPatrolTarget();
+                stuckTimer = 0f;
+            }
+        }
+        else
+        {
+            stuckTimer = 0f;
+        }
+
+        lastPosition = transform.position;
+        
         MoveTo(moveTargetPos, moveSpeed * 0.5f);
 
-        if (Vector3.Distance(transform.position, moveTargetPos) < 0.1f)
+        // 목적지 도달
+        if (distanceToTarget < 0.1f)
         {
             ChangeState(State.Idle);
         }
@@ -255,20 +289,26 @@ public class Monster : NetworkBehaviour
     private void SetNewPatrolTarget()
     {
         // 현재 위치 기준으로 랜덤 이동 (앵커 거리 체크 삭제됨)
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)  // ★ 시도 횟수 10회로 증가
         {
             Vector2 randomDir = Random.insideUnitCircle.normalized;
             float distance = Random.Range(1f, patrolRadius);
             Vector3 potentialPos = transform.position + (Vector3)(randomDir * distance);
 
-            // 벽 체크만 수행
-            if (!Physics2D.Raycast(transform.position, (potentialPos - transform.position).normalized, distance, obstacleLayer))
+            Vector3 direction = (potentialPos - transform.position).normalized;
+            
+            // ★ 벽 체크: 시작점부터 목적지까지 전체 경로 체크
+            if (!Physics2D.Raycast(transform.position, direction, distance, obstacleLayer))
             {
                 moveTargetPos = potentialPos;
+                Debug.Log($"새 Patrol 목표 설정: {moveTargetPos}");
                 return;
             }
         }
-        moveTargetPos = transform.position;
+        
+        // ★ 10번 실패하면 Idle 상태로 전환
+        Debug.Log("Patrol 목표 설정 실패, Idle로 전환");
+        ChangeState(State.Idle);
     }
 
     [Server]
@@ -368,4 +408,56 @@ public class Monster : NetworkBehaviour
 
         Debug.Log("MonsterHP" + newHealth);
     }
-}
+
+    // ★ 기즈모로 목적지 시각화
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying) return;
+
+        // 현재 상태에 따른 색상
+        switch (currentState)
+        {
+            case State.Idle:
+                Gizmos.color = Color.white;
+                break;
+            case State.Patrol:
+                Gizmos.color = Color.green;
+                break;
+            case State.Chase:
+                Gizmos.color = Color.red;
+                break;
+            case State.Attack:
+                Gizmos.color = Color.yellow;
+                break;
+        }
+
+        // 몬스터 위치에 작은 구
+        Gizmos.DrawWireSphere(transform.position, 0.3f);
+
+        // Patrol/Chase 상태일 때 목적지 표시
+        if (currentState == State.Patrol || currentState == State.Chase)
+        {
+            // 목적지 위치
+            Gizmos.DrawSphere(moveTargetPos, 0.2f);
+            
+            // 몬스터 → 목적지 라인
+            Gizmos.DrawLine(transform.position, moveTargetPos);
+        }
+
+        // Chase 상태일 때 타겟 표시
+        if (currentState == State.Chase && currentTarget != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, currentTarget.transform.position);
+            Gizmos.DrawWireSphere(currentTarget.transform.position, 0.4f);
+        }
+
+        // 감지 범위 표시
+        Gizmos.color = new Color(1f, 1f, 0f, 0.3f);
+        Gizmos.DrawWireSphere(transform.position, detectRadius);
+
+        // 공격 범위 표시
+        Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+} 
