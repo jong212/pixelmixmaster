@@ -11,7 +11,7 @@ public class PlayerController : NetworkBehaviour
     public float moveSpeed = 5f;
 
     [Header("Combat Settings")]
-    public float attackRange = 1.5f; // 공격 범위 (반경)
+    [SyncVar] public float attackRange = 1.5f; // ★ SyncVar 추가
     public int attackDamage = 10;    // 공격력
 
     [Header("Camera Settings")]
@@ -62,6 +62,7 @@ public class PlayerController : NetworkBehaviour
 
     [SyncVar(hook = nameof(OnAnimStateChanged))]
     private PlayerState _netState = PlayerState.IDLE;
+    // ★ 추가: 공격 애니메이션 인덱스도 SyncVar로
     private SpriteRenderer spriteRenderer;
 
     [Header("Auto Combat Settings")]
@@ -113,7 +114,13 @@ public class PlayerController : NetworkBehaviour
     }
 
 
-    private void ChangeWeapon(string oldName, string newName) => ChangeEquip("Weapon", oldName, newName);
+    private void ChangeWeapon(string oldName, string newName) 
+    {
+        ChangeEquip("Weapon", oldName, newName);
+        
+        // ★ 무기 변경 시 해당 무기의 AnimIdx 가져오기
+        UpdateWeaponAnimIdx(newName);
+    }   
     private void ChangeHelment(string oldName, string newName) => ChangeEquip("Helmet", oldName, newName);
     private void ChangeCloth(string oldName, string newName) => ChangeEquip("Cloth", oldName, newName);
     private void ChangePant(string oldName, string newName) => ChangeEquip("Pant", oldName, newName);
@@ -296,6 +303,43 @@ public class PlayerController : NetworkBehaviour
         // 애니메이션 상태 업데이트
         HandleAnimationState();
     }
+    // ★ 무기의 AnimIdx와 ARange 업데이트
+    private void UpdateWeaponAnimIdx(string weaponName)
+    {
+        Debug.Log("Anim" + weaponName);
+        if (playerObj == null) return;
+
+        int animIdx = 0; // 기본값
+
+        if (!string.IsNullOrEmpty(weaponName) && weaponName != "Default")
+        {
+            var weaponInfo = RootManager.Instance.ChartManager.InvenInfoList
+                .Find(x => x.Name == weaponName && x.Type == "Weapon");
+
+            if (weaponInfo != null)
+            {
+                animIdx = weaponInfo.AnimIdx;
+                
+                // ★ 차트에서 ARange 가져와서 attackRange에 설정
+                attackRange = weaponInfo.ARange;
+                
+                Debug.Log($"무기 변경: {weaponName}, 공격 애니메이션 인덱스: {animIdx}, 공격 거리: {attackRange}");
+            }
+            else
+            {
+                attackRange = 1.5f; // 기본값
+                Debug.LogWarning($"무기 정보를 찾을 수 없음: {weaponName}");
+            }
+        }
+        else
+        {
+            attackRange = 1.5f; // Default 무기
+        }
+
+        // ★ PlayerObj의 ATTACK 애니메이션 인덱스 설정
+        playerObj.SetStateAnimationIndex(PlayerState.ATTACK, animIdx);
+    }
+
     private void AutoCombatUpdate()
     {
         // 1️⃣ 타겟 유효성
@@ -505,6 +549,7 @@ public class PlayerController : NetworkBehaviour
             playerObj.PlayStateAnimation(newState);
         }
     }
+   
     public void ApplyAllEquipment(JsonData equipInventory)
     {
         // 1️⃣ 현재 장착된 타입 추적

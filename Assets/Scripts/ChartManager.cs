@@ -4,7 +4,7 @@ using LitJson;
 using System.Collections.Generic;
 using System.Collections;
 using TMPro;
-// Â÷Æ® ´Ù¿î ¹ÞÀ» ‹š ¾²´Â ¼³°èµµ
+// ï¿½ï¿½Æ® ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½èµµ
 public class ChartInfo
 {
     public string chartName;
@@ -19,7 +19,7 @@ public class ChartInfo
     }
 }
 
-// ´Ù¿î ¹ÞÀº Â÷Æ®ÀÇ µ¥ÀÌÅÍ¸¦ ³ÖÀ» ¼³°èµµ
+// ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½èµµ
 public class InvenInfo
 {
     public int ItemId { get; private set; }
@@ -32,6 +32,8 @@ public class InvenInfo
     public float Sx { get; private set; }
     public float Sy { get; private set; }
     public int Hp { get; private set; }
+    public int AnimIdx { get; private set; }
+    public float ARange { get; private set; }
     public InvenInfo(JsonData json)
     {
         ItemId = int.Parse(json["ItemId"].ToString());
@@ -39,11 +41,12 @@ public class InvenInfo
         Name = json["Name"].ToString();
         Atk = float.Parse(json["Atk"].ToString());
         CanLv = int.Parse(json["CanLv"].ToString());
-        Direct = json["Direct"].ToString();
-        Hp = int.Parse(json["Hp"].ToString());
+        Direct = json["Direct"].ToString();        
         Sx = float.Parse(json["Sx"].ToString());
         Sy = float.Parse(json["Sy"].ToString());
-
+        Hp = int.Parse(json["Hp"].ToString());
+        AnimIdx = int.Parse(json["AnimIdx"].ToString());
+        ARange = float.Parse(json["ARange"].ToString());
     }
 }
 
@@ -59,7 +62,7 @@ public class ChartManager
     }
 
     private List<InvenInfo> _invenList = new List<InvenInfo>();
-    public List<InvenInfo> InvenInfoList                       // Ä³½Ì -Å×½ºÆ®
+    public List<InvenInfo> InvenInfoList                       // Ä³ï¿½ï¿½ -ï¿½×½ï¿½Æ®
     {
         get => _invenList;
         set => _invenList = value;
@@ -74,51 +77,51 @@ public class ChartManager
     IEnumerator ServerCharLoad()
     {
 
-        var bro = Backend.Chart.GetChartListByFolder(2838);                                 // Â÷Æ® ¸Å´ÏÀú Æú´õ Á¢±Ù 
-        string chartManagerFileId = bro.FlattenRows()[0]["selectedChartFileId"].ToString(); // CSV ÆÄÀÏ ¾÷·Îµå ÇÒ ¶§ ºÎ¿© µÈ °íÀ¯ ÆÄÀÏ ID °ªÀ» °¡Á®¿È ex 145150, // ÇØ´ç Æú´õ¿¡´Â chartManager Â÷Æ® ÇÏ³ª¸¸ Á¸ÀçÇÒ °ÍÀÌ¹Ç·Î 0À¸·Î Á¢±ÙÇÕ´Ï´Ù.
+        var bro = Backend.Chart.GetChartListByFolder(2838);                                 // ï¿½ï¿½Æ® ï¿½Å´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+        string chartManagerFileId = bro.FlattenRows()[0]["selectedChartFileId"].ToString(); // CSV ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Î¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ID ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ex 145150, // ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ chartManager ï¿½ï¿½Æ® ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¹Ç·ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         string chartManagerName = bro.FlattenRows()[0]["chartName"].ToString();
-        var serverChartBro = Backend.Chart.GetChartContents(chartManagerFileId);            // ¼­¹ö¿¡¼­ ChartManager Â÷Æ®¸¦ ºÒ·¯¿É´Ï´Ù. ±â±â¿¡ ÀúÀåÇÏÁö´Â ¾Ê½À´Ï´Ù.
-        if (serverChartBro.IsSuccess() == false)                                            // ¼­¹ö¿¡¼­ ºÒ·¯¿ÀÁö ¸øÇÒ °æ¿ì¿¡´Â µ¥ÀÌÅÍ ²¿ÀÓ ¹æÁö¸¦ À§ÇØ ÁøÇàÀ» ÁßÁöÇÕ´Ï´Ù.
+        var serverChartBro = Backend.Chart.GetChartContents(chartManagerFileId);            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ChartManager ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½É´Ï´ï¿½. ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.
+        if (serverChartBro.IsSuccess() == false)                                            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         {
-            Debug.Log($"1-4 TO DO : Â÷Æ® Åë½Å ½ÇÆÐ ");
+            Debug.Log($"1-4 TO DO : ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ");
             yield break;
         }
 
 
-        JsonData newChartManagerJson = serverChartBro.FlattenRows();                        // ¼­¹ö¿¡¼­ ºÒ·¯¿Â ChartManagerÀ» ¾ð¸¶¼£ÇÏ¿© JsonData ÇüÅÂ·Î Ä³½ÌÇÕ´Ï´Ù.
-        Dictionary<string, ChartInfo> chartInfoDic = new Dictionary<string, ChartInfo>();   // Â÷Æ® ÀÌ¸§À¸·Î µ¥ÀÌÅÍ¸¦ °Ë»öÇÒ °ÍÀÌ±â ¶§¹®¿¡ Dictnary·Î »ý¼ºÇÕ´Ï´Ù, // ÇØ´ç Dictnary´Â ÃÖ½Å ¹öÀüÀ¸·Î ¾÷µ¥ÀÌÆ®ÇÒ Â÷Æ® ¸®½ºÆ®·Î »ç¿ëµË´Ï´Ù.(ÃÖ½Å ¹öÀüÀÌ¶ó¸é ÇØ´ç ¸®½ºÆ®¿¡¼­ Á¦¿Ü)
+        JsonData newChartManagerJson = serverChartBro.FlattenRows();                        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ ChartManagerï¿½ï¿½ ï¿½ð¸¶¼ï¿½ï¿½Ï¿ï¿½ JsonData ï¿½ï¿½ï¿½Â·ï¿½ Ä³ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+        Dictionary<string, ChartInfo> chartInfoDic = new Dictionary<string, ChartInfo>();   // ï¿½ï¿½Æ® ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Dictnaryï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½, // ï¿½Ø´ï¿½ Dictnaryï¿½ï¿½ ï¿½Ö½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ë´Ï´ï¿½.(ï¿½Ö½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
 
-        foreach (JsonData chartInfoJson in newChartManagerJson)                             // csv ÇÑ ÁÙ = charinfojson
+        foreach (JsonData chartInfoJson in newChartManagerJson)                             // csv ï¿½ï¿½ ï¿½ï¿½ = charinfojson
         {
             ChartInfo chartInfo = new ChartInfo(chartInfoJson);
             chartInfoDic.Add(chartInfo.chartName, chartInfo);
             GetCharLocalListname.Add(chartInfo.chartName);
         }
-        string deviceChartManagerString = Backend.Chart.GetLocalChartData(chartManagerName);// ±â±â¿¡ ÀúÀåµÈ chartManager Â÷Æ®¸¦ ºÒ·¯¿É´Ï´Ù.
-        if (string.IsNullOrEmpty(deviceChartManagerString) == false)                        // ±â±â¿¡´Â string ÇüÅÂ·Î ÀúÀåÀÌ µÇ¸ç, ÀúÀåµÇ¾îÀÖÁö ¾ÊÀ» °æ¿ì string.Empty°¡ ¹ÝÈ¯µË´Ï´Ù.
+        string deviceChartManagerString = Backend.Chart.GetLocalChartData(chartManagerName);// ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ chartManager ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½É´Ï´ï¿½.
+        if (string.IsNullOrEmpty(deviceChartManagerString) == false)                        // ï¿½ï¿½â¿¡ï¿½ï¿½ string ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½, ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ string.Emptyï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ë´Ï´ï¿½.
         {
-            JsonData deviceChartManagerJson = JsonMapper.ToObject(deviceChartManagerString);// ±â±â¿¡ ÀúÀåµÈ chartManager Â÷Æ®°¡ Á¸ÀçÇÑ´Ù¸é // ±â±â¿¡ ÀúÀåµÈ stringÇüÅÂÀÇ chartManager¸¦ Json ÇüÅÂ·Î º¯°æ
+            JsonData deviceChartManagerJson = JsonMapper.ToObject(deviceChartManagerString);// ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ chartManager ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´Ù¸ï¿½ // ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ stringï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ chartManagerï¿½ï¿½ Json ï¿½ï¿½ï¿½Â·ï¿½ ï¿½ï¿½ï¿½ï¿½
             deviceChartManagerJson = BackendReturnObject.Flatten(deviceChartManagerJson);
 
-            foreach (JsonData deviceChartJson in deviceChartManagerJson["rows"])            // ±â±â¿¡ ÀúÀåµÈ chartManager Â÷Æ® ¼Ó Â÷Æ®µéÀ» ¼­¹ö¿¡¼­ ºÒ·¯¿Â µ¥ÀÌÅÍ¿Í ´ëÁ¶ÇÕ´Ï´Ù.
+            foreach (JsonData deviceChartJson in deviceChartManagerJson["rows"])            // ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ chartManager ï¿½ï¿½Æ® ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
             {
                 ChartInfo deviceChartInfo = new ChartInfo(deviceChartJson);
-                if (chartInfoDic.ContainsKey(deviceChartInfo.chartName))                    // ÀÌ¹Ì ±â±â¿¡ ÀúÀåµÇ¾î ÀÖ´Â Â÷Æ®°¡ ÀÖ´ÂÁö È®ÀÎÇÕ´Ï´Ù.
+                if (chartInfoDic.ContainsKey(deviceChartInfo.chartName))                    // ï¿½Ì¹ï¿½ ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
                 {
-                    if (chartInfoDic[deviceChartInfo.chartName].updateDate == deviceChartInfo.updateDate)// ±â±â¿¡ ÀúÀåµÇ¾î ÀÖ´Â Â÷Æ®ÀÇ ¼öÁ¤ ³¯Â¥(updateDate)°¡ ÀÏÄ¡ÇÏ´ÂÁö È®ÀÎÇÕ´Ï´Ù.
+                    if (chartInfoDic[deviceChartInfo.chartName].updateDate == deviceChartInfo.updateDate)// ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥(updateDate)ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
                     {
-                        chartInfoDic.Remove(deviceChartInfo.chartName);                     // ¼öÁ¤³¯Â¥±îÁö ÀÏÄ¡ÇÒ °æ¿ì, Àç´Ù¿î·Îµå ¸®½ºÆ®(chartInfoDic)¿¡¼­ Á¦¿ÜÇÕ´Ï´Ù.
+                        chartInfoDic.Remove(deviceChartInfo.chartName);                     // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½Ù¿ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½Æ®(chartInfoDic)ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
                     }
                 }
             }
         }
 
-        if (chartInfoDic.Count > 0)                                                         // Àç´Ù¿î·ÎµåÇÒ Â÷Æ® ¸®½ºÆ®¿¡¼­ Â÷Æ®°¡ ÇÏ³ª¶óµµ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÕ´Ï´Ù.
+        if (chartInfoDic.Count > 0)                                                         // ï¿½ï¿½Ù¿ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         {
-            Debug.Log($"1-4 : ´Ù¿î ¹ÞÀ» »õ·Î¿î Â÷Æ® È®ÀÎ");
-            RootManager.Instance.AddressableCDD._statusText.text = "°ÔÀÓ µ¥ÀÌÅÍ ´Ù¿î·ÎµåÁß...";
-            foreach (var downloadChartInfo in chartInfoDic)                                 // Â÷Æ®¸¦ Àç´Ù¿î·ÎµåÇÏ¿© ±â±â¿¡ µ¤¾î¾º¿ó´Ï´Ù.
+            Debug.Log($"1-4 : ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Æ® È®ï¿½ï¿½");
+            RootManager.Instance.AddressableCDD._statusText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½Îµï¿½ï¿½ï¿½...";
+            foreach (var downloadChartInfo in chartInfoDic)                                 // ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½Ù¿ï¿½Îµï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½î¾ºï¿½ï¿½Ï´ï¿½.
             {
 
                 var bro2 = Backend.Chart.GetOneChartAndSave(
@@ -128,27 +131,27 @@ public class ChartManager
 
                 if (!bro2.IsSuccess())
                 {
-                    Debug.Log($"1-5 TO DO : ´Ù¿î ¹ÞÀ» »õ·Î¿î ´Ù¿î ½ÇÆÐ ");
+                    Debug.Log($"1-5 TO DO : ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ");
                     continue;
                 }
             }
-            // chartManager Â÷Æ®¸¦ ÃÖ½ÅÈ­ÇÕ´Ï´Ù.(·ÎÄÃÀúÀå)
+            // chartManager ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ö½ï¿½È­ï¿½Õ´Ï´ï¿½.(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
             var chartManagerBro = Backend.Chart.GetOneChartAndSave(chartManagerFileId, chartManagerName);
             if (chartManagerBro.IsSuccess())
             {
-                RootManager.Instance.AddressableCDD._statusText.text = "°ÔÀÓ µ¥ÀÌÅÍ ´Ù¿î·Îµå ¿Ï·á";
-                Debug.Log("1-5 : Chart¸ðµç Â÷Æ® ´Ù¿î·Îµå ¿Ï·á");
+                RootManager.Instance.AddressableCDD._statusText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½Îµï¿½ ï¿½Ï·ï¿½";
+                Debug.Log("1-5 : Chartï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½Ù¿ï¿½Îµï¿½ ï¿½Ï·ï¿½");
 
             }
             else
             {
-                Debug.Log("1-5 TO DO : Chart ´Ù¿î·Îµå ½ÇÆÐ");
+                Debug.Log("1-5 TO DO : Chart ï¿½Ù¿ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½");
             }
         }
         else
         {
-            RootManager.Instance.AddressableCDD._statusText.text = "°ÔÀÓ µ¥ÀÌÅÍ ÃÖ½Å »óÅÂ..";
-            Debug.Log($"1-5 : ´Ù¿î ¹ÞÀ» Â÷Æ® ¾øÀ½");
+            RootManager.Instance.AddressableCDD._statusText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ ï¿½ï¿½ï¿½ï¿½..";
+            Debug.Log($"1-5 : ï¿½Ù¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½");
         }
         foreach (var chartName in GetCharLocalListname)
         {
@@ -157,8 +160,8 @@ public class ChartManager
     }
     private void LoadChart(string chartName)
     {
-        RootManager.Instance.AddressableCDD._statusText.text = "µ¥ÀÌÅÍ Ä³½ÌÁß...";
-        Debug.Log("1-6 : Â÷Æ® µ¥ÀÌÅÍ º¯¼ö¿¡ ³Ö¾î³õ±â");
+        RootManager.Instance.AddressableCDD._statusText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½...";
+        Debug.Log("1-6 : ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½");
         string chartDataString = Backend.Chart.GetLocalChartData(chartName);
         JsonData chartJson = JsonMapper.ToObject(chartDataString);
         chartJson = BackendReturnObject.Flatten(chartJson);
@@ -206,10 +209,10 @@ public class ChartManager
             newText.GetChild(0).GetComponent<TextMeshProUGUI>().text = regDate;
             newText.GetChild(1).GetComponent<TextMeshProUGUI>().text = notiText;
 
-            //  0.1ÃÊ °£°ÝÀ¸·Î »ý¼º (ÇÊ¿ä ¾øÀ¸¸é ÁÖ¼®)
+            //  0.1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½)
         }
         yield return new WaitForSeconds(0.1f);
-        RootManager.Instance.AddressableCDD._statusText.text = "°ÔÀÓ ÁØºñ ¿Ï·á";
+        RootManager.Instance.AddressableCDD._statusText.text = "ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½ ï¿½Ï·ï¿½";
 
     }*/
 }

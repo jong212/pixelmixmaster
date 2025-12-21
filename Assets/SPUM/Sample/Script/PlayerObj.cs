@@ -15,7 +15,7 @@ public class PlayerObj : MonoBehaviour
     public Vector3 _goalPos;
     public bool isAction = false;
     public Dictionary<PlayerState, int> IndexPair = new ();
-    void Start()
+    void Awake()
     {
         if(_prefabs == null )
         {
