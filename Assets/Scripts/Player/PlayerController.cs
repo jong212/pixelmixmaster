@@ -43,6 +43,7 @@ public class PlayerController : NetworkBehaviour
     public SpriteRenderer parts_pant_left;
     public SpriteRenderer parts_pant_right;
  
+    public Transform Effect_DefaultPoint;
     private NetworkAnimator networkAnim;
     private PlayerObj playerObj;
     [SyncVar] public string CharacterName;
@@ -75,8 +76,6 @@ public class PlayerController : NetworkBehaviour
     public float autoScanInterval = 0.2f;   // 타겟 탐색 주기(성능용)
     public float inputDeadZone = 0.15f;     // 조이스틱 데드존
 
-    public float attackStateLockTime = 0.35f; // ATTACK 애니 락 시간(서버)
-
     public LayerMask monsterLayer; // (선택) 몬스터 레이어 지정하면 더 정확/빠름
 
     private Vector2 _inputMove;
@@ -85,7 +84,9 @@ public class PlayerController : NetworkBehaviour
     private GameObject _currentTarget;
     private float _nextAutoAttackTime;
     private float _nextScanTime;
-    private Coroutine _attackLockCo;
+    
+    // ★ 클라이언트별 공격 애니메이션 재생 상태 추적
+    private bool _isPlayingAttackAnim = false;
 
     // =================================================================
     // ★ 1. 서버 접속 시: 출석부에 내 이름 적기
@@ -111,6 +112,9 @@ public class PlayerController : NetworkBehaviour
         networkAnim = GetComponent<NetworkAnimator>();
         playerObj = GetComponent<PlayerObj>();
         //spriteRenderer = GetComponent<SpriteRenderer>(); // ✅ SpriteRenderer 연결
+        string role = isServer ? (isLocalPlayer ? "Host" : "Server") : "Client";
+        bool hasPlayerObj = (playerObj != null);
+        Debug.Log($"[{gameObject.name}] [{role}] Awake | playerObj: {hasPlayerObj}");
     }
 
 
@@ -164,7 +168,7 @@ public class PlayerController : NetworkBehaviour
 
             if (leftSprite == null && rightSprite == null)
             {
-                Debug.LogWarning($"Pant 스프라이트를 찾을 수 없습니다: {newName}");
+               //Debug.LogWarning($"Pant 스프라이트를 찾을 수 없습니다: {newName}");
                 return;
             }
         }
@@ -175,7 +179,7 @@ public class PlayerController : NetworkBehaviour
 
             if (sprite == null)
             {
-                Debug.LogWarning($"스프라이트를 찾을 수 없습니다: {newName}");
+                //Debug.LogWarning($"스프라이트를 찾을 수 없습니다: {newName}");
                 return;
             }
 
@@ -323,12 +327,12 @@ public class PlayerController : NetworkBehaviour
                 // ★ 차트에서 ARange 가져와서 attackRange에 설정
                 attackRange = weaponInfo.ARange;
                 
-                Debug.Log($"무기 변경: {weaponName}, 공격 애니메이션 인덱스: {animIdx}, 공격 거리: {attackRange}");
+                //Debug.Log($"무기 변경: {weaponName}, 공격 애니메이션 인덱스: {animIdx}, 공격 거리: {attackRange}");
             }
             else
             {
                 attackRange = 1.5f; // 기본값
-                Debug.LogWarning($"무기 정보를 찾을 수 없음: {weaponName}");
+                //Debug.LogWarning($"무기 정보를 찾을 수 없음: {weaponName}");
             }
         }
         else
@@ -384,6 +388,8 @@ public class PlayerController : NetworkBehaviour
             if (Time.time >= _nextAutoAttackTime)
             {
                 _nextAutoAttackTime = Time.time + autoAttackInterval;
+                //Debug.Log($"[로컬] 🎯 자동 공격 시도 | Target: {_currentTarget.name}");
+
                 CmdAutoAttackMonster(_currentTarget);
             }
         }
@@ -437,8 +443,8 @@ public class PlayerController : NetworkBehaviour
     // ★ 상태 판단 및 서버 전송 로직
     private void HandleAnimationState()
     {
-        // 공격 중일 때는 이동 상태로 덮어쓰지 않음 (공격 모션 끝날 때까지 대기)
-        if (_netState == PlayerState.ATTACK) return;
+        // ✅ 공격 애니메이션 재생 중에는 이동 상태로 덮어쓰지 않음
+        if (_isPlayingAttackAnim) return;
 
         PlayerState targetState = PlayerState.IDLE;
 
@@ -542,9 +548,11 @@ public class PlayerController : NetworkBehaviour
     // Hook 함수: 실제 애니메이션 재생 담당
     private void OnAnimStateChanged(PlayerState oldState, PlayerState newState)
     {
+        // ✅ 공격 상태는 RPC에서 직접 처리하므로 여기선 무시
+        if (newState == PlayerState.ATTACK) return;
+        
         if (playerObj != null)
         {
-            // SPUM에게 애니메이션 재생 명령
             playerObj._currentState = newState;
             playerObj.PlayStateAnimation(newState);
         }
@@ -621,41 +629,83 @@ public class PlayerController : NetworkBehaviour
         float dist = Vector2.Distance(transform.position, targetMonster.transform.position);
         if (dist > attackRange + 0.25f) return;
 
-        // ★ 공격 전에 몬스터 방향으로 회전
+        // ✅ 방향 전환 (서버에서 처리)
         Vector3 dirToMonster = targetMonster.transform.position - transform.position;
         if (dirToMonster.x > 0 && !isFacingRight)
         {
-            // 몬스터가 오른쪽에 있는데 왼쪽 보고 있으면 → 오른쪽으로 회전
             isFacingRight = true;
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (dirToMonster.x < 0 && isFacingRight)
         {
-            // 몬스터가 왼쪽에 있는데 오른쪽 보고 있으면 → 왼쪽으로 회전
             isFacingRight = false;
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
-        // ATTACK 상태로 잠깐 고정
-        _netState = PlayerState.ATTACK;
-
-        // 데미지
+        // ✅ 데미지만 서버에서 처리
         monsterScript.TakeDamage(attackDamage, this.gameObject);
 
-        // ATTACK -> IDLE 복귀
-        if (_attackLockCo != null)
-            StopCoroutine(_attackLockCo);
+        // ✅ 모든 클라이언트에게 공격 애니메이션 재생 명령
+        RpcPlayAttackAnimation();
+    }
+    // ★ 새로운 RPC: 공격 애니메이션 + 이펙트를 한 번에 처리
+    [ClientRpc]
+    private void RpcPlayAttackAnimation()
+    {
+        if (playerObj == null)
+        {
+            Debug.LogError($"[{gameObject.name}] playerObj null!");
+            return;
+        }
 
-        _attackLockCo = StartCoroutine(ServerAttackStateLock());
+        // ✅ 공격 애니메이션 재생 시작
+        StartCoroutine(PlayAttackSequence());
     }
 
-    [Server]
-    private IEnumerator ServerAttackStateLock()
+    // ★ 공격 애니메이션 시퀀스 (각 클라이언트에서 독립 실행)
+    private IEnumerator PlayAttackSequence()
     {
-        yield return new WaitForSeconds(attackStateLockTime);
+        _isPlayingAttackAnim = true;
 
-        if (_netState == PlayerState.ATTACK)
-            _netState = PlayerState.IDLE;
+        // 1️⃣ 공격 애니메이션 재생
+        playerObj._currentState = PlayerState.ATTACK;
+        playerObj.PlayStateAnimation(PlayerState.ATTACK);
+
+        // 2️⃣ 이펙트 재생
+        PlayAttackEffect("Flash_06");
+
+        // 3️⃣ 짧은 딜레이 후 바로 복귀
+        yield return new WaitForSeconds(0.1f);
+
+        // 4️⃣ IDLE/MOVE 상태로 복귀 허용
+        _isPlayingAttackAnim = false;
+
+        // 5️⃣ 현재 움직임에 따라 상태 즉시 복원
+        if (movement.sqrMagnitude > 0.01f)
+        {
+            playerObj._currentState = PlayerState.MOVE;
+            playerObj.PlayStateAnimation(PlayerState.MOVE);
+        }
+        else
+        {
+            playerObj._currentState = PlayerState.IDLE;
+            playerObj.PlayStateAnimation(PlayerState.IDLE);
+        }
+    }
+
+    // ★ 이펙트 재생 로직 분리 (로컬에서만 실행)
+    private void PlayAttackEffect(string effectName)
+    {
+        GameObject effectPrefab = RootManager.Instance.AddressableCDD.GetEffectPrefab(effectName);
+        
+        if (effectPrefab == null)
+        {
+            Debug.LogWarning($"[{gameObject.name}] 이펙트 프리팹 없음: {effectName}");
+            return;
+        }
+
+        Transform weaponPoint = Effect_DefaultPoint ?? transform;
+        Instantiate(effectPrefab, weaponPoint);
     }
     private void OnDrawGizmosSelected()
     {

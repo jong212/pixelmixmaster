@@ -385,7 +385,7 @@ public class GameNetworkManager : NetworkManager
                 // 살아있으면 스킵
                 if (m.alive) continue;
 
-                Debug.Log(m.nextRespawnTime);
+//                Debug.Log(m.nextRespawnTime);
                 // 예약 없으면 예약시간 설정
                 if (m.nextRespawnTime <= 0f)
                 {

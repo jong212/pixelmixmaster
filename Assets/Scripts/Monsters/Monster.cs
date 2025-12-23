@@ -301,13 +301,13 @@ public class Monster : NetworkBehaviour
             if (!Physics2D.Raycast(transform.position, direction, distance, obstacleLayer))
             {
                 moveTargetPos = potentialPos;
-                Debug.Log($"새 Patrol 목표 설정: {moveTargetPos}");
+                //Debug.Log($"새 Patrol 목표 설정: {moveTargetPos}");
                 return;
             }
         }
         
         // ★ 10번 실패하면 Idle 상태로 전환
-        Debug.Log("Patrol 목표 설정 실패, Idle로 전환");
+        //Debug.Log("Patrol 목표 설정 실패, Idle로 전환");
         ChangeState(State.Idle);
     }
 
@@ -406,7 +406,7 @@ public class Monster : NetworkBehaviour
         float ratio = Mathf.Clamp01(newHealth / maxHealth);
         fill.fillAmount = ratio;
 
-        Debug.Log("MonsterHP" + newHealth);
+        //Debug.Log("MonsterHP" + newHealth);
     }
 
     // ★ 기즈모로 목적지 시각화

@@ -22,6 +22,7 @@ public class AddressableCDD : MonoBehaviour
     [Header("Addressables Labels")]
     [SerializeField] private string _prefabLabel = "RegisterPrefab";
     [SerializeField] private string _spriteLabel = "Sprites";
+    [SerializeField] private string _effectprefabLabel = "EffectPrefabs";
 
     public Transform FilePatchObj;
     public Transform NoticeParent;
@@ -31,8 +32,10 @@ public class AddressableCDD : MonoBehaviour
     //  캐시용 딕셔너리
     private Dictionary<string, GameObject> _registerprefabCache = new();
     private Dictionary<string, Sprite> _spriteCache = new();
+    private Dictionary<string, GameObject> _effectprefabCache = new();
     public IReadOnlyDictionary<string, GameObject> PrefabCache => _registerprefabCache;
     public IReadOnlyDictionary<string, Sprite> SpriteCache => _spriteCache;
+    public IReadOnlyDictionary<string, GameObject> EffectPrefabCache => _effectprefabCache;
     public void Initialize()
     {
 
@@ -101,8 +104,14 @@ public class AddressableCDD : MonoBehaviour
         if (registerPrefabSizeHandle.Status == AsyncOperationStatus.Succeeded)
             totalSize += registerPrefabSizeHandle.Result;
 
+        var effectPrefabSizeHandle = Addressables.GetDownloadSizeAsync(_effectprefabLabel);
+        yield return effectPrefabSizeHandle;
+        if (effectPrefabSizeHandle.Status == AsyncOperationStatus.Succeeded)
+            totalSize += effectPrefabSizeHandle.Result;
+
         Addressables.Release(spriteSizeHandle);
         Addressables.Release(registerPrefabSizeHandle);
+        Addressables.Release(effectPrefabSizeHandle);
 
         // 다운로드 필요 여부 판단
         yield return new WaitForSeconds(0.3f);
@@ -132,14 +141,16 @@ public class AddressableCDD : MonoBehaviour
     {
         var spriteDownload = Addressables.DownloadDependenciesAsync(_spriteLabel);
         var registerPrefabSizeHandle = Addressables.DownloadDependenciesAsync(_registerprefabCache);
-
-        while (!spriteDownload.IsDone || !registerPrefabSizeHandle.IsDone)
+        var effectPrefabSizeHandle = Addressables.DownloadDependenciesAsync(_effectprefabLabel);
+        
+        while (!spriteDownload.IsDone || !registerPrefabSizeHandle.IsDone || !effectPrefabSizeHandle.IsDone)
         {
             var s = spriteDownload.GetDownloadStatus();
             var r = registerPrefabSizeHandle.GetDownloadStatus();
+            var e = effectPrefabSizeHandle.GetDownloadStatus();
 
-            long total = s.TotalBytes + r.TotalBytes;
-            long downloaded = s.DownloadedBytes + r.DownloadedBytes;
+            long total = s.TotalBytes + r.TotalBytes + e.TotalBytes;
+            long downloaded = s.DownloadedBytes + r.DownloadedBytes + e.DownloadedBytes;
 
             _progressBar.value = total > 0 ? (float)downloaded / total : 1f;
             yield return null;
@@ -147,12 +158,12 @@ public class AddressableCDD : MonoBehaviour
 
 
         bool success = spriteDownload.Status == AsyncOperationStatus.Succeeded &&
-                       registerPrefabSizeHandle.Status == AsyncOperationStatus.Succeeded;
-            ;
+                       registerPrefabSizeHandle.Status == AsyncOperationStatus.Succeeded &&
+                       effectPrefabSizeHandle.Status == AsyncOperationStatus.Succeeded;
 
         Addressables.Release(spriteDownload);
         Addressables.Release(registerPrefabSizeHandle);
-
+        Addressables.Release(effectPrefabSizeHandle);
         if (success)
         {
             _statusText.text = "리소스 다운로드 완료";
@@ -238,13 +249,51 @@ public class AddressableCDD : MonoBehaviour
         _statusText.text = "Loading RegisterPrefab...";
         yield return LoadRegisterPrefab();
 
+        _statusText.text = "Loading EffectPrefab...";
+        yield return LoadEffectPrefab();
+
         _statusText.text = "All assets cached!";
         yield return new WaitForSeconds(0.5f);
         IsReady = true;
 
         yield break;
     }
+    private IEnumerator LoadEffectPrefab()
+    {
+        // Prefab 라벨에 포함된 모든 에셋 주소(Location) 가져오기
+        var locationsHandle = Addressables.LoadResourceLocationsAsync(_effectprefabLabel, typeof(GameObject));
+        yield return locationsHandle;
 
+        if (locationsHandle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogError("❌ Failed to load effect prefab locations!");
+            yield break;
+        }
+
+        // 각 주소(Location)마다 에셋 직접 로드
+        foreach (var loc in locationsHandle.Result)
+        {
+            var loadHandle = Addressables.LoadAssetAsync<GameObject>(loc);
+            yield return loadHandle;
+
+            if (loadHandle.Status == AsyncOperationStatus.Succeeded)
+            {
+                var prefab = loadHandle.Result;
+                if (!_effectprefabCache.ContainsKey(loc.PrimaryKey))
+                {
+                    _effectprefabCache[loc.PrimaryKey] = prefab;
+                    Debug.Log($"✅ Cached Effect Prefab Asset: {loc.PrimaryKey}");
+
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"⚠️ Failed to load effect prefab from {loc.PrimaryKey}");
+            }
+        }
+
+        // 여기서는 Release 금지 (Asset 자체이므로 유지)
+    }
     // ?? 캐시 접근용 함수
     public GameObject GetPrefab(string name)
     {
@@ -257,6 +306,10 @@ public class AddressableCDD : MonoBehaviour
         _spriteCache.TryGetValue(name, out var sprite);
         return sprite;
     }
-  
+    public GameObject GetEffectPrefab(string name)
+    {
+        _effectprefabCache.TryGetValue(name, out var prefab);
+        return prefab;
+    }
 }
 

@@ -101,6 +101,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5637d824b1b28bf47be1b987c3b2e19e
+    m_Address: Flash_06
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EffectPrefabs
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58b209c0f212f2049b6f299bc841d5f1
     m_Address: hp1
     m_ReadOnly: 0
