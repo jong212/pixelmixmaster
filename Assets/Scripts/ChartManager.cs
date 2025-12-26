@@ -34,6 +34,7 @@ public class InvenInfo
     public int Hp { get; private set; }
     public int AnimIdx { get; private set; }
     public float ARange { get; private set; }
+    public string ET { get; private set; }
     public InvenInfo(JsonData json)
     {
         ItemId = int.Parse(json["ItemId"].ToString());
@@ -47,6 +48,8 @@ public class InvenInfo
         Hp = int.Parse(json["Hp"].ToString());
         AnimIdx = int.Parse(json["AnimIdx"].ToString());
         ARange = float.Parse(json["ARange"].ToString());
+        ET = json["ET"].ToString();
+
     }
 }
 

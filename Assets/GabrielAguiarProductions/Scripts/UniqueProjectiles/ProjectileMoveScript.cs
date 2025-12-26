@@ -10,163 +10,130 @@
 
 
 
-#pragma warning disable 0168 // variable declared but not used.
-#pragma warning disable 0219 // variable assigned but not used.
-#pragma warning disable 0414 // private field assigned but not used.
+#pragma warning disable 0168
+#pragma warning disable 0219
+#pragma warning disable 0414
 
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using BACKND; // ★ 추가
 
-public class ProjectileMoveScript : MonoBehaviour {
+public class ProjectileMoveScript : NetworkBehaviour
+{
+    [Header("Settings")]
+    public float speed = 10f;
+    public float hitDistance = 0.3f;
+    public float maxLifetime = 5f;
 
-    public bool rotate = false;
-    public float rotateAmount = 45;
-    public bool bounce = false;
-    public float bounceForce = 10;
-    public float speed;
-	[Tooltip("From 0% to 100%")]
-	public float accuracy;
-	public float fireRate;
-	public GameObject muzzlePrefab;
-	public GameObject hitPrefab;
-	public List<GameObject> trails;
-
-    private Vector3 startPos;
-	private float speedRandomness;
-	private Vector3 offset;
-	private bool collided;
-	private Rigidbody rb;
-    private RotateToMouseScript rotateToMouse;
     private GameObject target;
+    private int damage;
+    private GameObject owner;
+    
+    // ★★ SyncVar로 변경 (자동 동기화)
+    [SyncVar(hook = nameof(OnVisualEffectChanged))]
+    private string visualEffectName = "";
+    
+    private bool hasSpawnedVisual = false;
 
-	void Start () {
-        startPos = transform.position;
-        rb = GetComponent <Rigidbody> ();
-
-		//used to create a radius for the accuracy and have a very unique randomness
-		if (accuracy != 100) {
-			accuracy = 1 - (accuracy / 100);
-
-			for (int i = 0; i < 2; i++) {
-				var val = 1 * Random.Range (-accuracy, accuracy);
-				var index = Random.Range (0, 2);
-				if (i == 0) {
-					if (index == 0)
-						offset = new Vector3 (0, -val, 0);
-					else
-						offset = new Vector3 (0, val, 0);
-				} else {
-					if (index == 0)
-						offset = new Vector3 (0, offset.y, -val);
-					else
-						offset = new Vector3 (0, offset.y, val);
-				}
-			}
-		}
-			
-		if (muzzlePrefab != null) {
-			var muzzleVFX = Instantiate (muzzlePrefab, transform.position, Quaternion.identity);
-			muzzleVFX.transform.forward = gameObject.transform.forward + offset;
-			var ps = muzzleVFX.GetComponent<ParticleSystem>();
-			if (ps != null)
-				Destroy (muzzleVFX, ps.main.duration);
-			else {
-				var psChild = muzzleVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
-				Destroy (muzzleVFX, psChild.main.duration);
-			}
-		}
-	}
-
-	void FixedUpdate () {
-        if (target != null)
-            rotateToMouse.RotateToMouse (gameObject, target.transform.position);
-        if (rotate)
-            transform.Rotate(0, 0, rotateAmount, Space.Self);
-        if (speed != 0 && rb != null)
-			rb.position += (transform.forward + offset) * (speed * Time.deltaTime);   
+    // ★ 초기화
+    [Server]
+    public void Initialize(GameObject targetMonster, int attackDamage, GameObject attacker)
+    {
+        target = targetMonster;
+        damage = attackDamage;
+        owner = attacker;
     }
 
-	void OnCollisionEnter (Collision co) {
-    if (!bounce)
+    // ★ 비주얼 이펙트 이름 설정 (SyncVar 사용)
+    [Server]
+    public void SetVisualEffect(string effectName)
     {
-        if (co.gameObject.tag != "Bullet" && !collided)
+        visualEffectName = effectName; // ★ SyncVar 값 변경 → 자동으로 클라에 전달!
+    }
+
+    // ★ Hook: SyncVar 변경 시 자동 호출 (서버 + 모든 클라이언트)
+    private void OnVisualEffectChanged(string oldValue, string newValue)
+    {
+        if (string.IsNullOrEmpty(newValue) || hasSpawnedVisual) return;
+        
+        SpawnVisual(newValue);
+    }
+
+    // ★ 비주얼 생성 (모든 클라에서 실행)
+    private void SpawnVisual(string effectName)
+    {
+        if (hasSpawnedVisual) return;
+        hasSpawnedVisual = true;
+
+        GameObject visualPrefab = RootManager.Instance.AddressableCDD.GetEffectPrefab(effectName);
+        if (visualPrefab != null)
         {
-            collided = true;
-
-            if (trails.Count > 0)
-            {
-                for (int i = 0; i < trails.Count; i++)
-                {
-                    trails[i].transform.parent = null;
-                    var ps = trails[i].GetComponent<ParticleSystem>();
-                    if (ps != null)
-                    {
-                        ps.Stop();
-                        Destroy(ps.gameObject, ps.main.duration + ps.main.startLifetime.constantMax);
-                    }
-                }
-            }
-
-            speed = 0;
-            GetComponent<Rigidbody>().isKinematic = true;
-
-            ContactPoint contact = co.contacts[0];
-            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-            Vector3 pos = contact.point;
-
-            if (hitPrefab != null)
-            {
-                var hitVFX = Instantiate(hitPrefab, pos, rot) as GameObject;
-
-                var ps = hitVFX.GetComponent<ParticleSystem>();
-                if (ps == null)
-                {
-                    var psChild = hitVFX.transform.GetChild(0).GetComponent<ParticleSystem>();
-                    Destroy(hitVFX, psChild.main.duration);
-                }
-                else
-                    Destroy(hitVFX, ps.main.duration);
-            }
-
-            StartCoroutine(DestroyParticle(0f));
+            GameObject visual = Instantiate(visualPrefab, transform);
+            visual.transform.localPosition = Vector3.zero;
+            visual.transform.localRotation = Quaternion.identity;
+            
+            Debug.Log($"[{(isServer ? "Server" : "Client")}] 비주얼 생성: {effectName}");
+        }
+        else
+        {
+            Debug.LogWarning($"비주얼 프리팹 없음: {effectName}");
         }
     }
-    else
+
+    private void Start()
     {
-        rb.useGravity = true;
-        rb.drag = 0.5f; // ✅ linearDamping → drag로 변경
-        ContactPoint contact = co.contacts[0];
-        rb.AddForce (Vector3.Reflect((contact.point - startPos).normalized, contact.normal) * bounceForce, ForceMode.Impulse);
-        Destroy ( this );
+        // ★ Start 시점에 이미 SyncVar가 동기화되어 있으면 수동 호출
+        if (!string.IsNullOrEmpty(visualEffectName) && !hasSpawnedVisual)
+        {
+            SpawnVisual(visualEffectName);
+        }
+
+        Destroy(gameObject, maxLifetime);
     }
-	}
 
-	public IEnumerator DestroyParticle (float waitTime) {
-
-		if (transform.childCount > 0 && waitTime != 0) {
-			List<Transform> tList = new List<Transform> ();
-
-			foreach (Transform t in transform.GetChild(0).transform) {
-				tList.Add (t);
-			}		
-
-			while (transform.GetChild(0).localScale.x > 0) {
-				yield return new WaitForSeconds (0.01f);
-				transform.GetChild(0).localScale -= new Vector3 (0.1f, 0.1f, 0.1f);
-				for (int i = 0; i < tList.Count; i++) {
-					tList[i].localScale -= new Vector3 (0.1f, 0.1f, 0.1f);
-				}
-			}
-		}
-		
-		yield return new WaitForSeconds (waitTime);
-		Destroy (gameObject);
-	}
-
-    public void SetTarget (GameObject trg, RotateToMouseScript rotateTo)
+    private void Update()
     {
-        target = trg;
-        rotateToMouse = rotateTo;
+        if (!isServer) return;
+
+        // 타겟 유효성 검사
+        if (target == null || !IsTargetValid(target))
+        {
+            NetworkServer.Destroy(gameObject);
+            return;
+        }
+
+        // 거리 체크
+        float distance = Vector2.Distance(transform.position, target.transform.position);
+        if (distance < hitDistance)
+        {
+            OnHit();
+            return;
+        }
+
+        // 이동
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+        transform.position += direction * speed * Time.deltaTime;
+
+        // 회전
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+
+    private bool IsTargetValid(GameObject target)
+    {
+        Monster monster = target.GetComponent<Monster>();
+        return monster != null && monster.alive;
+    }
+
+    [Server]
+    private void OnHit()
+    {
+        Monster monster = target.GetComponent<Monster>();
+        if (monster != null && monster.alive)
+        {
+            monster.TakeDamage(damage, owner);
+        }
+
+        NetworkServer.Destroy(gameObject);
     }
 }

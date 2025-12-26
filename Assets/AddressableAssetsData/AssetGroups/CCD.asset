@@ -102,7 +102,7 @@ MonoBehaviour:
     - Sprites
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5637d824b1b28bf47be1b987c3b2e19e
-    m_Address: Flash_06
+    m_Address: EF_S_1
     m_ReadOnly: 0
     m_SerializedLabels:
     - EffectPrefabs
@@ -112,6 +112,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprites
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64c5a6e8823ab1347b119c3148fd71d8
+    m_Address: EF_L_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - EffectPrefabs
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7c75130f114d79d46bf9adc0317593d6
     m_Address: Ad_Inven

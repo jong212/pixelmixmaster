@@ -13,7 +13,7 @@ public class PlayerController : NetworkBehaviour
     [Header("Combat Settings")]
     [SyncVar] public float attackRange = 1.5f; // ★ SyncVar 추가
     public int attackDamage = 10;    // 공격력
-
+    public GameObject projectilePrefab;
     [Header("Camera Settings")]
     [SerializeField] private Vector3 cameraOffset = new Vector3(0, 0, -10);
     [SerializeField] private float cameraSmoothing = 0.125f;
@@ -44,6 +44,7 @@ public class PlayerController : NetworkBehaviour
     public SpriteRenderer parts_pant_right;
  
     public Transform Effect_DefaultPoint;
+    public Transform Effect_MagicPoint;
     private NetworkAnimator networkAnim;
     private PlayerObj playerObj;
     [SyncVar] public string CharacterName;
@@ -124,8 +125,39 @@ public class PlayerController : NetworkBehaviour
         
         // ★ 무기 변경 시 해당 무기의 AnimIdx 가져오기
         UpdateWeaponAnimIdx(newName);
+                    if (isLocalPlayer)
+            {
+                CmdUpdateWeaponInfo(newName);
+            }
+
     }   
-    private void ChangeHelment(string oldName, string newName) => ChangeEquip("Helmet", oldName, newName);
+
+[Command]
+private void CmdUpdateWeaponInfo(string weaponName)
+{
+    Debug.Log($"[Server] CmdUpdateWeaponInfo 호출: {weaponName}");
+    
+    if (string.IsNullOrEmpty(weaponName) || weaponName == "Default")
+    {
+        attackRange = 1.5f;
+        Debug.Log($"[Server] Default 무기 - attackRange: {attackRange}");
+        return;
+    }
+
+    var weaponInfo = RootManager.Instance.ChartManager.InvenInfoList
+        .Find(x => x.Name == weaponName && x.Type == "Weapon");
+
+    if (weaponInfo != null)
+    {
+        attackRange = weaponInfo.ARange;
+        Debug.Log($"[Server] 무기 업데이트: {weaponName}, attackRange: {attackRange}");
+    }
+    else
+    {
+        attackRange = 1.5f;
+        Debug.LogWarning($"[Server] 무기 정보 없음: {weaponName}");
+    }
+}    private void ChangeHelment(string oldName, string newName) => ChangeEquip("Helmet", oldName, newName);
     private void ChangeCloth(string oldName, string newName) => ChangeEquip("Cloth", oldName, newName);
     private void ChangePant(string oldName, string newName) => ChangeEquip("Pant", oldName, newName);
     private void ChangeEquip(    string partsName,    string oldName,    string newName)
@@ -641,11 +673,21 @@ public class PlayerController : NetworkBehaviour
             isFacingRight = false;
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
+        // ★ 근접/원거리 무기 판단 (attackRange 1.5 기준)
+        bool isRangedWeapon = (attackRange > 1.5f);
 
-        // ✅ 데미지만 서버에서 처리
-        monsterScript.TakeDamage(attackDamage, this.gameObject);
+        if (isRangedWeapon)
+        {
+            //  원거리: 발사체 생성
+            SpawnProjectile(targetMonster);
+        }
+        else
+        {
+            //  근접: 즉시 데미지만 서버에서 처리
+            monsterScript.TakeDamage(attackDamage, this.gameObject);
+        }
 
-        // ✅ 모든 클라이언트에게 공격 애니메이션 재생 명령
+        //  모든 클라이언트에게 공격 애니메이션 재생 명령
         RpcPlayAttackAnimation();
     }
     // ★ 새로운 RPC: 공격 애니메이션 + 이펙트를 한 번에 처리
@@ -662,7 +704,7 @@ public class PlayerController : NetworkBehaviour
         StartCoroutine(PlayAttackSequence());
     }
 
-    // ★ 공격 애니메이션 시퀀스 (각 클라이언트에서 독립 실행)
+    // ★ 공격 애니메이션 시퀀스 수정
     private IEnumerator PlayAttackSequence()
     {
         _isPlayingAttackAnim = true;
@@ -671,8 +713,15 @@ public class PlayerController : NetworkBehaviour
         playerObj._currentState = PlayerState.ATTACK;
         playerObj.PlayStateAnimation(PlayerState.ATTACK);
 
-        // 2️⃣ 이펙트 재생
-        PlayAttackEffect("Flash_06");
+        // 2️⃣ ★★ 근접 무기만 이펙트 재생 (원거리는 서버에서 발사체 생성)
+        bool isRangedWeapon = (attackRange > 1.5f);
+        
+        if (!isRangedWeapon)
+        {
+            // 근접 무기만 로컬 이펙트 재생
+            PlayAttackEffect();
+        }
+        // 원거리 무기는 이펙트 없음 (발사체가 이펙트 역할)
 
         // 3️⃣ 짧은 딜레이 후 바로 복귀
         yield return new WaitForSeconds(0.1f);
@@ -693,41 +742,127 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
-    // ★ 이펙트 재생 로직 분리 (로컬에서만 실행)
-    private void PlayAttackEffect(string effectName)
+    // ★ 이펙트 재생 로직 (근접 무기 전용)
+    private void PlayAttackEffect()
     {
-        GameObject effectPrefab = RootManager.Instance.AddressableCDD.GetEffectPrefab(effectName);
+        // ★ weaponName으로 차트에서 ET 필드 가져오기
+        string etName = "EF_S_1"; // 기본값 (근접 무기 이펙트)
+        
+        if (!string.IsNullOrEmpty(weaponName) && weaponName != "Default")
+        {
+            var weaponInfo = RootManager.Instance.ChartManager.InvenInfoList
+                .Find(x => x.Name == weaponName && x.Type == "Weapon");
+            
+            if (weaponInfo != null && !string.IsNullOrEmpty(weaponInfo.ET))
+            {
+                etName = weaponInfo.ET;
+            }
+        }
+
+        GameObject effectPrefab = RootManager.Instance.AddressableCDD.GetEffectPrefab(etName);
         
         if (effectPrefab == null)
         {
-            Debug.LogWarning($"[{gameObject.name}] 이펙트 프리팹 없음: {effectName}");
+            Debug.LogWarning($"[{gameObject.name}] 이펙트 프리팹 없음: {etName}");
             return;
         }
 
         Transform weaponPoint = Effect_DefaultPoint ?? transform;
         Instantiate(effectPrefab, weaponPoint);
     }
-    private void OnDrawGizmosSelected()
+        // ★ 발사체 생성 (서버에서 실행)
+private void SpawnProjectile(GameObject target)
+{
+    if (!isServer || target == null) return;
+
+    // 1️⃣ 발사체 이펙트 이름 가져오기
+    string effectName = GetProjectileEffectName();
+
+    // 2️⃣ 네트워크 프리팹 찾기
+    GameObject prefab = NetworkManager.Instance.spawnPrefabs.Find(p => p.name == "Projectile_Base");
+    if (prefab == null)
     {
-        // 🔴 공격
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-
-        // 🟡 기존 타겟 유지
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, autoDetectRadius);
-
-        // 🔵 타겟 없을 때 탐색
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, autoChaseRadius);
-
-        if (_currentTarget != null)
-        {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawLine(transform.position, _currentTarget.transform.position);
-        }
+        Debug.LogError("[Server] Projectile_Base 프리팹이 없습니다!");
+        return;
     }
 
+    // 3️⃣ 발사체 생성 (부모 없이)
+    Vector3 spawnPos = transform.position;
+    Quaternion rotation = GetDirectionToTarget(target);
+    GameObject projectile = Instantiate(prefab, spawnPos, rotation);
 
+    // 4️⃣ 발사체 초기화
+    ProjectileMoveScript script = projectile.GetComponent<ProjectileMoveScript>();
+    if (script != null)
+    {
+        script.Initialize(target, attackDamage, this.gameObject);
+    }
+    else
+    {
+        Debug.LogError("[Server] ProjectileMoveScript가 없습니다!");
+        Destroy(projectile);
+        return;
+    }
 
+    // 5️⃣ 네트워크 스폰
+    NetworkServer.Spawn(projectile);
+
+    // 6️⃣ Spawn 후 Visual 설정
+    if (script != null)
+    {
+        script.SetVisualEffect(effectName);
+    }
+}
+
+// ★ 발사체 이펙트 이름 가져오기 (새로 추가)
+private string GetProjectileEffectName()
+{
+    if (string.IsNullOrEmpty(weaponName) || weaponName == "Default")
+        return "EF_L_1"; // 기본 발사체 이펙트
+
+    var weaponInfo = RootManager.Instance.ChartManager.InvenInfoList
+        .Find(x => x.Name == weaponName && x.Type == "Weapon");
+
+    return weaponInfo != null && !string.IsNullOrEmpty(weaponInfo.ET) 
+        ? weaponInfo.ET 
+        : "EF_L_1";
+}
+
+// ★ 타겟 방향 계산
+private Quaternion GetDirectionToTarget(GameObject target)
+{
+    if (target == null)
+        return Quaternion.identity;
+
+    Vector3 direction = (target.transform.position - transform.position).normalized;
+    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+    return Quaternion.Euler(0, 0, angle);
+}
+private void OnDrawGizmosSelected()
+{
+    if (!enableAutoCombat) return;
+
+    // 🔵 파란색: 타겟 탐색 범위 (autoChaseRadius)
+    Gizmos.color = new Color(0, 0.5f, 1f, 0.3f);
+    Gizmos.DrawWireSphere(transform.position, autoChaseRadius);
+    
+    // 🟡 노란색: 타겟 유지 범위 (autoDetectRadius)
+    Gizmos.color = new Color(1f, 1f, 0f, 0.5f);
+    Gizmos.DrawWireSphere(transform.position, autoDetectRadius);
+    
+    // 🔴 빨간색: 공격 범위 (attackRange)
+    Gizmos.color = new Color(1f, 0f, 0f, 0.7f);
+    Gizmos.DrawWireSphere(transform.position, attackRange);
+    
+    // ★ 현재 타겟이 있으면 선으로 연결
+    if (_currentTarget != null)
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, _currentTarget.transform.position);
+        
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(_currentTarget.transform.position, 0.5f);
+    }
+}
 }

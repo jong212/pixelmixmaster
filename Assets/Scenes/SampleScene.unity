@@ -20400,63 +20400,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924111980}
   m_CullTransparentMesh: 1
---- !u!1001 &1925457257
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846893, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3297036654887846894, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
-      propertyPath: m_Name
-      value: Skill_06
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ea7363d8110cf2449941791fc0f9ff70, type: 3}
 --- !u!1 &1929676631
 GameObject:
   m_ObjectHideFlags: 0
@@ -21897,10 +21840,12 @@ MonoBehaviour:
   - {fileID: 1126886942474011601, guid: 775f4d728da2e467184c4b2a80b0f64f, type: 3}
   - {fileID: 4085038519671096467, guid: 6749b3fcc9162461d9114eb6ecf14df5, type: 3}
   - {fileID: 7542768268275300189, guid: 055c949a12430c34c87591abed4465b8, type: 3}
+  - {fileID: 6418879339239553672, guid: 793a883d80bae5f42919baee374dce30, type: 3}
   ActivePlayers: []
   Mapparent: {fileID: 1452047016}
   Monsterparent: {fileID: 370245576}
   SvMapSpawnList: []
+  EffectPointList: []
   JoystickPrefab: {fileID: 1923043365}
   MonsterMaxCount: 100
   MonsterSpawnDelay: 2
@@ -25810,4 +25755,3 @@ SceneRoots:
   - {fileID: 370245576}
   - {fileID: 1855261389}
   - {fileID: 178301869}
-  - {fileID: 1925457257}

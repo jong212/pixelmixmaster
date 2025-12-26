@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 8578447339511797209}
   - component: {fileID: 8578447339511797206}
   m_Layer: 0
-  m_Name: Flash_06
+  m_Name: EF_S_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

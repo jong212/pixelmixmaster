@@ -54,6 +54,7 @@ public class GameNetworkManager : NetworkManager
     public Transform Monsterparent;
 
     public List<Transform> SvMapSpawnList = new List<Transform>();
+    public List<Transform> EffectPointList = new List<Transform>();
     private Dictionary<string, SettingMonsterData> _monsterConfigs;
 
     [Header("Game UI")]

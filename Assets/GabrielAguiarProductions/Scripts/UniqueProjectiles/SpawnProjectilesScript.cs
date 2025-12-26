@@ -71,23 +71,7 @@ public class SpawnProjectilesScript : MonoBehaviour {
     }
 
 	void Update () {
-		if (Input.GetKey (KeyCode.Space) && Time.time >= timeToFire || Input.GetMouseButton (0) && Time.time >= timeToFire) {
-			timeToFire = Time.time + 1f / effectToSpawn.GetComponent<ProjectileMoveScript>().fireRate;
-			SpawnVFX ();	
-		}
-
-		if (Input.GetKeyDown (KeyCode.D))
-			Next ();
-		if (Input.GetKeyDown (KeyCode.A)) 
-			Previous ();	
-		if (Input.GetKeyDown (KeyCode.C))
-			SwitchCamera ();	
-		if (Input.GetKeyDown (KeyCode.Alpha1))
-			CameraShake ();
-		if (Input.GetKeyDown (KeyCode.X))
-			ZoomIn ();
-		if (Input.GetKeyDown (KeyCode.Z))
-			ZoomOut ();
+	 
 	}
 
 	public void SpawnVFX () {
@@ -112,7 +96,7 @@ public class SpawnProjectilesScript : MonoBehaviour {
             {
                 if (target != null)
                 {                    
-                    vfx.GetComponent<ProjectileMoveScript>().SetTarget(target, rotateToMouse);
+                    //vfx.GetComponent<ProjectileMoveScript>().SetTarget(target, rotateToMouse);
                     rotateToMouse.RotateToMouse(vfx, target.transform.position);                    
                 }
                 else
